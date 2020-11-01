@@ -1,0 +1,15 @@
+.instagram {
+    background-image: url('/instagram.svg');
+}
+.whatsapp {
+    background-image: url('/whatsapp.svg');
+}
+
+.link {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-position: 50% 50%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}

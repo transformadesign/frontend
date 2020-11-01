@@ -1,0 +1,26 @@
+.slide {
+    position: relative;
+    min-width: 100%;
+}
+
+.slide:before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: calc(9 / 16 * 100%);
+}
+
+.inner,
+.img {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.img {
+    z-index: -1;
+}

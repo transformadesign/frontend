@@ -1,0 +1,22 @@
+.carousel {
+    position: relative;
+}
+
+.viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.viewport.isDraggable {
+    cursor: move;
+    cursor: grab;
+}
+
+.viewport.isDragging {
+    cursor: grabbing;
+}
+
+.container {
+    display: flex;
+    user-select: none;
+}

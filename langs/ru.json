@@ -1,0 +1,9 @@
+{
+    "common": {
+        "h1": "Привет i18n",
+        "change-locale": "Change locale",
+        "to-second-page": "To second page",
+        "error-with-status": "A {{statusCode}} error occurred on server",
+        "error-without-status": "An error occurred on the server"
+    }
+}
