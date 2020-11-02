@@ -32,6 +32,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>(({ videoSrc, poster
                         autoPlay={false}
                         loop
                         muted
+                        playsInline
                         controls={false}
                         ref={ref}
                         poster={poster}
