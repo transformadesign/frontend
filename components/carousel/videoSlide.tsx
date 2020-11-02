@@ -5,9 +5,9 @@ import { Url } from '../../lib/url-builder';
 
 import styles from './slide.module.css';
 
-type Props = { videoSrc: string; link: Url };
+type Props = { videoSrc: string; poster?: string, link: Url };
 
-const VideoSlide = React.forwardRef<HTMLVideoElement, Props>(({ videoSrc, link, children }, ref) => {
+const VideoSlide = React.forwardRef<HTMLVideoElement, Props>(({ videoSrc, poster, link, children }, ref) => {
     return (
         <div className={styles.slide}>
             <Link {...link}>
@@ -20,6 +20,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>(({ videoSrc, link, 
                         muted
                         controls={false}
                         ref={ref}
+                        poster={poster}
                     />
                     {children}
                 </a>

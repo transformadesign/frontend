@@ -11,7 +11,8 @@ import { TVideoSlide } from './videoSlide';
 import styles from './carousel.module.css';
 
 export { default as Slide } from './slide';
-export { default as VideoSlide } from './videoSlide';
+export { default as VideoSlide,  } from './videoSlide';
+export type { TVideoSlide } from './videoSlide';
 export { default as SlideTitle } from './title';
 
 type SlideGenerators = {

@@ -46,9 +46,14 @@ export default function Footer() {
 
                                 result.push(
                                     <Fragment key={otherLang}>
+                                        {/*
+                                        // removed because of broken slider thumbs reinit
                                         <Link {...buildUrl(type, otherLang, { uid: alt })}>
                                             <a className="hover:underline">{otherLang}</a>
-                                        </Link>
+                                        </Link>*/}
+                                        <a className="hover:underline" href={buildUrl(type, otherLang, { uid: alt }).as}>
+                                            {otherLang}
+                                        </a>
                                         &nbsp;
                                     </Fragment>
                                 );

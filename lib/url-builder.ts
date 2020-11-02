@@ -3,7 +3,7 @@ import { LinkProps } from 'next/link';
 import { defaultLanguage, Lang } from './i18n';
 import { Page } from '../types/pages';
 
-export type Url = Pick<LinkProps, 'as' | 'href'>;
+export type Url = Pick<LinkProps, 'href'> & { as: string };
 
 function defaultUrl(lang: Lang = defaultLanguage): Url {
     return {

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, PropsWithChildren } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { RichText } from 'prismic-reactjs';
@@ -6,29 +6,32 @@ import { RichText } from 'prismic-reactjs';
 import Container from '../../components/container';
 import Header from '../../components/header';
 import Layout from '../../components/layout';
-import Carousel, { VideoSlide, SlideTitle } from '../../components/carousel/index';
+import Carousel, { VideoSlide, TVideoSlide, SlideTitle } from '../../components/carousel/index';
 import { getMain, PreviewData } from '../../lib/api';
 import { getStaticI18nPaths, getStaticI18nProps, Lang, contentLanguageMap } from '../../lib/i18n';
 import { AsyncReturnType } from '../../lib/common';
 import { buildUrl } from '../../lib/url-builder';
 
+type TVideoSlideProps = PropsWithChildren<Parameters<TVideoSlide>[0]>;
+
 export default function Index({ preview, main, lang }: Props) {
     const slides = useMemo(
         () =>
-            (main?.fields || []).reduce((result, { media, foreignTitle, mainTitle, thumbName }, index) => {
+            (main?.fields || []).reduce((result, { media, image, foreignTitle, mainTitle, thumbName }, index) => {
                 result.push({
                     cmp: VideoSlide,
                     props: {
                         key: `${lang}_${index}`,
-                        videoSrc: media.url,
+                        videoSrc: media?.url,
+                        poster: image?.url,
                         link: buildUrl('main', lang),
                         children: <SlideTitle>{RichText.asText(mainTitle)}</SlideTitle>
                     }
                 });
 
                 return result;
-            }, []),
-        main?.fields
+            }, [] as { cmp: any, props: TVideoSlideProps }[]),
+        [main?.fields]
     );
 
     return (
