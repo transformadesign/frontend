@@ -63,15 +63,17 @@ type Image = {
     url: string;
 };
 
-type Main = {
+export type Main = {
     _meta: DocMeta;
-    fields: {
+    interval?: number;
+    fields?: {
         image: Image | null;
         media?: {
             url: string;
             name: string;
             size: number;
         };
+        slide_interval?: number;
         embed: null;
         foreignTitle: RichTextBlock[];
         mainTitle: RichTextBlock[];
@@ -86,6 +88,7 @@ export async function getMain(previewData: PreviewData, variables: Variables): P
       allMaincarousels(lang: $locale) {
         edges {
           node {
+            interval,
             body {
               ... on MaincarouselBodySlide {
                 fields {
@@ -97,6 +100,7 @@ export async function getMain(previewData: PreviewData, variables: Variables): P
                       size
                     }
                   },
+                  slide_interval,
                   embed,
                   foreignTitle,
                   mainTitle,
@@ -126,6 +130,7 @@ export async function getMain(previewData: PreviewData, variables: Variables): P
 
     return {
         _meta: inner._meta,
+        interval: inner?.interval,
         fields: content
     };
 }

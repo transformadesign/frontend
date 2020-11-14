@@ -1,39 +1,15 @@
-import React, { useMemo, PropsWithChildren } from 'react';
+import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { RichText } from 'prismic-reactjs';
+
+import { getMain, Main, PreviewData } from '../../lib/api';
+import { getStaticI18nPaths, getStaticI18nProps, Lang, contentLanguageMap } from '../../lib/i18n';
 
 import Container from '../../components/container';
-import Header from '../../components/header';
 import Layout from '../../components/layout';
-import Carousel, { VideoSlide, TVideoSlide, SlideTitle } from '../../components/carousel/index';
-import { getMain, PreviewData } from '../../lib/api';
-import { getStaticI18nPaths, getStaticI18nProps, Lang, contentLanguageMap } from '../../lib/i18n';
-import { AsyncReturnType } from '../../lib/common';
-import { buildUrl } from '../../lib/url-builder';
-
-type TVideoSlideProps = PropsWithChildren<Parameters<TVideoSlide>[0]>;
+import VideoCarousel from '../../components/carousel/index-video';
 
 export default function Index({ preview, main, lang }: Props) {
-    const slides = useMemo(
-        () =>
-            (main?.fields || []).reduce((result, { media, image, foreignTitle, mainTitle, thumbName }, index) => {
-                result.push({
-                    cmp: VideoSlide,
-                    props: {
-                        key: `${lang}_${index}`,
-                        videoSrc: media?.url,
-                        poster: image?.url,
-                        link: buildUrl('main', lang),
-                        children: <SlideTitle>{RichText.asText(mainTitle)}</SlideTitle>
-                    }
-                });
-
-                return result;
-            }, [] as { cmp: any, props: TVideoSlideProps }[]),
-        [main?.fields]
-    );
-
     return (
         <>
             <Layout preview={preview} type="main" lang={lang} alternates={main?._meta.alternateLanguages}>
@@ -41,17 +17,10 @@ export default function Index({ preview, main, lang }: Props) {
                     <title>TF</title>
                 </Head>
                 <Container>
-                    <Header />
-                    {slides.length ? (
-                        <Carousel
-                            wrapClass="-mx-5"
-                            autoplay
-                            autoplaySpeed={5000}
-                            slideGenerators={slides}
-                            showNext={false}
-                            showPrev={false}
-                        />
-                    ) : null}
+                    <VideoCarousel
+                        progressSpeed={main.interval || 5000}
+                        data={main}
+                    />
                 </Container>
             </Layout>
         </>
@@ -63,7 +32,7 @@ type Params = {
     previewData: PreviewData;
     params: { lang: Lang };
 };
-type Props = { preview: boolean; lang: Lang; main?: AsyncReturnType<typeof getMain> };
+type Props = { preview: boolean; lang: Lang; main?: Main };
 export const getStaticProps: GetStaticProps<Props> = async ({
     preview = false,
     previewData,

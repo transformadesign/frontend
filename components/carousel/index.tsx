@@ -6,23 +6,11 @@ import { Dots } from './dots';
 import { useRecursiveTimeout } from '../../hooks/useRecursiveTimeout';
 import { classNames } from '../../lib/class-names';
 import { TSlide } from './slide';
-import { TVideoSlide } from './videoSlide';
 
 import styles from './carousel.module.css';
 
-export { default as Slide } from './slide';
-export { default as VideoSlide,  } from './videoSlide';
-export type { TVideoSlide } from './videoSlide';
-export { default as SlideTitle } from './title';
-
-type SlideGenerators = {
-    cmp: React.FC;
-    props: object;
-};
-
 type Props = {
-    slides?: TSlide[] | TVideoSlide[];
-    slideGenerators?: SlideGenerators[];
+    slides: TSlide[];
     wrapClass?: string;
     autoplay?: boolean;
     autoplaySpeed?: number;
@@ -30,10 +18,12 @@ type Props = {
     showNext?: boolean;
 };
 
+/**
+ * Known bug: wrong snaps amount after lang & slides amount change
+ */
 const EmblaCarousel: React.FC<Props> = ({
     wrapClass,
     slides,
-    slideGenerators,
     showPrev = true,
     showNext = true,
     autoplay: isAutoplayEnabled,
@@ -48,7 +38,6 @@ const EmblaCarousel: React.FC<Props> = ({
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState([]);
-    const [refs] = useState<React.RefObject<HTMLVideoElement>[]>((slideGenerators || []).map(() => React.createRef()));
 
     const autoplay = useCallback(() => {
         if (!embla || !isAutoplayEnabled) return;
@@ -90,22 +79,6 @@ const EmblaCarousel: React.FC<Props> = ({
         setSelectedIndex(embla.selectedScrollSnap());
         showPrev && setPrevBtnEnabled(embla.canScrollPrev());
         showNext && setNextBtnEnabled(embla.canScrollNext());
-
-        const visibleSlides = embla.slidesInView(true);
-
-        refs.forEach((ref, index) => {
-            if (!ref?.current) {
-                return;
-            }
-
-            const elem = ref.current;
-
-            if (visibleSlides.includes(index)) {
-                elem.play();
-            } else {
-                elem.pause();
-            }
-        });
     }, [embla]);
 
     useEffect(() => {
@@ -126,13 +99,7 @@ const EmblaCarousel: React.FC<Props> = ({
             <div className={classNames(styles.carousel, wrapClass)}>
                 <div className={styles.viewport} ref={viewportRef}>
                     <div className={styles.container}>
-                        {slides
-                            ? slides
-                            : slideGenerators
-                            ? slideGenerators.map(({ cmp, props }, index) =>
-                                  React.createElement(cmp, { ref: refs[index], ...props } as object)
-                              )
-                            : null}
+                        {slides}
                     </div>
                 </div>
                 {showPrev && <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />}

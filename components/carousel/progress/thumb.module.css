@@ -1,0 +1,9 @@
+.btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.progress {
+    height: 1px;
+
+    transition: width ease-in-out .3s;
+}
