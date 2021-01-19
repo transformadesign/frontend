@@ -47,8 +47,10 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
                         controls={false}
                         ref={ref}
                         poster={poster}
+                        preload="metadata"
+                        data-novideo={videoSrc ? undefined : true}
                     >
-                        <source src={videoSrc} type={getMime(videoSrc)} />
+                        {videoSrc && <source src={videoSrc} type={getMime(videoSrc)} />}
                     </video>
                     <div
                         className="flex flex-col absolute top-0 bottom-0 left-0 right-0 py-24 px-2 justify-center box-content"

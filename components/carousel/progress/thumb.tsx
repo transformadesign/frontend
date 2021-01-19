@@ -41,7 +41,10 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
             raf.current = requestAnimationFrame(ticker);
         } else {
             scrollTo(index + 1);
-            videoRef.current.currentTime = 0;
+
+            if (videoRef.current) {
+                videoRef.current.currentTime = 0;
+            }
         }
 
         setProgress(Math.min(Math.floor(progress), 100));

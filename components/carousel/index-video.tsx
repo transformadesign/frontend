@@ -31,6 +31,7 @@ const VideoCarousel: React.FC<Props> = ({
     });
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [refs, setRefs] = useState<React.RefObject<HTMLVideoElement>[]>([].map(() => React.createRef()));
+    const slideContent = useMemo(() => data.fields || [], [data.fields]);
 
     const onSelect = useCallback(() => {
         if (!embla) return;
@@ -46,8 +47,16 @@ const VideoCarousel: React.FC<Props> = ({
 
             const elem = ref.current;
 
+            if (elem.dataset.novideo) {
+                return;
+            }
+
             if (visibleSlides.includes(index)) {
-                elem.play();
+                const playPromise = elem.play();
+
+                if (playPromise) {
+                    playPromise.catch(() => {});
+                }
             } else {
                 elem.pause();
             }
@@ -73,7 +82,7 @@ const VideoCarousel: React.FC<Props> = ({
 
     const carousel = useMemo(
         () => {
-            const result = (data.fields || []).reduce((result, { media, image, mainTitle, thumbName, foreignTitle }, index) => {
+            const result = slideContent.reduce((result, { media, image, mainTitle, thumbName, foreignTitle }, index) => {
                 const ref = React.createRef<HTMLVideoElement>();
 
                 result.videoRefs.push(ref);
@@ -99,11 +108,11 @@ const VideoCarousel: React.FC<Props> = ({
 
             return result;
         },
-        [data.fields, scrollTo]
+        [slideContent, scrollTo]
     );
 
     const thumbs = useMemo(() =>
-        (data.fields || []).reduce((result, { media, image, foreignTitle, mainTitle, thumbName, slide_interval }, index) => {
+        slideContent.reduce((result, { media, image, foreignTitle, mainTitle, thumbName, slide_interval }, index) => {
             result.push(
                 <Thumb
                     key={`slide_${lang}_${media?.url}`}
@@ -118,7 +127,7 @@ const VideoCarousel: React.FC<Props> = ({
 
             return result;
         }, []),
-        [data.fields, scrollTo, selectedIndex, refs]
+        [slideContent, scrollTo, selectedIndex, refs]
     );
 
     return (

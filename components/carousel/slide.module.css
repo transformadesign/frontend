@@ -1,13 +1,7 @@
 .slide {
     position: relative;
     min-width: 100%;
-}
-
-.slide:before {
-    display: block;
-    content: '';
-    width: 100%;
-    padding-top: calc(9 / 16 * 100%);
+    height: 80vh;
 }
 
 .inner,
@@ -15,6 +9,9 @@
     position: absolute;
     display: block;
     overflow: hidden;
+}
+
+.inner {
     top: 0;
     left: 0;
     bottom: 0;
@@ -23,6 +20,13 @@
 
 .img {
     z-index: -1;
-    width: 100%;
-    height: 100%;
+    max-width: unset;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-50%);
 }
