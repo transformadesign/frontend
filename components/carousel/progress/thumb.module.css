@@ -3,7 +3,21 @@
 }
 
 .progress {
-    height: 1px;
+    position: relative;
+    overflow: hidden;
 
-    transition: width ease-in-out .3s;
+    height: 1px;
+    width: 100%;
+}
+
+.bar {
+    position: absolute;
+    left: -100%;
+
+    display: block;
+
+    height: 100%;
+    width: 100%;
+
+    transition: transform ease-in-out .3s;
 }

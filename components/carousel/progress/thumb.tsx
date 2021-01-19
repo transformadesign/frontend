@@ -81,7 +81,9 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
         >
             <div>{leadZero(index + 1)}</div>
             <div className="uppercase text-xs pb-5">{RichText.asText(thumbName)}</div>
-            <div className={classNames(styles.progress, 'bg-white')} style={{ width: `${progress}%` }} />
+            <div className={styles.progress}>
+                <span className={classNames(styles.bar, 'bg-white')} style={{ transform: `translate3D(${progress}%, 0, 0)` }} />
+            </div>
         </button>
     );
 };
