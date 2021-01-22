@@ -2,22 +2,8 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.progress {
-    position: relative;
-    overflow: hidden;
-
-    height: 1px;
-    width: 100%;
-}
-
 .bar {
-    position: absolute;
     left: -100%;
-
-    display: block;
-
-    height: 100%;
-    width: 100%;
 
     transition: transform ease-in-out .3s;
 }

@@ -16,10 +16,8 @@ const Layout: React.FC<Props> = ({ preview, children, type, alternates = [], lan
     return (
         <Context.Provider value={{ ...context, lang, type, alternates }}>
             <Meta />
-            <div className="min-h-screen">
-                <Alert preview={preview} />
-                <main>{children}</main>
-            </div>
+            <Alert preview={preview} />
+            <main className="relative min-h-screen">{children}</main>
             <Footer />
         </Context.Provider>
     );

@@ -1,6 +1,7 @@
 .slide {
     position: relative;
     min-width: 100%;
+    min-height: 320px;
     height: 80vh;
 }
 

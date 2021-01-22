@@ -5,9 +5,9 @@ import Head from 'next/head';
 import { getMain, Main, PreviewData } from '../../lib/api';
 import { getStaticI18nPaths, getStaticI18nProps, Lang, contentLanguageMap } from '../../lib/i18n';
 
-import Container from '../../components/container';
 import Layout from '../../components/layout';
 import VideoCarousel from '../../components/carousel/index-video';
+import Header from '../../components/header';
 
 export default function Index({ preview, main, lang }: Props) {
     return (
@@ -16,12 +16,11 @@ export default function Index({ preview, main, lang }: Props) {
                 <Head>
                     <title>TF</title>
                 </Head>
-                <Container>
-                    <VideoCarousel
-                        progressSpeed={main.interval || 5000}
-                        data={main}
-                    />
-                </Container>
+                <VideoCarousel
+                    progressSpeed={main.interval || 5000}
+                    data={main}
+                />
+                <Header />
             </Layout>
         </>
     );

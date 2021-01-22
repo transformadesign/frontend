@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { classNames } from '../../../lib/class-names';
+import Container from '../../container';
 
 type Props = {
     className?: string;
@@ -8,8 +9,10 @@ type Props = {
 
 const Progress: React.FC<Props> = ({ className, children }) => {
     return (
-        <div className={classNames(className, 'flex flex-row px-1')}>
-            {children}
+        <div className={classNames(className, 'w-full')} aria-hidden="true">
+            <Container className="flex flex-row">
+                {children}
+            </Container>
         </div>
     );
 };

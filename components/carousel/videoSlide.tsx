@@ -5,6 +5,7 @@ import { RichText, RichTextBlock } from 'prismic-reactjs';
 import { classNames } from '../../lib/class-names';
 import { Url } from '../../lib/url-builder';
 import { leadZero } from '../../lib/leadZero';
+import Container from '../container';
 
 import styles from './slide.module.css';
 
@@ -34,10 +35,12 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
         return EXT_TYPES[match[1]];
     }, []);
 
+    const titleText = RichText.asText(title);
+
     return (
         <div className={classNames(styles.slide)}>
             <Link {...link}>
-                <a className={styles.inner}>
+                <a className={styles.inner} aria-label={titleText}>
                     <video
                         className={styles.img}
                         autoPlay={false}
@@ -53,11 +56,14 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
                         {videoSrc && <source src={videoSrc} type={getMime(videoSrc)} />}
                     </video>
                     <div
-                        className="flex flex-col absolute top-0 bottom-0 left-0 right-0 py-24 px-2 justify-center box-content"
+                        className="absolute top-0 bottom-0 left-0 right-0 flex flex-row justify-center"
+                        aria-hidden="true"
                     >
-                        <div>{leadZero(index + 1)}</div>
-                        <div className="text-xs uppercase">{RichText.asText(foreignTitle)}</div>
-                        <h3 className="text-4xl font-bold">{RichText.asText(title)}</h3>
+                        <Container className="flex flex-col flex-grow justify-center py-24 overflow-hidden">
+                            <div>{leadZero(index + 1)}</div>
+                            <div className="text-xs uppercase">{RichText.asText(foreignTitle)}</div>
+                            <h3 className="text-4xl font-bold">{titleText}</h3>
+                        </Container>
                     </div>
                     {children}
                 </a>

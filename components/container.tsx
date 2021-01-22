@@ -1,3 +1,21 @@
-export default function Container({ children }) {
-    return <>{children}</>;
-}
+import { FC } from 'react';
+
+import { classNames } from '../lib/class-names';
+
+type Props = {
+    className?: string;
+    as?: keyof JSX.IntrinsicElements;
+};
+
+const Container: FC<Props> = props => {
+    const Cmp = props.as || 'div';
+
+    return <Cmp className={classNames(
+        props.className,
+        'px-4',
+        'lg:max-w-xxl',
+        'm-auto'
+    )}>{props.children}</Cmp>
+};
+
+export default Container;

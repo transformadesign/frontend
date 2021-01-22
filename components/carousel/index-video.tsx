@@ -7,7 +7,6 @@ import { Main } from '../../lib/api';
 
 import { Context } from '../../context/main';
 
-import Header from '../header';
 import { default as Progress } from './progress';
 import { default as Thumb } from './progress/thumb';
 import { default as VideoSlide } from './videoSlide';
@@ -138,7 +137,6 @@ const VideoCarousel: React.FC<Props> = ({
                         {carousel?.slides?.length ? carousel.slides : null}
                     </div>
                 </div>
-                <Header className="absolute top-0" />
                 {thumbs?.length ?
                     <Progress className="absolute bottom-0">{thumbs}</Progress> :
                     null
