@@ -10,12 +10,13 @@ import Container from '../container';
 import styles from './slide.module.css';
 
 export type Props = {
-    videoSrc: string;
+    videoSrc?: string;
     poster?: string;
     link: Url;
     index: number;
-    title: RichTextBlock[];
-    foreignTitle: RichTextBlock[];
+    mainTitle?: RichTextBlock[];
+    foreignTitle?: RichTextBlock[];
+    description?: RichTextBlock[];
 };
 const EXT_REGEX = /\.([^.]+)$/;
 const EXT_TYPES = {
@@ -24,7 +25,7 @@ const EXT_TYPES = {
 };
 
 const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
-    const { videoSrc, poster, link, index, title, foreignTitle, children } = props;
+    const { videoSrc, poster, link, index, mainTitle, foreignTitle, description, children } = props;
     const getMime = useCallback((src: string): string | undefined => {
         const match = EXT_REGEX.exec(src);
 
@@ -35,10 +36,10 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
         return EXT_TYPES[match[1]];
     }, []);
 
-    const titleText = RichText.asText(title);
+    const titleText = mainTitle ? RichText.asText(mainTitle) : '';
 
     return (
-        <div className={classNames(styles.slide)}>
+        <div className={classNames(styles.slide, 'h-screen sm:h-xv')}>
             <Link {...link}>
                 <a className={styles.inner} aria-label={titleText}>
                     <video
@@ -56,13 +57,16 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
                         {videoSrc && <source src={videoSrc} type={getMime(videoSrc)} />}
                     </video>
                     <div
-                        className="absolute top-0 bottom-0 left-0 right-0 flex flex-row justify-center"
+                        className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"
                         aria-hidden="true"
                     >
-                        <Container className="flex flex-col flex-grow justify-center py-24 overflow-hidden">
-                            <div>{leadZero(index + 1)}</div>
-                            <div className="text-xs uppercase">{RichText.asText(foreignTitle)}</div>
-                            <h3 className="text-4xl font-bold">{titleText}</h3>
+                        <i className="block h-72 sm:hidden"></i>
+                        <Container className="flex flex-col sm:flex-grow overflow-x-hidden mb-24 sm:m-auto">
+                            <div className="text-sm mb-2">{leadZero(index + 1)}</div>
+                            {foreignTitle && <div className="text-xs uppercase tracking-widest mb-3">{RichText.asText(foreignTitle)}</div>}
+                            {titleText && <h3 className="text-5xl font-bold leading-tight mb-8">{titleText}</h3>}
+                            {description && <p className="text-sm leading-6">{RichText.asText(description)}</p>}
+                            <i className={classNames(styles.arrow, 'w-32')}></i>
                         </Container>
                     </div>
                     {children}

@@ -52,7 +52,6 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
             raf.current = requestAnimationFrame(ticker);
         } else {
             cancelAnimationFrame(raf.current);
-            setProgress(0);
         }
 
         return () => cancelAnimationFrame(raf.current);
@@ -72,13 +71,14 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
                 styles.btn,
                 index < selectedIndex && styles.passed,
                 isCurrent && styles.current,
-                'px-1 py-4 flex flex-col cursor-pointer border-none focus:outline-none flex-grow sm:flex-grow-0'
+                'pr-1 sm:pr-2 pt-4 pb-9 flex flex-col cursor-pointer border-none ' +
+                'text-left focus:outline-none flex-grow'
             )}
             onClick={() => scrollTo(index)}
         >
-            <div>{leadZero(index + 1)}</div>
-            <div className="uppercase text-xs pb-5 hidden sm:block">{RichText.asText(thumbName)}</div>
-            <div className="h-0.5 sm:h-px relative overflow-hidden w-full">
+            <div className="text-sm mb-2">{leadZero(index + 1)}</div>
+            <div className="max-w-xxs uppercase text-xs tracking-widest mb-8 hidden sm:block">{RichText.asText(thumbName)}</div>
+            <div className="h-0.5 mt-auto sm:h-px relative overflow-hidden w-full">
                 <span className={classNames(styles.bar, 'absolute block w-full h-full bg-white')} style={{ transform: `translate3D(${progress}%, 0, 0)` }} />
             </div>
         </button>

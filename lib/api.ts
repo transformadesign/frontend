@@ -77,6 +77,7 @@ export type Main = {
         embed: null;
         foreignTitle: RichTextBlock[];
         mainTitle: RichTextBlock[];
+        description: RichTextBlock[];
         thumbName: RichTextBlock[];
         active: boolean;
     }[];
@@ -104,6 +105,7 @@ export async function getMain(previewData: PreviewData, variables: Variables): P
                   embed,
                   foreignTitle,
                   mainTitle,
+                  description,
                   thumbName,
                   active
                 }

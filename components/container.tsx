@@ -14,7 +14,7 @@ const Container: FC<Props> = props => {
         props.className,
         'px-4',
         'lg:max-w-xxl',
-        'm-auto'
+        'mx-auto'
     )}>{props.children}</Cmp>
 };
 

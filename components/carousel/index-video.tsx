@@ -81,7 +81,7 @@ const VideoCarousel: React.FC<Props> = ({
 
     const carousel = useMemo(
         () => {
-            const result = slideContent.reduce((result, { media, image, mainTitle, thumbName, foreignTitle }, index) => {
+            const result = slideContent.reduce((result, slide, index) => {
                 const ref = React.createRef<HTMLVideoElement>();
 
                 result.videoRefs.push(ref);
@@ -89,14 +89,13 @@ const VideoCarousel: React.FC<Props> = ({
                 result.slides.push(
                     // @ts-ignore
                     <VideoSlide
-                        key={`slide_${lang}_${media?.url}`}
-                        videoSrc={media?.url}
-                        poster={image?.url}
+                        key={`slide_${lang}_${slide.media?.url || index}`}
+                        videoSrc={slide.media?.url}
+                        poster={slide.image?.url}
                         link={buildUrl('main', lang)}
                         ref={ref}
-                        title={mainTitle}
-                        foreignTitle={foreignTitle}
                         index={index}
+                        {...slide}
                     />
                 );
 
@@ -114,7 +113,7 @@ const VideoCarousel: React.FC<Props> = ({
         slideContent.reduce((result, { media, image, foreignTitle, mainTitle, thumbName, slide_interval }, index) => {
             result.push(
                 <Thumb
-                    key={`slide_${lang}_${media?.url}`}
+                    key={`slide_${lang}_${media?.url || index}`}
                     index={index}
                     selectedIndex={selectedIndex}
                     scrollTo={scrollTo}
