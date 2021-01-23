@@ -62,14 +62,11 @@ const VideoCarousel: React.FC<Props> = ({
         });
     }, [embla, refs]);
 
-    const scrollTo = useCallback(
-        (index) => {
-            if (!embla) return;
+    const scrollTo = useCallback(index => {
+        if (!embla) return;
 
-            embla.scrollTo(index < embla.slideNodes().length ? index : 0);
-        },
-        [embla]
-    );
+        embla.scrollTo(index < embla.slideNodes().length ? index : 0);
+    }, [embla]);
 
     useEffect(() => {
         if (!embla) return;
@@ -79,35 +76,32 @@ const VideoCarousel: React.FC<Props> = ({
         embla.on('select', onSelect);
     }, [embla, onSelect]);
 
-    const carousel = useMemo(
-        () => {
-            const result = slideContent.reduce((result, slide, index) => {
-                const ref = React.createRef<HTMLVideoElement>();
+    const carousel = useMemo(() => {
+        const result = slideContent.reduce((result, slide, index) => {
+            const ref = React.createRef<HTMLVideoElement>();
 
-                result.videoRefs.push(ref);
+            result.videoRefs.push(ref);
 
-                result.slides.push(
-                    // @ts-ignore
-                    <VideoSlide
-                        key={`slide_${lang}_${slide.media?.url || index}`}
-                        videoSrc={slide.media?.url}
-                        poster={slide.image?.url}
-                        link={buildUrl('main', lang)}
-                        ref={ref}
-                        index={index}
-                        {...slide}
-                    />
-                );
-
-                return result;
-            }, { videoRefs: [], slides: [] });
-
-            setRefs(result.videoRefs);
+            result.slides.push(
+                // @ts-ignore
+                <VideoSlide
+                    key={`slide_${lang}_${slide.media?.url || index}`}
+                    videoSrc={slide.media?.url}
+                    poster={slide.image?.url}
+                    link={buildUrl('main', lang)}
+                    ref={ref}
+                    index={index}
+                    {...slide}
+                />
+            );
 
             return result;
-        },
-        [slideContent, scrollTo]
-    );
+        }, { videoRefs: [], slides: [] });
+
+        setRefs(result.videoRefs);
+
+        return result;
+    }, [slideContent, scrollTo]);
 
     const thumbs = useMemo(() =>
         slideContent.reduce((result, { media, image, foreignTitle, mainTitle, thumbName, slide_interval }, index) => {
@@ -144,5 +138,7 @@ const VideoCarousel: React.FC<Props> = ({
         </>
     );
 };
+
+VideoCarousel.displayName = 'VideoCarousel';
 
 export default VideoCarousel;

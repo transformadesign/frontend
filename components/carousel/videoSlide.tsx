@@ -76,4 +76,6 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
     );
 });
 
+VideoSlide.displayName = 'VideoSlide';
+
 export default VideoSlide;

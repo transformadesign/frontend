@@ -18,4 +18,6 @@ const Container: FC<Props> = props => {
     )}>{props.children}</Cmp>
 };
 
+Container.displayName = 'Container';
+
 export default Container;

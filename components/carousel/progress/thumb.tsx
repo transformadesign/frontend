@@ -46,6 +46,10 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
         setProgress(Math.min(Math.floor(progress), 100));
     }, [videoRef, speedMs, scrollTo]);
 
+    const onClick = useCallback(() => {
+        scrollTo(index);
+    }, [scrollTo]);
+
     useEffect(() => {
         if (isCurrent) {
             time.current = 0;
@@ -74,7 +78,7 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
                 'pr-1 sm:pr-2 pt-4 pb-9 flex flex-col cursor-pointer border-none ' +
                 'text-left focus:outline-none flex-grow'
             )}
-            onClick={() => scrollTo(index)}
+            onClick={onClick}
         >
             <div className="text-sm mb-2">{leadZero(index + 1)}</div>
             <div className="max-w-xxs uppercase text-xs tracking-widest mb-8 hidden sm:block">{RichText.asText(thumbName)}</div>
