@@ -1,0 +1,34 @@
+.arrow {
+    display: block;
+    position: relative;
+
+    height: 1px;
+    margin: 2rem 0;
+
+    opacity: 0.6;
+    background-color: #fff;
+}
+.arrow::before,
+.arrow::after {
+    content: '';
+    display: block;
+
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+
+    height: 1px;
+    width: 1.85rem;
+
+    background-color: #fff;
+}
+
+.arrow::before {
+    transform-origin: 100% 0;
+    transform: rotateZ(225deg) translateX(100%) translateY(-1px);
+}
+
+.arrow::after {
+    transform-origin: 100% 100%;
+    transform: rotateZ(-225deg) translateX(100%) translateY(1px);
+}

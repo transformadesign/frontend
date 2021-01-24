@@ -136,3 +136,64 @@ export async function getMain(previewData: PreviewData, variables: Variables): P
         fields: content
     };
 }
+
+export type Config = {
+    instagram: { url: string, target: string } | null,
+    pinterest: { url: string, target: string } | null,
+    email: { url: string, target: string } | null,
+    legalNotice: RichTextBlock[] | null,
+    copyright: RichTextBlock[] | null,
+    phones: { phone: number }[] | null,
+    addresses: {
+        address: string | null,
+        coordinates: {
+            latitude: number,
+            longitude: number
+        } | null
+    }[] | null
+} | null;
+
+export async function getConfig(previewData: PreviewData, variables: Variables): Promise<Config> {
+    const data = await fetchAPI(
+        `
+    query($locale: String!) {
+      allConfigs(lang: $locale) {
+        edges {
+          node {
+            instagram {
+              ...on _ExternalLink {
+                url
+                target
+              }
+            }
+            pinterest {
+              ...on _ExternalLink {
+                url
+                target
+              }
+            }
+            email {
+              ...on _ExternalLink {
+                url
+                target
+              }
+            }
+            legalNotice
+            copyright
+            phones {
+              phone
+            }
+            addresses {
+              address
+              coordinates
+            }
+          }
+        }
+      }
+    }
+  `,
+        { previewData, variables }
+    );
+
+    return (data?.allConfigs?.edges || [])[0]?.node || null;
+}

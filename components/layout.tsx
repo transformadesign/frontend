@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Alert from '../components/alert';
 import Footer from '../components/footer';
@@ -10,11 +10,12 @@ type Props = {
     preview: boolean;
 } & Context;
 
-const Layout: React.FC<Props> = ({ preview, children, type, alternates = [], lang }) => {
-    const context = React.useContext(Context);
+const Layout: React.FC<Props> = props => {
+    const context = useContext(Context);
+    const { preview, children } = props;
 
     return (
-        <Context.Provider value={{ ...context, lang, type, alternates }}>
+        <Context.Provider value={{ ...context, ...props }}>
             <Meta />
             <Alert preview={preview} />
             <main className="relative min-h-screen">{children}</main>

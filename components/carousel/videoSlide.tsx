@@ -6,6 +6,7 @@ import { classNames } from '../../lib/class-names';
 import { Url } from '../../lib/url-builder';
 import { leadZero } from '../../lib/leadZero';
 import Container from '../container';
+import Arrow from '../arrow';
 
 import styles from './slide.module.css';
 
@@ -61,12 +62,12 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
                         aria-hidden="true"
                     >
                         <i className="block h-72 sm:hidden"></i>
-                        <Container className="flex flex-col sm:flex-grow overflow-x-hidden mb-24 sm:m-auto">
+                        <Container className="flex flex-col sm:flex-grow overflow-hidden mb-24 sm:m-auto">
                             <div className="text-sm mb-2">{leadZero(index + 1)}</div>
                             {foreignTitle && <div className="text-xs uppercase tracking-widest mb-3">{RichText.asText(foreignTitle)}</div>}
                             {titleText && <h3 className="text-5xl font-bold leading-tight mb-8">{titleText}</h3>}
                             {description && <p className="text-sm leading-6">{RichText.asText(description)}</p>}
-                            <i className={classNames(styles.arrow, 'w-32')}></i>
+                            <Arrow className="w-32" />
                         </Container>
                     </div>
                     {children}
