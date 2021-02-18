@@ -28,11 +28,11 @@ export default function Index(props: Props) {
                     <h3>Work in progress</h3>
                     <h4>Address</h4>
                     {config?.addresses?.map(elem => (
-                        <div>{elem.address}</div>
+                        <div key={elem.address}>{elem.address}</div>
                     ))}
                     <h4>Contact us</h4>
                     {config?.phones?.map(elem => (
-                        <div>{elem.phone}</div>
+                        <div key={elem.phone}>{elem.phone}</div>
                     ))}
                     <div>{config?.email.url}</div>
                 </Container>
