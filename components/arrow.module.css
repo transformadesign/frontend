@@ -1,7 +1,8 @@
 .arrow::before,
 .arrow::after {
-    @apply block absolute right-0 bottom-0 h-px bg-white;
+    @apply block absolute right-0 bottom-0 h-px;
 
+    background-color: inherit;
     content: '';
     width: 1.85em;
 }

@@ -197,3 +197,30 @@ export async function getConfig(previewData: PreviewData, variables: Variables):
 
     return (data?.allConfigs?.edges || [])[0]?.node || null;
 }
+
+export type Page = {
+    foreignTitle: RichTextBlock[];
+    mainTitle: RichTextBlock[];
+    description: RichTextBlock[];
+} | null;
+
+export async function getPage(previewData: PreviewData, variables: Variables): Promise<Page> {
+    const data = await fetchAPI(
+        `
+    query($locale: String!, $uid: String!) {
+      allPages(lang: $locale, uid: $uid) {
+        edges {
+          node {
+            foreignTitle,
+            mainTitle,
+            description
+          }
+        }
+      }
+    }
+  `,
+        { previewData, variables }
+    );
+
+    return (data?.allPages?.edges || [])[0]?.node || null;
+}

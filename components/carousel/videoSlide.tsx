@@ -67,7 +67,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
                             {foreignTitle && <div className="text-xs uppercase tracking-widest mb-4">{RichText.asText(foreignTitle)}</div>}
                             {titleText && <h3 className="text-4-5xl font-bold sm:text-5xl sm:font-extrabold leading-tight mb-6">{titleText}</h3>}
                             {description && <p className="text-sm leading-6">{RichText.asText(description)}</p>}
-                            <Arrow className="w-24 sm:w-32 text-xxs sm:text-xs" />
+                            <Arrow className="w-24 sm:w-32 text-xxs sm:text-xs opacity-60 bg-white" />
                         </Container>
                     </div>
                     {children}
