@@ -26,7 +26,7 @@ const Contacts: React.FC<Props> = ({ className, config }) => {
     }, [config]);
 
     if (!config) {
-        return;
+        return null;
     }
 
     return (
