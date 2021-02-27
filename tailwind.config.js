@@ -8,6 +8,7 @@ module.exports = {
                 'accent-7': '#333',
                 success: '#0070f3',
                 cyan: '#79FFE1',
+                black: 'rgba(84, 84, 84, 1)',
                 'slider-button': '#262626',
                 'slider-title': '#262626'
             },
@@ -16,6 +17,7 @@ module.exports = {
             },
             letterSpacing: {
                 tighter: '-.04em',
+                wider: '0.1rem',
                 widest: '0.25em'
             },
             lineHeight: {
@@ -25,7 +27,8 @@ module.exports = {
                 xv: '80vh'
             },
             fontSize: {
-                xxs: '0.5rem'
+                xxs: '0.5rem',
+                '4-5xl': '2.05rem'
             },
             boxShadow: {
                 small: '0 5px 10px rgba(0, 0, 0, 0.12)',

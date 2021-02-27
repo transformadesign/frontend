@@ -1,12 +1,9 @@
-.arrow {
-    @apply block relative h-px my-8 mx-0 opacity-60 bg-white;
-}
 .arrow::before,
 .arrow::after {
     @apply block absolute right-0 bottom-0 h-px bg-white;
 
     content: '';
-    width: 1.85rem;
+    width: 1.85em;
 }
 
 .arrow::before {

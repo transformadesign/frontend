@@ -80,7 +80,7 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
             )}
             onClick={onClick}
         >
-            <div className="text-sm mb-2">{leadZero(index + 1)}</div>
+            <div className="text-xs sm:text-sm mb-2">{leadZero(index + 1)}</div>
             <div className="max-w-xxs uppercase text-xs tracking-widest mb-8 hidden sm:block">{RichText.asText(thumbName)}</div>
             <div className="h-0.5 mt-auto sm:h-px relative overflow-hidden w-full">
                 <span className={classNames(styles.bar, 'absolute block w-full h-full bg-white')} style={{ transform: `translate3D(${progress}%, 0, 0)` }} />

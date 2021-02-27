@@ -1,5 +1,5 @@
 body {
-    background-color: #fff;
+    @apply bg-white text-black;
 }
 
 @tailwind base;

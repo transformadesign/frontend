@@ -5,10 +5,10 @@ import Head from 'next/head';
 import { getMain, Main, getConfig, Config, PreviewData } from '../../lib/api';
 import { getStaticI18nPaths, getStaticI18nProps, Lang, contentLanguageMap } from '../../lib/i18n';
 
-import Layout from '../../components/layout';
 import VideoCarousel from '../../components/carousel/index-video';
+import Layout from '../../components/layout';
 import Header from '../../components/header';
-import Container from '../../components/container';
+import Contacts from '../../components/contacts';
 
 export default function Index(props: Props) {
     const { main, config } = props;
@@ -24,18 +24,7 @@ export default function Index(props: Props) {
                     data={main}
                 />
                 <Header />
-                <Container className="py-8">
-                    <h3>Work in progress</h3>
-                    <h4>Address</h4>
-                    {config?.addresses?.map(elem => (
-                        <div key={elem.address}>{elem.address}</div>
-                    ))}
-                    <h4>Contact us</h4>
-                    {config?.phones?.map(elem => (
-                        <div key={elem.phone}>{elem.phone}</div>
-                    ))}
-                    <div>{config?.email.url}</div>
-                </Container>
+                <Contacts config={config} />
             </Layout>
         </>
     );
