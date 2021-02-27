@@ -6,10 +6,8 @@
 }
 
 .link {
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    background-position: 50% 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
+    @apply inline-block bg-center bg-contain bg-no-repeat;
+
+    width: 16px;
+    height: 16px;
 }

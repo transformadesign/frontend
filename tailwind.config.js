@@ -25,6 +25,7 @@ module.exports = {
                 xv: '80vh'
             },
             fontSize: {
+                xxs: '0.5rem'
             },
             boxShadow: {
                 small: '0 5px 10px rgba(0, 0, 0, 0.12)',
@@ -32,7 +33,8 @@ module.exports = {
             },
             maxWidth: {
                 'xxl': '96rem',
-                'xxs': '9rem'
+                'xxs': '9rem',
+                '66p': '66%'
             },
             screens: {
                 'xxs': '320px'

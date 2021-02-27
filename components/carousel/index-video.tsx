@@ -52,6 +52,7 @@ const VideoCarousel: React.FC<Props> = ({
 
             if (visibleSlides.includes(index)) {
                 const playPromise = elem.play();
+                // const playPromise = Promise.resolve();
 
                 if (playPromise) {
                     playPromise.catch(() => {});

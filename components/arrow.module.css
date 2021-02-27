@@ -1,26 +1,12 @@
 .arrow {
-    display: block;
-    position: relative;
-
-    height: 1px;
-    margin: 2rem 0;
-
-    opacity: 0.6;
-    background-color: #fff;
+    @apply block relative h-px my-8 mx-0 opacity-60 bg-white;
 }
 .arrow::before,
 .arrow::after {
+    @apply block absolute right-0 bottom-0 h-px bg-white;
+
     content: '';
-    display: block;
-
-    position: absolute;
-    right: 0px;
-    bottom: 0;
-
-    height: 1px;
     width: 1.85rem;
-
-    background-color: #fff;
 }
 
 .arrow::before {
