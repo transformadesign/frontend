@@ -2,8 +2,8 @@
     flex-basis: 50%;
 }
 
-.celled > *:last-child {
-    @apply border-r-0;
+.logo {
+    flex-basis: 80px;
 }
 
 .celled > .spaced {
@@ -11,7 +11,7 @@
 }
 
 .celled > * {
-    @apply flex items-center content-center justify-center px-2 py-1 border-b border-black border-r border-black;
+    @apply items-center content-center justify-center px-2 py-1 border-b border-black border-black;
 
     flex-basis: 2.3rem;
 }
