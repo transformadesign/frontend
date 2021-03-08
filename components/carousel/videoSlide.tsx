@@ -51,7 +51,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
         preload: 'metadata',
         'data-novideo': videoSrc ? undefined : true,
         pip: 'false',
-        disablePictureInPicture: 'disablePictureInPicture'
+        disablePictureInPicture: true
     } as JSX.IntrinsicElements['video'];
 
     return (
