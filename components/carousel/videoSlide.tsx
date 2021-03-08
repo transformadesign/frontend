@@ -5,6 +5,7 @@ import { RichText, RichTextBlock } from 'prismic-reactjs';
 import { classNames } from '../../lib/class-names';
 import { Url } from '../../lib/url-builder';
 import { leadZero } from '../../lib/leadZero';
+
 import Container from '../container';
 import Arrow from '../arrow';
 
@@ -50,7 +51,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
         preload: 'metadata',
         'data-novideo': videoSrc ? undefined : true,
         pip: 'false',
-        disablePictureInPicture: true
+        disablePictureInPicture: 'disablePictureInPicture'
     } as JSX.IntrinsicElements['video'];
 
     return (
