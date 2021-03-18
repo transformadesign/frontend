@@ -19,11 +19,13 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
     const speedMs = speed / 100;
     const isCurrent = index === selectedIndex;
     const isPassed = index < selectedIndex;
+    const fpsTimeDiff = 600;
 
     const progressRef = useRef<HTMLSpanElement>(null);
 
     const raf = useRef(0);
     const time = useRef(0);
+    const prevTime = useRef(0);
 
     const getProgress = useCallback(
         (hrTime: number) => {
@@ -46,6 +48,13 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
 
     const ticker = useCallback(
         (hrTime: number) => {
+            if (hrTime - prevTime.current < fpsTimeDiff) {
+                raf.current = requestAnimationFrame(ticker);
+                return;
+            }
+
+            prevTime.current = hrTime;
+
             if (!time.current) {
                 time.current = hrTime;
             }
@@ -60,7 +69,7 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
 
             drawProgress(Math.min(Math.round(progress), 100));
         },
-        [drawProgress, getProgress, index, scrollTo]
+        [drawProgress, fpsTimeDiff, getProgress, index, scrollTo]
     );
 
     const onClick = useCallback(() => {
