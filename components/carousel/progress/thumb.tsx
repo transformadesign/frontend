@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { RichText, RichTextBlock } from 'prismic-reactjs';
 
 import { classNames } from '../../../lib/class-names';
@@ -16,39 +16,56 @@ type Props = {
 };
 
 const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, speed, videoRef }) => {
+    const speedMs = speed / 100;
     const isCurrent = index === selectedIndex;
-    const speedMs = useMemo(() => speed / 100, [speed]);
+    const isPassed = index < selectedIndex;
+
+    const progressRef = useRef<HTMLSpanElement>(null);
+
     const raf = useRef(0);
     const time = useRef(0);
-    const isPassed = useMemo(() => index < selectedIndex, [index, selectedIndex]);
-    const [progress, setProgress] = useState(isPassed ? 100 : 0);
-    const getProgress = useCallback((hrTime: number) => {
-        const { currentTime, duration } = videoRef.current || {};
 
-        return isNaN(duration) || !duration ?
-            (hrTime - time.current) / speedMs :
-            currentTime / duration * 100;
-    }, [videoRef, speedMs]);
+    const getProgress = useCallback(
+        (hrTime: number) => {
+            const { currentTime, duration } = videoRef.current || {};
 
-    const ticker = useCallback((hrTime: number) => {
-        if (!time.current) {
-            time.current = hrTime;
+            return isNaN(duration) || !duration ? (hrTime - time.current) / speedMs : (currentTime / duration) * 100;
+        },
+        [speedMs, videoRef]
+    );
+
+    const drawProgress = useCallback((progress: number) => {
+        const elem = progressRef.current;
+
+        if (!elem) {
+            return;
         }
 
-        const progress = getProgress(hrTime);
+        elem.style.transform = `translate3D(${progress}%, 0, 0)`;
+    }, []);
 
-        if (progress < 100) {
-            raf.current = requestAnimationFrame(ticker);
-        } else {
-            scrollTo(index + 1);
-        }
+    const ticker = useCallback(
+        (hrTime: number) => {
+            if (!time.current) {
+                time.current = hrTime;
+            }
 
-        setProgress(Math.min(Math.floor(progress), 100));
-    }, [videoRef, speedMs, scrollTo]);
+            const progress = getProgress(hrTime);
+
+            if (progress < 100) {
+                raf.current = requestAnimationFrame(ticker);
+            } else {
+                scrollTo(index + 1);
+            }
+
+            drawProgress(Math.min(Math.round(progress), 100));
+        },
+        [drawProgress, getProgress, index, scrollTo]
+    );
 
     const onClick = useCallback(() => {
         scrollTo(index);
-    }, [scrollTo]);
+    }, [index, scrollTo]);
 
     useEffect(() => {
         if (isCurrent) {
@@ -63,27 +80,30 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
 
     useEffect(() => {
         if (isPassed) {
-            setProgress(100);
+            drawProgress(100);
         } else {
-            setProgress(0);
+            drawProgress(0);
         }
-    }, [isPassed, selectedIndex]);
+    }, [isPassed, selectedIndex, drawProgress]);
 
     return (
         <button
+            type="button"
             className={classNames(
                 styles.btn,
                 index < selectedIndex && styles.passed,
                 isCurrent && styles.current,
                 'pr-1 sm:pr-2 pt-4 pb-9 flex flex-col cursor-pointer border-none ' +
-                'text-left focus:outline-none flex-grow'
+                    'text-left focus:outline-none flex-grow'
             )}
             onClick={onClick}
         >
             <div className="text-xs sm:text-sm mb-2">{leadZero(index + 1)}</div>
-            <div className="max-w-xxs uppercase text-xs tracking-widest mb-8 hidden sm:block">{RichText.asText(thumbName)}</div>
+            <div className="max-w-xxs uppercase text-xs tracking-widest mb-8 hidden sm:block">
+                {RichText.asText(thumbName)}
+            </div>
             <div className="h-0.5 mt-auto sm:h-px relative overflow-hidden w-full">
-                <span className={classNames(styles.bar, 'absolute block w-full h-full bg-white')} style={{ transform: `translate3D(${progress}%, 0, 0)` }} />
+                <span ref={progressRef} className={classNames(styles.bar, 'absolute block w-full h-full bg-white')} />
             </div>
         </button>
     );

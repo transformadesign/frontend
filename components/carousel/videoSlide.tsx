@@ -61,11 +61,19 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
                         className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"
                         aria-hidden="true"
                     >
-                        <i className="block h-72 sm:hidden"></i>
+                        <i className="block h-72 sm:hidden" />
                         <Container className="flex flex-col sm:flex-grow overflow-hidden mb-24 sm:m-auto">
                             <div className="text-sm mb-2">{leadZero(index + 1)}</div>
-                            {foreignTitle && <div className="text-xs uppercase tracking-widest mb-4">{RichText.asText(foreignTitle)}</div>}
-                            {titleText && <h3 className="text-4-5xl font-bold sm:text-5xl sm:font-extrabold leading-tight mb-6">{titleText}</h3>}
+                            {foreignTitle && (
+                                <div className="text-xs uppercase tracking-widest mb-4">
+                                    {RichText.asText(foreignTitle)}
+                                </div>
+                            )}
+                            {titleText && (
+                                <h3 className="text-4-5xl font-bold sm:text-5xl sm:font-extrabold leading-tight mb-6">
+                                    {titleText}
+                                </h3>
+                            )}
                             {description && <p className="text-sm leading-6">{RichText.asText(description)}</p>}
                             <Arrow className="w-24 sm:w-32 text-xxs sm:text-xs opacity-60 bg-white" />
                         </Container>
