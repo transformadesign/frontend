@@ -5,6 +5,7 @@ import { RichText, RichTextBlock } from 'prismic-reactjs';
 import { classNames } from '../../lib/class-names';
 import { Url } from '../../lib/url-builder';
 import { leadZero } from '../../lib/leadZero';
+
 import Container from '../container';
 import Arrow from '../arrow';
 
@@ -38,25 +39,26 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
     }, []);
 
     const titleText = mainTitle ? RichText.asText(mainTitle) : '';
+    const videoProps = {
+        className: styles.img,
+        autoPlay: false,
+        loop: false,
+        muted: true,
+        playsInline: true,
+        controls: false,
+        ref,
+        poster: poster,
+        preload: 'metadata',
+        'data-novideo': videoSrc ? undefined : true,
+        pip: 'false',
+        disablePictureInPicture: true
+    } as JSX.IntrinsicElements['video'];
 
     return (
         <div className={classNames(styles.slide, 'h-screen sm:h-xv')}>
             <Link {...link}>
                 <a className={styles.inner} aria-label={titleText}>
-                    <video
-                        className={styles.img}
-                        autoPlay={false}
-                        loop={false}
-                        muted
-                        playsInline
-                        controls={false}
-                        ref={ref}
-                        poster={poster}
-                        preload="metadata"
-                        data-novideo={videoSrc ? undefined : true}
-                    >
-                        {videoSrc && <source src={videoSrc} type={getMime(videoSrc)} />}
-                    </video>
+                    <video {...videoProps}>{videoSrc && <source src={videoSrc} type={getMime(videoSrc)} />}</video>
                     <div
                         className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"
                         aria-hidden="true"

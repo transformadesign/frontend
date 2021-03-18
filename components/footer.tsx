@@ -14,15 +14,18 @@ export default function Footer() {
     const { config } = useContext(Context);
 
     const socials = useMemo(() => {
-        return [{
-            url: config?.instagram?.url,
-            target: config?.instagram?.target,
-            service: 'Instagram'
-        }, {
-            url: config?.pinterest?.url,
-            target: config?.pinterest?.target,
-            service: 'Pinterest'
-        }].reduce((result, elem) => {
+        return [
+            {
+                url: config?.instagram?.url,
+                target: config?.instagram?.target,
+                service: 'Instagram'
+            },
+            {
+                url: config?.pinterest?.url,
+                target: config?.pinterest?.target,
+                service: 'Pinterest'
+            }
+        ].reduce((result, elem) => {
             if (elem.url) {
                 result.push(
                     <a
@@ -42,21 +45,37 @@ export default function Footer() {
         }, []);
     }, [config?.instagram?.url, config?.pinterest?.url]);
 
-    const copyright = config?.copyright ?
-        RichText.asText(config.copyright).replace('%year', new Date().getFullYear().toString()) :
-        '';
+    const copyright = config?.copyright
+        ? RichText.asText(config.copyright).replace('%year', new Date().getFullYear().toString())
+        : '';
 
     return (
         <Container as="footer" className="mb-8">
             <div className="sm:max-w-66p flex flex-row border-t border-r border-l border-black items-stretch text-center">
-                <div className={classNames('text-5xl tracking-tighter border-b border-black flex items-center content-center justify-center py-1', footer.logo)}>TF</div>
+                <div
+                    className={classNames(
+                        'text-5xl tracking-tighter border-b border-black flex items-center content-center justify-center py-4',
+                        footer.logo
+                    )}
+                >
+                    <img src="/logo.svg" width="35" height="44" />
+                </div>
                 <div className="flex flex-col flex-grow text-xxs border-l border-black">
-                    <div className={classNames('border-b border-black text-left flex items-center content-center px-2 py-1', footer.row)}>{RichText.asText(config?.legalNotice || [])}</div>
+                    <div
+                        className={classNames(
+                            'border-b border-black text-left flex items-center content-center px-2 py-1',
+                            footer.row
+                        )}
+                    >
+                        {RichText.asText(config?.legalNotice || [])}
+                    </div>
                     <div className={classNames('flex flex-row items-stretch', footer.row, footer.celled)}>
                         <div className="flex flex-grow">Privacy Notice</div>
                         <div className="flex flex-grow border-l">Terms of use</div>
                         {socials.length ? socials : null}
-                        <div className={classNames('flex-grow hidden sm:flex border-l', footer.spaced)}>{copyright}</div>
+                        <div className={classNames('flex-grow hidden sm:flex border-l', footer.spaced)}>
+                            {copyright}
+                        </div>
                         <LangSwitcher className="uppercase leading-none hidden sm:flex border-l" />
                     </div>
                 </div>

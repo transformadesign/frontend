@@ -11,7 +11,7 @@
 }
 
 .celled > * {
-    @apply items-center content-center justify-center px-2 py-1 border-b border-black border-black;
+    @apply items-center content-center justify-center px-2 py-1 border-b border-black;
 
     flex-basis: 2.3rem;
 }
