@@ -33,9 +33,14 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
 
     const getProgress = useCallback(
         (hrTime: number) => {
-            const { currentTime, duration, readyState } = videoRef.current || {};
+            const { currentTime, duration, networkState } = videoRef.current || {};
 
-            if (readyState === 4 && !duration) {
+            /**
+             * чтобы прогресс не считался
+             * пока грузится meta video
+             * в котором содержится длина ролика
+             */
+            if (!duration && networkState) {
                 return 0;
             }
 
