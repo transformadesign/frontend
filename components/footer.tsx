@@ -53,12 +53,13 @@ export default function Footer() {
         <Container as="footer" className="mb-8">
             <div className="sm:max-w-66p flex flex-row border-t border-r border-l border-black items-stretch text-center">
                 <div
+                    aria-hidden="true"
                     className={classNames(
-                        'text-5xl tracking-tighter border-b border-black flex items-center content-center justify-center py-4',
+                        'text-5xl tracking-tighter border-b border-black flex items-center content-center justify-center py-4 px-1 sm:px-2',
                         footer.logo
                     )}
                 >
-                    <img src="/logo.svg" width="35" height="44" />
+                    <img src="/logo.svg" width="35" height="44" alt="" />
                 </div>
                 <div className="flex flex-col flex-grow text-xxs border-l border-black">
                     <div

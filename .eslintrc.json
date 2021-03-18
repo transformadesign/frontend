@@ -42,6 +42,7 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "arrow-body-style": "warn",
     "jsx-a11y/anchor-is-valid": "off",
     // NextJs specific fix: suppress errors for missing 'import React' in files for nextjs
     "react/react-in-jsx-scope": "off",
