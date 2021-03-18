@@ -19,7 +19,11 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
     const speedMs = speed / 100;
     const isCurrent = index === selectedIndex;
     const isPassed = index < selectedIndex;
-    const fpsTimeDiff = 600;
+    /**
+     * транзишн медленнее на 1ms, чтобы не было видно стопов,
+     * если raf сработал позднее завершения анимации
+     */
+    const fpsTimeDiff = 599;
 
     const progressRef = useRef<HTMLSpanElement>(null);
 
@@ -29,7 +33,11 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
 
     const getProgress = useCallback(
         (hrTime: number) => {
-            const { currentTime, duration } = videoRef.current || {};
+            const { currentTime, duration, readyState } = videoRef.current || {};
+
+            if (readyState === 4 && !duration) {
+                return 0;
+            }
 
             return isNaN(duration) || !duration ? (hrTime - time.current) / speedMs : (currentTime / duration) * 100;
         },
@@ -67,7 +75,7 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
                 scrollTo(index + 1);
             }
 
-            drawProgress(Math.min(Math.round(progress), 100));
+            drawProgress(Math.min(progress, 100));
         },
         [drawProgress, fpsTimeDiff, getProgress, index, scrollTo]
     );
@@ -112,7 +120,13 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
                 {RichText.asText(thumbName)}
             </div>
             <div className="h-0.5 mt-auto sm:h-px relative overflow-hidden w-full">
-                <span ref={progressRef} className={classNames(styles.bar, 'absolute block w-full h-full bg-white')} />
+                <span
+                    ref={progressRef}
+                    className={classNames(styles.bar, 'absolute block w-full h-full bg-white')}
+                    style={{
+                        transitionDuration: `${fpsTimeDiff + 1}ms`
+                    }}
+                />
             </div>
         </button>
     );
