@@ -47,7 +47,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
         playsInline: true,
         controls: false,
         ref,
-        poster: poster,
+        poster,
         preload: 'metadata',
         'data-novideo': videoSrc ? undefined : true,
         pip: 'false',
@@ -58,6 +58,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
         <div className={classNames(styles.slide, 'h-screen sm:h-xv')}>
             <Link {...link}>
                 <a className={styles.inner} aria-label={titleText}>
+                    {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
                     <video {...videoProps}>{videoSrc && <source src={videoSrc} type={getMime(videoSrc)} />}</video>
                     <div
                         className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"

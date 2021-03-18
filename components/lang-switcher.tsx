@@ -1,4 +1,5 @@
 import { useContext, FC, Fragment } from 'react';
+import Link from 'next/link';
 
 import { Context } from '../context/main';
 import { buildUrl } from '../lib/url-builder';
@@ -8,8 +9,8 @@ type Props = {
     className?: string;
 };
 
-const LangSwitcher: FC<Props> = props => {
-    const { lang, alternates, type, config } = useContext(Context);
+const LangSwitcher: FC<Props> = (props) => {
+    const { lang, alternates, type } = useContext(Context);
     const alts = alternates.reduce(
         (result, { uid, lang: locale }) => ({
             ...result,
@@ -25,12 +26,9 @@ const LangSwitcher: FC<Props> = props => {
 
                     result.push(
                         <Fragment key={otherLang}>
-                            {/*<Link {...buildUrl(type, otherLang, { uid: alt })}>
-                                <a className="hover:underline">{otherLang}</a>
-                            </Link>*/}
-                            <a className={props.className} href={buildUrl(type, otherLang, { uid: alt }).as}>
-                                {otherLang}
-                            </a>
+                            <Link {...buildUrl(type, otherLang, { uid: alt })}>
+                                <a className={props.className}>{otherLang}</a>
+                            </Link>
                         </Fragment>
                     );
                 }
