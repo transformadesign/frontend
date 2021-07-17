@@ -1,30 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEmblaCarousel } from 'embla-carousel/react';
 
 import styles from './carousel/carousel.module.css';
 import stylesSlide from './html_latest_project.module.css';
 import { classNames } from '../lib/class-names';
+import { buildUrl } from '../lib/url-builder';
+import Link from 'next/link';
+import { Context } from '../context/main';
 
 const data = [
     {
         name: 'luxury villa',
+        link: 'xxii-carat',
         location: 'Perth, Australia'
     },
     {
         name: 'wooden villa',
+        link: 'xxii-carat',
         location: 'New York, USA'
     },
     {
         name: 'Skyline',
+        link: 'xxii-carat',
         location: 'Michigan, USA'
     },
     {
         name: 'Frozen house',
+        link: 'xxii-carat',
         location: 'Mexico'
     }
 ];
 
 const HtmlLatestProject: React.FC = () => {
+    const { lang } = useContext(Context);
     const [emblaRef] = useEmblaCarousel({
         align: 0,
         slidesToScroll: 2,
@@ -50,7 +58,9 @@ const HtmlLatestProject: React.FC = () => {
                                     <div className="bg-overlay" />
                                     <div className="media__body">
                                         <h3 className="title">
-                                            <a href="project-detail-1.html">{item.name}</a>
+                                            <Link {...buildUrl('project', lang, { uid: item.link })}>
+                                                <a>{item.name}</a>
+                                            </Link>
                                         </h3>
                                         <div className="address">{item.location}</div>
                                     </div>

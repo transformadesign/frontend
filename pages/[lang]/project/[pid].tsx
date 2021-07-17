@@ -9,7 +9,7 @@ import Layout from '../../../components/layout';
 import HtmlHeader from '../../../components/html_header';
 import Contacts from '../../../components/contacts';
 
-const DATA = {
+export const DATA = {
     'xxii-carat': {
         title: 'XXII Carat',
         moto: 'Charm of Luxury',

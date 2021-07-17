@@ -25,6 +25,17 @@ export function buildUrl(type: Page = 'main', lang: Lang = defaultLanguage, prop
             return defaultUrl(lang);
         }
 
+        case 'project': {
+            if (props?.uid) {
+                return {
+                    as: `/${lang}/project/${props.uid}`,
+                    href: '/[lang]/project/[pid]'
+                };
+            }
+
+            return defaultUrl(lang);
+        }
+
         case 'main':
         case 'mainpage': {
             return defaultUrl(lang);
