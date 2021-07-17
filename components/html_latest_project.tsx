@@ -28,7 +28,7 @@ const HtmlLatestProject: React.FC = () => {
     const [emblaRef] = useEmblaCarousel({
         align: 0,
         slidesToScroll: 2,
-        skipSnaps: false
+        skipSnaps: true
     });
 
     return (

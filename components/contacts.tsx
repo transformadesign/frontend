@@ -34,7 +34,7 @@ const Contacts: React.FC<Props> = ({ config }) => {
     }
 
     return (
-        <div className="py-8 flex flex-col sm:flex-row container">
+        <div className="py-8 mt-6 flex flex-col sm:flex-row container">
             <a id="contact" className="invisible">
                 Contact
             </a>

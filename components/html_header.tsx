@@ -10,7 +10,7 @@ const Menu: React.FC<{ className?: string }> = ({ className }) => (
             <a href="/about">about</a>
         </li>
         <li className="menu-item">
-            <a href="/project">Project</a>
+            <a href="/projects">Project</a>
         </li>
         <li className="menu-item">
             <a href="#contact">contact</a>
@@ -25,8 +25,8 @@ const HtmlHeader: React.FC = () => (
                 <div className="container">
                     <div className="header__content">
                         <div className="logo">
-                            <a href="#">
-                                <img src="logo_large_black.svg" alt="Tatee" width="140" />
+                            <a href="/">
+                                <img src="/logo_large_black.svg" alt="Tatee" width="140" />
                             </a>
                         </div>
                         <div className="header__content-right">
@@ -71,8 +71,8 @@ const HtmlHeader: React.FC = () => (
             <div className="header-mobile__bar">
                 <div className="container-fluid">
                     <div className="header-mobile__bar-inner">
-                        <a className="logo" href="index.html">
-                            <img src="logo.svg" alt="Tatee" width={40} />
+                        <a className="logo" href="/">
+                            <img src="/logo.svg" alt="Tatee" width={40} />
                         </a>
                         <button className="hamburger hamburger--slider float-right" type="button">
                             <span className="hamburger-box">
