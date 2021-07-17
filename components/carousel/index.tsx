@@ -98,9 +98,7 @@ const EmblaCarousel: React.FC<Props> = ({
         <>
             <div className={classNames(styles.carousel, wrapClass)}>
                 <div className={styles.viewport} ref={viewportRef}>
-                    <div className={styles.container}>
-                        {slides}
-                    </div>
+                    <div className={styles.container}>{slides}</div>
                 </div>
                 {showPrev && <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />}
                 {showNext && <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />}

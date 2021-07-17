@@ -2,6 +2,8 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 import { defaultLanguage, Lang } from '../lib/i18n';
+import Styles from '../components/html_styles';
+import Scripts from '../components/html_scripts';
 
 export default class MyDocument extends Document {
     render() {
@@ -13,9 +15,11 @@ export default class MyDocument extends Document {
         return (
             <Html lang={lang} className="antialiased">
                 <Head />
+                <Styles />
                 <body>
                     <Main />
                     <NextScript />
+                    <Scripts />
                 </body>
             </Html>
         );

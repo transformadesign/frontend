@@ -7,12 +7,17 @@ import { getStaticI18nPaths, getStaticI18nProps, Lang, contentLanguageMap } from
 
 import VideoCarousel from '../../components/carousel/index-video';
 import Layout from '../../components/layout';
-import Header from '../../components/header';
+import HtmlHeader from '../../components/html_header';
+import HtmlAboutUs from '../../components/html_about_us';
+import HtmlLatestProject from '../../components/html_latest_project';
+import HtmlService from '../../components/html_service';
+import HtmlTeam from '../../components/html_team';
+import HtmlClients from '../../components/html_clients';
 import Contacts from '../../components/contacts';
-import Page from '../../components/page';
+/* import Page from '../../components/page'; */
 
 export default function Index(props: Props) {
-    const { main, config, page } = props;
+    const { main, config /* page */ } = props;
 
     return (
         <>
@@ -20,12 +25,14 @@ export default function Index(props: Props) {
                 <Head>
                     <title>TF</title>
                 </Head>
-                <VideoCarousel
-                    progressSpeed={main.interval || 5000}
-                    data={main}
-                />
-                <Header />
-                <Page page={page} />
+                <HtmlHeader />
+                <VideoCarousel progressSpeed={main.interval || 5000} data={main} startIndex={0} />
+                <HtmlAboutUs />
+                <HtmlLatestProject />
+                <HtmlService />
+                <HtmlTeam />
+                <HtmlClients />
+                {/* <Page page={page} /> */}
                 <Contacts config={config} />
             </Layout>
         </>
@@ -37,7 +44,7 @@ type Params = {
     previewData: PreviewData;
     params: { lang: Lang };
 };
-type Props = { preview: boolean; lang: Lang; main?: Main, page?: TPage, config: Config };
+type Props = { preview: boolean; lang: Lang; main?: Main; page?: TPage; config: Config };
 export const getStaticProps: GetStaticProps<Props> = async ({
     preview = false,
     previewData,
@@ -55,6 +62,4 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    return getStaticI18nPaths({ paths: [''] });
-};
+export const getStaticPaths: GetStaticPaths = async () => getStaticI18nPaths({ paths: [''] });

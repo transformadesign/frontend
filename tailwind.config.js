@@ -24,7 +24,8 @@ module.exports = {
                 tight: 1.2
             },
             height: {
-                xv: '80vh'
+                xv: '80vh',
+                xxv: '90vh'
             },
             fontSize: {
                 xxs: '0.5rem',
@@ -35,12 +36,12 @@ module.exports = {
                 medium: '0 8px 30px rgba(0, 0, 0, 0.12)'
             },
             maxWidth: {
-                'xxl': '96rem',
-                'xxs': '9rem',
+                xxl: '93rem',
+                xxs: '9rem',
                 '66p': '66%'
             },
             screens: {
-                'xxs': '320px'
+                xxs: '320px'
             }
         }
     }

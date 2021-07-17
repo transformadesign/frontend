@@ -6,7 +6,7 @@ import { classNames } from '../../lib/class-names';
 import { Url } from '../../lib/url-builder';
 import { leadZero } from '../../lib/leadZero';
 
-import Container from '../container';
+/*import Container from '../container';*/
 import Arrow from '../arrow';
 
 import styles from './slide.module.css';
@@ -55,7 +55,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
     } as JSX.IntrinsicElements['video'];
 
     return (
-        <div className={classNames(styles.slide, 'h-screen sm:h-xv')}>
+        <div className={classNames(styles.slide, 'h-xxv')}>
             <Link {...link}>
                 <a className={styles.inner} aria-label={titleText}>
                     {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
@@ -64,8 +64,8 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
                         className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"
                         aria-hidden="true"
                     >
-                        <i className="block h-72 sm:hidden" />
-                        <Container className="flex flex-col sm:flex-grow overflow-hidden mb-24 sm:m-auto">
+                        <i className="block h-64 sm:hidden" />
+                        <div className="flex flex-col sm:flex-grow overflow-hidden mb-24 sm:m-auto container">
                             <div className="text-sm mb-2">{leadZero(index + 1)}</div>
                             {foreignTitle && (
                                 <div className="text-xs uppercase tracking-widest mb-4">
@@ -79,7 +79,7 @@ const VideoSlide = React.forwardRef<HTMLVideoElement, Props>((props, ref) => {
                             )}
                             {description && <p className="text-sm leading-6">{RichText.asText(description)}</p>}
                             <Arrow className="w-24 sm:w-32 text-xxs sm:text-xs opacity-60 bg-white" />
-                        </Container>
+                        </div>
                     </div>
                     {children}
                 </a>

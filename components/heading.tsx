@@ -9,9 +9,9 @@ const classes = {
     '4': 'text-xs tracking-wider'
 };
 
-const Heading: React.FC<{ level?: Level, className?: string }> = ({ level = '4', className, children }) => {
+const Heading: React.FC<{ level?: Level; className?: string }> = ({ level = '4', className, children }) => {
     const Cmp = `h${level}` as keyof JSX.IntrinsicElements;
-    return (<Cmp className={classNames(classes[level], className)}>{children}</Cmp>);
-}
+    return <Cmp className={classNames(classes[level], className)}>{children}</Cmp>;
+};
 
 export default Heading;

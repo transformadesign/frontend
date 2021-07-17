@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
-import Alert from '../components/alert';
-import Footer from '../components/footer';
-import Meta from '../components/meta';
+import Alert from './alert';
+import Footer from './footer';
+import Meta from './meta';
 
 import { Context } from '../context/main';
 
@@ -10,7 +10,7 @@ type Props = {
     preview: boolean;
 } & Context;
 
-const Layout: React.FC<Props> = props => {
+const Layout: React.FC<Props> = (props) => {
     const context = useContext(Context);
     const { preview, children } = props;
 

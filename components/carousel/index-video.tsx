@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo, useContext, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
 import { useEmblaCarousel } from 'embla-carousel/react';
 
 import { classNames } from '../../lib/class-names';
@@ -17,15 +17,17 @@ type Props = {
     wrapClass?: string;
     progressSpeed?: number;
     data?: Main;
+    startIndex?: number;
 };
 
-const VideoCarousel: React.FC<Props> = ({ wrapClass, progressSpeed, data }) => {
+const VideoCarousel: React.FC<Props> = ({ wrapClass, progressSpeed, data, startIndex = 0 }) => {
     const { lang } = useContext(Context);
+    const [selectedIndex, setSelectedIndex] = useState(startIndex);
     const [viewportRef, embla] = useEmblaCarousel({
         containScroll: 'trimSnaps',
-        draggable: false
+        draggable: false,
+        startIndex: selectedIndex
     });
-    const [selectedIndex, setSelectedIndex] = useState(0);
     const [refs, setRefs] = useState<React.RefObject<HTMLVideoElement>[]>([].map(() => React.createRef()));
     const slideContent = useMemo(() => data.fields || [], [data.fields]);
 
@@ -72,8 +74,8 @@ const VideoCarousel: React.FC<Props> = ({ wrapClass, progressSpeed, data }) => {
             }
 
             if (visibleSlides.includes(index)) {
-                const playPromise = elem.play();
-                // const playPromise = Promise.resolve();
+                // const playPromise = elem.play();
+                const playPromise = Promise.resolve();
 
                 if (playPromise) {
                     playPromise.catch(() => {});
@@ -133,24 +135,21 @@ const VideoCarousel: React.FC<Props> = ({ wrapClass, progressSpeed, data }) => {
 
     const thumbs = useMemo(
         () =>
-            slideContent.reduce(
-                (result, { media, image, foreignTitle, mainTitle, thumbName, slide_interval }, index) => {
-                    result.push(
-                        <Thumb
-                            key={`slide_${lang}_${media?.url || index}`}
-                            index={index}
-                            selectedIndex={selectedIndex}
-                            scrollTo={scrollTo}
-                            speed={slide_interval || progressSpeed}
-                            thumbName={thumbName}
-                            videoRef={refs[index]}
-                        />
-                    );
+            slideContent.reduce((result, { media, thumbName, slide_interval }, index) => {
+                result.push(
+                    <Thumb
+                        key={`slide_${lang}_${media?.url || index}`}
+                        index={index}
+                        selectedIndex={selectedIndex}
+                        scrollTo={scrollTo}
+                        speed={slide_interval || progressSpeed}
+                        thumbName={thumbName}
+                        videoRef={refs[index]}
+                    />
+                );
 
-                    return result;
-                },
-                []
-            ),
+                return result;
+            }, []),
         [slideContent, lang, selectedIndex, scrollTo, progressSpeed, refs]
     );
 

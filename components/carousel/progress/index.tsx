@@ -7,14 +7,10 @@ type Props = {
     className?: string;
 };
 
-const Progress: React.FC<Props> = ({ className, children }) => {
-    return (
-        <div className={classNames(className, 'w-full')} aria-hidden="true">
-            <Container className="flex flex-row">
-                {children}
-            </Container>
-        </div>
-    );
-};
+const Progress: React.FC<Props> = ({ className, children }) => (
+    <div className={classNames(className, 'w-full')} aria-hidden="true">
+        <Container className="flex flex-row">{children}</Container>
+    </div>
+);
 
 export default Progress;

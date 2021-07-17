@@ -116,7 +116,7 @@ const Thumb: React.FC<Props> = ({ index, selectedIndex, scrollTo, thumbName, spe
                 index < selectedIndex && styles.passed,
                 isCurrent && styles.current,
                 'pr-1 sm:pr-2 pt-4 pb-9 flex flex-col cursor-pointer border-none ' +
-                    'text-left focus:outline-none flex-grow'
+                    'text-left outline-none focus:outline-none flex-grow'
             )}
             onClick={onClick}
         >

@@ -7,15 +7,10 @@ type Props = {
     as?: keyof JSX.IntrinsicElements;
 };
 
-const Container: FC<Props> = props => {
+const Container: FC<Props> = (props) => {
     const Cmp = props.as || 'div';
 
-    return <Cmp className={classNames(
-        props.className,
-        'px-4',
-        'lg:max-w-xxl',
-        'mx-auto'
-    )}>{props.children}</Cmp>
+    return <Cmp className={classNames(props.className, 'px-4', 'lg:max-w-xxl', 'mx-auto')}>{props.children}</Cmp>;
 };
 
 Container.displayName = 'Container';
