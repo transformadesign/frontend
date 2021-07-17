@@ -25,7 +25,7 @@ const data = [
 ];
 
 const HtmlLatestProject: React.FC = () => {
-    const [emblaRef, emblaApi] = useEmblaCarousel({
+    const [emblaRef] = useEmblaCarousel({
         align: 0,
         slidesToScroll: 2,
         skipSnaps: false

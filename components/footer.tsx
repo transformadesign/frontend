@@ -4,7 +4,6 @@ import { RichText } from 'prismic-reactjs';
 import { Context } from '../context/main';
 import { classNames } from '../lib/class-names';
 
-import Container from './container';
 import LangSwitcher from './lang-switcher';
 
 import social from './social.module.css';

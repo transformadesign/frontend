@@ -12,7 +12,7 @@ type Props = {
     page: TPage;
 };
 
-const Page: React.FC<Props> = ({ className, page }) => {
+const Page: React.FC<Props> = ({ page }) => {
     if (!page) {
         return null;
     }
