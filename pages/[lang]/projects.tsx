@@ -11,7 +11,7 @@ import Contacts from '../../components/contacts';
 import HtmlProjects from '../../components/html_projects';
 
 export default function Projects(props: Props) {
-    const { main, config /* page */ } = props;
+    const { main, config } = props;
 
     return (
         <>
@@ -53,14 +53,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     previewData,
     params: { lang }
 }: Params) => {
-    const [config, main, page] = await Promise.all([
+    const [config, main] = await Promise.all([
         getConfig(previewData, { locale: contentLanguageMap[lang] }),
-        getMain(previewData, { locale: contentLanguageMap[lang] }),
-        getPage(previewData, { locale: contentLanguageMap[lang], uid: 'main' })
+        getMain(previewData, { locale: contentLanguageMap[lang] })
     ]);
 
     return {
-        ...(await getStaticI18nProps({ preview, main, config, page, lang })),
+        ...(await getStaticI18nProps({ preview, main, config, lang })),
         revalidate: 1
     };
 };
