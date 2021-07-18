@@ -14,42 +14,42 @@ const Clients: React.FC = () => (
                     <div className="row">
                         <div className="col-md-6 col-lg-3">
                             <a className="img-client m-b-60" href="#">
-                                <img src="images/icon/client-09.png" alt="Client 1" />
+                                <img src="/images/icon/client-09.png" alt="Client 1" />
                             </a>
                         </div>
                         <div className="col-md-6 col-lg-3">
                             <a className="img-client m-b-60" href="#">
-                                <img src="images/icon/client-10.png" alt="Client 2" />
+                                <img src="/images/icon/client-10.png" alt="Client 2" />
                             </a>
                         </div>
                         <div className="col-md-6 col-lg-3">
                             <a className="img-client m-b-60" href="#">
-                                <img src="images/icon/client-11.png" alt="Client 3" />
+                                <img src="/images/icon/client-11.png" alt="Client 3" />
                             </a>
                         </div>
                         <div className="col-md-6 col-lg-3">
                             <a className="img-client m-b-60" href="#">
-                                <img src="images/icon/client-12.png" alt="Client 4" />
+                                <img src="/images/icon/client-12.png" alt="Client 4" />
                             </a>
                         </div>
                         <div className="col-md-6 col-lg-3">
                             <a className="img-client m-b-60" href="#">
-                                <img src="images/icon/client-13.png" alt="Client 5" />
+                                <img src="/images/icon/client-13.png" alt="Client 5" />
                             </a>
                         </div>
                         <div className="col-md-6 col-lg-3">
                             <a className="img-client m-b-60" href="#">
-                                <img src="images/icon/client-14.png" alt="Client 6" />
+                                <img src="/images/icon/client-14.png" alt="Client 6" />
                             </a>
                         </div>
                         <div className="col-md-6 col-lg-3">
                             <a className="img-client m-b-60" href="#">
-                                <img src="images/icon/client-15.png" alt="Client 7" />
+                                <img src="/images/icon/client-15.png" alt="Client 7" />
                             </a>
                         </div>
                         <div className="col-md-6 col-lg-3">
                             <a className="img-client m-b-60" href="#">
-                                <img src="images/icon/client-16.png" alt="Client 8" />
+                                <img src="/images/icon/client-16.png" alt="Client 8" />
                             </a>
                         </div>
                     </div>
