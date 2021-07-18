@@ -305,9 +305,9 @@ export default function About(props: Props) {
                                     <p className="media__text">
                                         The headquarters of the company is in Italy. From here to any point of the globe
                                         we export high technologies of architecture and design, pieces of furniture art,
-                                        interior and decor. And that's not all: the project of any complexity will be
-                                        implemented anywhere in the world. We transfer ideas, projects and control the
-                                        process.
+                                        interior and decor. And that&apos;s not all: the project of any complexity will
+                                        be implemented anywhere in the world. We transfer ideas, projects and control
+                                        the process.
                                     </p>
                                 </article>
                             </div>
