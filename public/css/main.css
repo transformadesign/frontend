@@ -499,7 +499,7 @@ button {
  * 3. Ensure the page always fills at least the entire height of the viewport.
  */
 html, body {
-  background: #fff;
+  background: #f6f4f1;
   color: #555;
   font-family: "Stolzl", Arial, "Helvetica Neue", sans-serif;
   line-height: 2.3076923077;
