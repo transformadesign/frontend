@@ -1,0 +1,11 @@
+{
+    "common": {
+        "name": "Transforma",
+        "menu": {
+            "main": "Home",
+            "about": "About",
+            "projects": "Projects",
+            "career": "Career"
+        }
+    }
+}
