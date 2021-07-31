@@ -3,7 +3,7 @@ import Layout from '../../components/Layout';
 export default function Article() {
     return (
         <Layout>
-            <div>Pages</div>
+            <div className="text-pink-500">Pages</div>
         </Layout>
     )
 }
