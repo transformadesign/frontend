@@ -1,5 +1,7 @@
 .btn, .ico {
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease, border-left-color 0.3s ease,
+    border-top-color 0.3s ease, border-right-color 0.3s ease, border-bottom-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .btn:hover .ico {
