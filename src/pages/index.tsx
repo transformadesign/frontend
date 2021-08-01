@@ -7,7 +7,7 @@ import Contact from '@cmp/Contact';
 import { I18NProps } from '@pages/_app';
 import useI18N from '@hooks/useI18N';
 
-export default function Home() {
+export default function Main() {
     const { messages } = useI18N();
 
     return (
