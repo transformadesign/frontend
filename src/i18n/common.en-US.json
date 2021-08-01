@@ -12,5 +12,28 @@
     "footer": {
         "legalNotice": "Please, be informed, that the intellectual property rights to all the photos, designs and other materials on this Site belong to Transforma. You may request permission to use them by contacting us at: mail@transforma.ru",
         "copyright": "Copyright %year. All rights reserved"
+    },
+    "contacts": {
+        "addressTitle": "Address",
+        "addresses": [
+            {
+                "val": "Екатеринбург, Бориса Ельцина 1а, 1606"
+            },
+            {
+                "val": "991 White St. Dawsonville GA 30534, New York"
+            }
+        ],
+        "phoneTitle": "Contact us",
+        "phones": [
+            {
+                "val": 79221751932
+            }
+        ],
+        "emailTitle": "Let's work with us",
+        "emails": [
+            {
+                "val": "dvoedesign@inbox.ru"
+            }
+        ]
     }
 }
