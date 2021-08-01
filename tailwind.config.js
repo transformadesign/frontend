@@ -3,6 +3,11 @@ module.exports = {
         './src/components/**/*.tsx',
         './src/pages/**/*.tsx'
     ],
+    variants: {
+        extend: {
+            padding: ['last']
+        }
+    },
     theme: {
         extend: {
             colors: {
