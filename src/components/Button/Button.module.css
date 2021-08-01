@@ -1,0 +1,7 @@
+.btn, .ico {
+    transition: all 0.3s ease;
+}
+
+.btn:hover .ico {
+    transform: translate3d(5px, 0, 0);
+}

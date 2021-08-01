@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import Container from '@cmp/Container';
 import logo from '@pub/logo_large.svg';
 import logoBlack from '@pub/logo_large_black.svg';
 import useI18N from '@hooks/useI18N';
@@ -16,12 +17,20 @@ export default function Header() {
 
     return (
         <header>
-            <Link href="/">
-                <a>
-                    <Image src={whiteStyle ? logo : logoBlack} alt={messages.common.name} />
-                </a>
-            </Link>
-            <Menu />
+            <Container className="flex flex-row justify-between">
+                <Link href="/">
+                    <a>
+                        <Image
+                            src={whiteStyle ? logo : logoBlack}
+                            alt={messages.common.name}
+                            priority
+                            loading={'eager'}
+                            width={140}
+                        />
+                    </a>
+                </Link>
+                <Menu />
+            </Container>
         </header>
     );
 }

@@ -15,6 +15,7 @@ export default function Layout({ children }) {
                 <link sizes="76x76" rel="apple-touch-icon" href="/favicon.png" />
                 <link sizes="152x152" rel="apple-touch-icon" href="/favicon.png" />
                 <meta name="description" content="Design studio" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <Header />
             <main className={styles.main}>{children}</main>

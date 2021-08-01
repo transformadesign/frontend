@@ -1,23 +1,33 @@
 import { GetStaticProps } from 'next'
 
 import Layout from '@cmp/Layout';
+import Intro from '@cmp/Intro';
 import { I18NProps } from '@pages/_app';
 import useI18N from '@hooks/useI18N';
 
 export default function Home() {
+    const { messages } = useI18N();
+
     return (
         <Layout>
-            <div>Home</div>
+            <Intro
+                content={messages.aboutShort.intro}
+                url="/pages/about"
+            />
+            <Intro
+                content={messages.careerShort.intro}
+                url="/pages/career"
+            />
         </Layout>
     )
 }
 
 export const getStaticProps: GetStaticProps<I18NProps> = ({ locale }) => {
-    console.log(locale);
     return {
         props: {
             messages: {
-                ...require(`../i18n/common.${locale}`)
+                ...require(`../i18n/aboutShort.${locale}`),
+                ...require(`../i18n/careerShort.${locale}`),
             },
             now: Date.now()
         }

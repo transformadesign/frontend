@@ -7,7 +7,7 @@ export default function Menu() {
 
     return (
         <nav>
-            <ul>
+            <ul className="flex flex-row justify-between items-center min-h-full">
                 <li key="main">
                     <Link href="/">
                         <a>{messages.common.menu.main}</a>

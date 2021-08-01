@@ -5,6 +5,7 @@ import ConfigCtx from '@ctx/config'
 import { classNames } from '@lib/classNames';
 import useI18N from '@hooks/useI18N';
 import logo from '@pub/logo.svg';
+import Container from '@cmp/Container';
 
 import social from './Social.module.css';
 import footer from './Footer.module.css';
@@ -39,8 +40,8 @@ export default function Footer() {
     const copyright = footerI18N.copyright.replace('%year', new Date().getFullYear().toString());
 
     return (
-        <footer className="mb-8 container">
-            <div className="sm:max-w-66p flex flex-row border-t border-r border-l border-black items-stretch text-center mt-12 mx-auto">
+        <Container as="footer" className="mb-8 max-w-screen-lg mx-auto">
+            <div className="sm:max-w-66p flex flex-row border-t border-r border-l border-black items-stretch text-center mt-12">
                 <div
                     aria-hidden="true"
                     className={classNames(
@@ -67,6 +68,6 @@ export default function Footer() {
                 </div>
             </div>
             <div className="sm:hidden text-center px-2 pt-4 text-xxs uppercase">{copyright}</div>
-        </footer>
+        </Container>
     );
 }

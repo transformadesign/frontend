@@ -11,7 +11,6 @@ module.exports = {
                 'accent-7': '#333',
                 success: '#0070f3',
                 cyan: '#79FFE1',
-                black: 'rgba(84, 84, 84, 1)',
                 'slider-button': '#262626',
                 'slider-title': '#262626'
             },
@@ -24,7 +23,8 @@ module.exports = {
                 widest: '0.25em'
             },
             lineHeight: {
-                tight: 1.2
+                tight: 1.2,
+                3: 3
             },
             height: {
                 xv: '80vh',
