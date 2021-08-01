@@ -1,0 +1,13 @@
+.instagram {
+    background-image: url('/instagram.svg');
+}
+.pinterest {
+    background-image: url('/pinterest.svg');
+}
+
+.link {
+    @apply inline-block bg-center bg-contain bg-no-repeat;
+
+    width: 16px;
+    height: 16px;
+}

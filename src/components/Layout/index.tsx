@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import Header from '@cmp/Header';
+import Footer from '@cmp/Footer';
 import styles from './Layout.module.css'
 
 const SITE_NAME = 'Transforma';
@@ -17,7 +18,7 @@ export default function Layout({ children }) {
             </Head>
             <Header />
             <main className={styles.main}>{children}</main>
-            <footer className={styles.footer} />
+            <Footer />
         </div>
     )
 }

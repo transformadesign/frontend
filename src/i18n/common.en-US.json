@@ -7,5 +7,9 @@
             "projects": "Projects",
             "career": "Career"
         }
+    },
+    "footer": {
+        "legalNotice": "Please, be informed, that the intellectual property rights to all the photos, designs and other materials on this Site belong to Transforma. You may request permission to use them by contacting us at: mail@transforma.ru",
+        "copyright": "Copyright %year. All rights reserved"
     }
 }

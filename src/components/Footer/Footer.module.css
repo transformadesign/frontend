@@ -1,0 +1,17 @@
+.row {
+    flex-basis: 50%;
+}
+
+.logo {
+    flex-basis: 80px;
+}
+
+.celled > .spaced {
+    @apply border-b-0;
+}
+
+.celled > * {
+    @apply items-center content-center justify-center px-2 py-1 border-b border-black;
+
+    flex-basis: 2.3rem;
+}
