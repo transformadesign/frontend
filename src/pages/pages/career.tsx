@@ -1,6 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
-import Layout from '@cmp/Layout';
 import { I18NProps } from '@pages/_app';
 import Container from '@cmp/Container';
 import useI18N from '@hooks/useI18N';
@@ -8,10 +7,8 @@ import useI18N from '@hooks/useI18N';
 export default function Career(params: InferGetStaticPropsType<typeof getStaticProps>) {
     const { messages } = useI18N();
     return (
-        <Layout>
-            <Container>Career</Container>
-        </Layout>
-    )
+        <Container>Career</Container>
+    );
 }
 
 export const getStaticProps: GetStaticProps<I18NProps> = async ({ locale }) => {
