@@ -1,11 +1,12 @@
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 
 import Header from '@cmp/Header';
 import Footer from '@cmp/Footer';
 
 const SITE_NAME = 'Transforma';
 
-export default function Layout({ children }) {
+const Layout: React.FC<{ mainCn?: string }> = ({ children, mainCn = 'pt-8' }) => {
     return (
         <div className="relative">
             <Head>
@@ -17,8 +18,10 @@ export default function Layout({ children }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <Header />
-            <main>{children}</main>
+            <main className={mainCn}>{children}</main>
             <Footer />
         </div>
     )
 }
+
+export default Layout;

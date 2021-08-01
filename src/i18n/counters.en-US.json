@@ -1,0 +1,19 @@
+{
+    "counters": [
+        {
+            "name": "brainstorm",
+            "val": 360,
+            "text": "Days of brainstorming sessions a year"
+        },
+        {
+            "name": "completed",
+            "val": 150,
+            "text": "Completed projects in style 'de luxe'"
+        },
+        {
+            "name": "cities",
+            "val": 20,
+            "text": "Cities around the world where our ideas were embodied"
+        }
+    ]
+}
