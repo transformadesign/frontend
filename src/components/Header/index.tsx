@@ -8,7 +8,7 @@ import logoBlack from '@pub/logo_large_black.svg';
 import useI18N from '@hooks/useI18N';
 import Menu from '@cmp/Menu';
 
-const whitePageRoutes = new Set(['']);
+const whitePageRoutes = new Set(['', '/']);
 
 export default function Header() {
     const { route } = useRouter();
@@ -16,7 +16,7 @@ export default function Header() {
     const whiteStyle = whitePageRoutes.has(route);
 
     return (
-        <header>
+        <header className="z-10 relative">
             <Container className="flex flex-row justify-between">
                 <Link href="/">
                     <a>
@@ -29,7 +29,7 @@ export default function Header() {
                         />
                     </a>
                 </Link>
-                <Menu />
+                <Menu whiteFlag={whiteStyle} />
             </Container>
         </header>
     );

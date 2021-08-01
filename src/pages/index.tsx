@@ -10,6 +10,7 @@ export default function Home() {
 
     return (
         <Layout>
+            <div className="h-20 bg-black absolute top-0 left-0 w-full" />
             <Intro
                 content={messages.aboutShort.intro}
                 url="/pages/about"

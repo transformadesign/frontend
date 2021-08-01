@@ -12,7 +12,7 @@ module.exports = {
                 success: '#0070f3',
                 cyan: '#79FFE1',
                 'slider-button': '#262626',
-                'slider-title': '#262626'
+                'slider-title': '#262626',
             },
             spacing: {
                 28: '7rem'

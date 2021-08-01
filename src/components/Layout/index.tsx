@@ -2,13 +2,12 @@ import Head from 'next/head'
 
 import Header from '@cmp/Header';
 import Footer from '@cmp/Footer';
-import styles from './Layout.module.css'
 
 const SITE_NAME = 'Transforma';
 
 export default function Layout({ children }) {
     return (
-        <div className={styles.container}>
+        <div className="relative">
             <Head>
                 <title>{SITE_NAME}</title>
                 <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
@@ -18,7 +17,7 @@ export default function Layout({ children }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <Header />
-            <main className={styles.main}>{children}</main>
+            <main>{children}</main>
             <Footer />
         </div>
     )

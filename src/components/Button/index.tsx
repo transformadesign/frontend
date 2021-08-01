@@ -13,7 +13,7 @@ const Button: React.FC<{ url: string }> = ({ url }) => {
         <Link href={url}>
             <a className={classNames(
                 button.btn,
-                'inline-block pl-4 pr-6 leading-3',
+                'inline-block pl-4 pr-6 leading-3 text-sm',
                 'border border-solid border-black',
                 'hover:bg-black hover:text-white hover:border-transparent'
             )}>

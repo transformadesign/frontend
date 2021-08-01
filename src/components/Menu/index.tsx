@@ -1,34 +1,38 @@
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 
 import useI18N from '@hooks/useI18N';
+import { classNames } from '@lib/classNames';
 
-export default function Menu() {
+const Menu: React.FC<{ whiteFlag: boolean }> = ({ whiteFlag }) => {
     const { messages } = useI18N();
+    const items = useMemo(() => [
+        { name: 'main', href: '/' },
+        { name: 'about', href: '/pages/about' },
+        { name: 'projects', href: '/projects' },
+        { name: 'career', href: '/pages/career' },
+    ], []);
 
     return (
-        <nav>
-            <ul className="flex flex-row justify-between items-center min-h-full">
-                <li key="main">
-                    <Link href="/">
-                        <a>{messages.common.menu.main}</a>
-                    </Link>
-                </li>
-                <li key="about">
-                    <Link href="/pages/about">
-                        <a>{messages.common.menu.about}</a>
-                    </Link>
-                </li>
-                <li key="projects">
-                    <Link href="/projects">
-                        <a>{messages.common.menu.projects}</a>
-                    </Link>
-                </li>
-                <li key="career">
-                    <Link href="/pages/career">
-                        <a>{messages.common.menu.career}</a>
-                    </Link>
-                </li>
+        <nav className="flex flex-col content-end">
+            <ul className="sm:flex flex-row justify-between items-stretch min-h-full hidden">
+                {items.map(({ name, href }) => (
+                    <li className="" key={name}>
+                        <Link href={href}>
+                            <a
+                                className={classNames(
+                                    'flex items-center min-h-full px-4 text-sm',
+                                    whiteFlag ? 'text-white' : undefined
+                                )}
+                            >
+                                {messages.common.menu[name]}
+                            </a>
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     );
 }
+
+export default  Menu;
