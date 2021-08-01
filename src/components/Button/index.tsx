@@ -18,7 +18,7 @@ const Button: React.FC<{ url: string }> = ({ url }) => {
                 'hover:bg-black hover:text-white hover:border-transparent'
             )}>
                 {common.btnMore}
-                <i className={classNames(button.ico, 'not-italic inline-block ml-2')}>&rarr;</i>
+                <i className={classNames(button.ico, 'not-italic inline-block ml-2')}> &rarr;</i>
             </a>
         </Link>
     );
