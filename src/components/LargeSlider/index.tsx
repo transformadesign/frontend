@@ -82,6 +82,12 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
         emblaApi.on('select', onSelect);
     }, [emblaApi, onSelect]);
 
+    useEffect(() => {
+        if (!emblaApi) return;
+
+        emblaApi.reInit();
+    }, [emblaApi]);
+
     const { slides } = content;
     const jsxSlides: Array<React.ReactElement> = useMemo(() => {
         return slides.map((slide, index) => (
