@@ -8,6 +8,9 @@ import LargeSliderTab from '@cmp/LargeSlider/LargeSliderTab';
 import { leadZero } from '@lib/leadZero';
 import Container from '@cmp/Container';
 import Arrow from '@cmp/Arrow';
+import { classNames } from '@lib/classNames';
+
+import styles from './LargeSlider.module.css';
 
 interface StaticImageData {
     src: string;
@@ -36,7 +39,9 @@ type Props = {
 };
 
 const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
-    const [emblaRef, emblaApi] = useEmblaCarousel(options);
+    const [emblaRef, emblaApi] = useEmblaCarousel(options || {
+        selectedClass: styles.active
+    });
 
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -88,7 +93,8 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
                             alt={slide.title}
                             layout="fill"
                             objectFit="cover"
-                            className="pointer-events-none"/>
+                            className={classNames(styles.img, 'pointer-events-none')}
+                        />
                         <i className="absolute left-0 top-0 right-0 bottom-0 bg-slide" />
                         <div
                             className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"
