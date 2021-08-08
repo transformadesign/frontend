@@ -82,17 +82,11 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
         emblaApi.on('select', onSelect);
     }, [emblaApi, onSelect]);
 
-    useEffect(() => {
-        if (!emblaApi) return;
-
-        emblaApi.reInit();
-    }, [emblaApi]);
-
     const { slides } = content;
     const jsxSlides: Array<React.ReactElement> = useMemo(() => {
         return slides.map((slide, index) => (
             <Link href={slide.url} key={slide.title} >
-                <a className="flex-slide">
+                <a className="flex-slide" style={{ flex: '0 0 100%' }}>
                     <div className="relative h-screen">
                         <Image
                             src={images.get(slide.img)}
@@ -140,8 +134,8 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
 
     return (
         <section className="relative mb-8 sm:mb-14">
-            <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex cursor-pointer">
+            <div className="overflow-hidden" style={{ overflow: 'hidden' }} ref={emblaRef}>
+                <div className="flex cursor-pointer" style={{ display: 'flex' }}>
                     {jsxSlides}
                 </div>
             </div>
