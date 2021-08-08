@@ -46,7 +46,7 @@ export default function Index(params: InferGetStaticPropsType<typeof getStaticPr
                 </div>
             </Container>
             <Info data={about.specs} showItemNumber />
-            <section className={classNames(styles.stickyBg, 'mb-20 py-10 px-20')}>
+            <section className={classNames(styles.stickyBg, 'mb-20 py-10 sm:px-20')}>
                 <Container as="p" className="text-white bg-gray-700 py-6 px-8">{about.moto}</Container>
             </section>
             <Info data={about.mission} />
