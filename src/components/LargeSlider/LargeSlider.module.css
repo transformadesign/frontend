@@ -1,5 +1,10 @@
-.active .img {
+.img {
     animation: zoomIn 15s linear infinite alternate;
+    animation-play-state: paused;
+}
+
+.active .img {
+    animation-play-state: running;
 }
 
 @keyframes zoomIn {
