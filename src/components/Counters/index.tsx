@@ -13,7 +13,7 @@ const Counters: React.FC<{
     const inner = (
         <ol className={classNames('flex flex-col sm:flex-row', innerCn)}>
             {content.map(elem => (
-                <li key={elem.name} className={classNames('flex flex-col flex-1 sm:pr-6 mb-10 sm:mb-0', elemCn)}>
+                <li key={elem.name} className={classNames('flex flex-col flex-1 sm:pr-6 mb-10 sm:mb-0 last:pr-0', elemCn)}>
                     <div className="font-bold text-3xl mb-2 flex-initial">{elem.val}+</div>
                     <div className={classNames(
                         'flex flex-1 uppercase tracking-wider text-gray-700 leading-5',

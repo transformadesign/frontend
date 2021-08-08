@@ -31,20 +31,7 @@ export default function Index(params: InferGetStaticPropsType<typeof getStaticPr
             <section className="mb-20 max-w-screen-2xl mx-auto">
                 <Image src={img1} layout="responsive" />
             </section>
-            <Container as="section" className="flex mb-20 flex-col sm:flex-row">
-                <Counters
-                    content={about.counters}
-                    noWrap
-                    innerCn="flex-1 flex-wrap sm:pr-2"
-                    elemCn="flex-quad"
-                    textCn="items-start text-xs"
-                />
-                <div className="flex-1 flex flex-col sm:pl-2">
-                    {about.stats.map((text, index) => (
-                        <p key={index}>{text}</p>
-                    ))}
-                </div>
-            </Container>
+            <Counters content={about.counters} />
             <Info data={about.specs} showItemNumber />
             <section className={classNames(styles.stickyBg, 'mb-20 py-10 sm:px-20')}>
                 <Container as="p" className="text-white bg-gray-700 py-6 px-8">{about.moto}</Container>
