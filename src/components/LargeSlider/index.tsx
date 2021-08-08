@@ -100,8 +100,8 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
                             className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"
                             aria-hidden="true"
                         >
-                            <i className="block h-64 sm:hidden" />
-                            <Container className="flex flex-col sm:flex-grow overflow-hidden mb-24 sm:m-auto text-white">
+
+                            <Container className="flex flex-col justify-end overflow-hidden w-full mb-24 sm:mb-40 text-white">
                                 <div className="text-sm mb-2">{leadZero(index + 1)}</div>
                                 <h3 className="text-4-5xl font-bold sm:text-5xl sm:font-extrabold leading-tight mb-6">
                                     {slide.title}
