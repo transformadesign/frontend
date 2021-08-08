@@ -14,7 +14,7 @@ export default function Header() {
     const isMainPage = useIsMainPage();
 
     return (
-        <header className={classNames('z-10 w-full', isMainPage ? 'absolute' : 'relative')}>
+        <header className={classNames('z-10 w-full pt-2', isMainPage ? 'absolute' : 'relative')}>
             <Container className="flex flex-row justify-between">
                 <Link href="/">
                     <a>

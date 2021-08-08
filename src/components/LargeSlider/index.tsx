@@ -124,7 +124,7 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
                 current={selectedIndex}
                 scrollTo={scrollTo}
                 speed={slide.speed}
-                className="flex-1 text-left text-white pb-4 flex flex-col"
+                className="flex-1 text-left text-white pb-4 sm:pb-12 flex flex-col"
             >
                 <div className="font-light opacity-50">{leadZero(index + 1)}</div>
                 <div className="font-light text-xs sm:text-sm mb-2 uppercase pr-4">{slide.tab.name}</div>
