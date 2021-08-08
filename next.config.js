@@ -12,4 +12,17 @@ module.exports = {
       }*/
     ],
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Developer',
+            value: 'https://vaseker.ru',
+          },
+        ],
+      }
+    ]
+  }
 }
