@@ -5,7 +5,7 @@
                 "img": "@pub/content/main/1.jpeg",
                 "title": "Premium interior design",
                 "description": "Saying \"luxury\" we reveal the total perception of the interior: visual, tactile, intuitive.",
-                "url": "/pages/about",
+                "url": "/about",
                 "speed": 5000,
                 "tab": {
                     "name": "Interior design"
@@ -35,7 +35,7 @@
                 "img": "@pub/content/main/4.jpeg",
                 "title": "Career",
                 "description": "Transorma is developing dynamically",
-                "url": "/pages/career",
+                "url": "/career",
                 "speed": 5000,
                 "tab": {
                     "name": "Career"

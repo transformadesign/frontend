@@ -5,8 +5,9 @@ import { classNames } from '@lib/classNames';
 type Level = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 
 const classes = {
-    '2': 'text-2xl sm:text-4xl font-bold',
-    '4': 'text-xs tracking-wider'
+    '2': 'text-3xl mb-4 sm:text-5xl font-bold',
+    '3': 'text-xl mb-4 sm:text-xl font-normal',
+    '4': 'text-xs tracking-wider uppercase mb-2 sm:mb-4 text-gray-700'
 };
 
 const Heading: React.FC<{ level?: Level; className?: string }> = ({ level = '4', className, children }) => {

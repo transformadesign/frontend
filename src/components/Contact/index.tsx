@@ -14,7 +14,7 @@ const Contact: React.FC = () => {
 
             return (
                 <div className="flex-1 pr-12 mb-6 last:pr-0">
-                    <Heading level="4" className="uppercase mb-2 sm:mb-6 text-gray-700">
+                    <Heading level="4">
                         {title}
                     </Heading>
                     {content.map((elem, i) => (

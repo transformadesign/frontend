@@ -27,12 +27,12 @@ export default function Main() {
             <LargeSlider content={messages.mainSlider} images={IMAGES} />
             <Intro
                 content={messages.aboutShort.intro}
-                url="/pages/about"
+                url="/about"
             />
-            <Counters content={messages.counters} />
+            <Counters content={messages.counters} textCn="items-center" />
             <Intro
                 content={messages.careerShort.intro}
-                url="/pages/career"
+                url="/career"
             />
             <Contact />
         </>

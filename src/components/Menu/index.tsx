@@ -7,9 +7,9 @@ import { classNames } from '@lib/classNames';
 const Menu: React.FC<{ whiteFlag: boolean }> = ({ whiteFlag }) => {
     const { messages } = useI18N();
     const items = useMemo(() => [
-        { name: 'about', href: '/pages/about' },
+        { name: 'about', href: '/about' },
         { name: 'projects', href: '/projects' },
-        { name: 'career', href: '/pages/career' },
+        { name: 'career', href: '/career' },
     ], []);
 
     return (
