@@ -1,0 +1,18 @@
+.arrow::before,
+.arrow::after {
+    @apply block absolute right-0 bottom-0 h-px;
+
+    background-color: inherit;
+    content: '';
+    width: 1.85em;
+}
+
+.arrow::before {
+    transform-origin: 100% 0;
+    transform: rotateZ(225deg) translateX(100%) translateY(-1px);
+}
+
+.arrow::after {
+    transform-origin: 100% 100%;
+    transform: rotateZ(-225deg) translateX(100%) translateY(1px);
+}

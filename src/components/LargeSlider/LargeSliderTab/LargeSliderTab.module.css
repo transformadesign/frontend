@@ -1,0 +1,10 @@
+.btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bar {
+    left: -100%;
+
+    transition-property: transform;
+    transition-timing-function: linear;
+}

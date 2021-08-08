@@ -1,27 +1,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import Container from '@cmp/Container';
 import logo from '@pub/logo_large.svg';
 import logoBlack from '@pub/logo_large_black.svg';
 import useI18N from '@hooks/useI18N';
 import Menu from '@cmp/Menu';
-
-const whitePageRoutes = new Set(['', '/']);
+import { classNames } from '@lib/classNames';
+import useIsMainPage from '@hooks/useIsMainPage';
 
 export default function Header() {
-    const { route } = useRouter();
     const { messages } = useI18N();
-    const whiteStyle = whitePageRoutes.has(route);
+    const isMainPage = useIsMainPage();
 
     return (
-        <header className="z-10 relative">
+        <header className={classNames('z-10 w-full', isMainPage ? 'absolute' : 'relative')}>
             <Container className="flex flex-row justify-between">
                 <Link href="/">
                     <a>
                         <Image
-                            src={whiteStyle ? logo : logoBlack}
+                            src={isMainPage ? logo : logoBlack}
                             alt={messages.common.name}
                             priority
                             loading={'eager'}
@@ -29,7 +27,7 @@ export default function Header() {
                         />
                     </a>
                 </Link>
-                <Menu whiteFlag={whiteStyle} />
+                <Menu whiteFlag={isMainPage} />
             </Container>
         </header>
     );

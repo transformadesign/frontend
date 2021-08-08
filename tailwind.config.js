@@ -50,6 +50,12 @@ module.exports = {
             },
             screens: {
                 xxs: '320px'
+            },
+            flex: {
+                slide: '0 0 100%'
+            },
+            backgroundColor: {
+                slide: 'rgba(0, 0, 0, .3)'
             }
         }
     }

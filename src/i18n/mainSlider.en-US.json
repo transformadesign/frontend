@@ -1,0 +1,46 @@
+{
+    "mainSlider": {
+        "slides": [
+            {
+                "img": "@pub/content/main/1.jpeg",
+                "title": "Premium interior design",
+                "description": "Saying \"luxury\" we reveal the total perception of the interior: visual, tactile, intuitive.",
+                "url": "/pages/about",
+                "speed": 5000,
+                "tab": {
+                    "name": "Interior design"
+                }
+            },
+            {
+                "img": "@pub/content/main/2.jpeg",
+                "title": "FF&E DESIGN",
+                "description": "Noble furniture, works of art, functional and aesthetically perfect decors that do not conflict in shape and colour, but complement each other, all these details perform space de luxe",
+                "url": "/pages/ffe",
+                "speed": 5000,
+                "tab": {
+                    "name": "FF&E DESIGN"
+                }
+            },
+            {
+                "img": "@pub/content/main/3.jpeg",
+                "title": "22 Carat",
+                "description": "XXII Carat Club Villas is a private residential area with 200 meter long beach and 22 villas placed on Palm Jumeirah island, close to the hotels One&Only the Palm and Jumeirah Zabeel Saray.",
+                "url": "/pages/xxii-carat",
+                "speed": 5000,
+                "tab": {
+                    "name": "22 Carat"
+                }
+            },
+            {
+                "img": "@pub/content/main/4.jpeg",
+                "title": "Career",
+                "description": "Transorma is developing dynamically",
+                "url": "/pages/career",
+                "speed": 5000,
+                "tab": {
+                    "name": "Career"
+                }
+            }
+        ]
+    }
+}
