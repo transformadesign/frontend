@@ -31,10 +31,15 @@ export default function Index(params: InferGetStaticPropsType<typeof getStaticPr
             <section className="mb-20 max-w-screen-2xl mx-auto">
                 <Image src={img1} layout="responsive" />
             </section>
-            <Counters content={about.counters} />
+            <Info data={about.counters}>
+                <Counters content={about.counters.data} />
+            </Info>
             <Info data={about.specs} showItemNumber />
             <section className={classNames(styles.stickyBg, 'mb-20 py-10 sm:px-20')}>
-                <Container as="p" className="text-white bg-gray-700 py-6 px-8">{about.moto}</Container>
+                <Container className="text-white bg-gray-700 py-6 px-8">
+                    <p>{about.moto[0]}</p>
+                    <p>{about.moto[1]}</p>
+                </Container>
             </section>
             <Info data={about.mission} />
             <Info data={about.credit} />

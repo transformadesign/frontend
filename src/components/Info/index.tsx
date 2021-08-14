@@ -20,7 +20,7 @@ type Props = {
     showItemNumber?: boolean;
 }
 
-const Info: React.FC<Props> = ({ data, showItemNumber }) => {
+const Info: React.FC<Props> = ({ data, showItemNumber, children }) => {
     return (
         <Container as="section" className="mb-20">
             <div className="text-center mb-10">
@@ -30,7 +30,7 @@ const Info: React.FC<Props> = ({ data, showItemNumber }) => {
             </div>
             <div className="flex flex-wrap flex-col sm:flex-row">
                 {
-                    data.items.map((item, index) => (
+                    data.items?.map((item, index) => (
                         <article key={index} className="flex-quad mb-6 sm:pr-2">
                             <div className="text-center relative my-6">
                                 {showItemNumber && (
@@ -52,6 +52,7 @@ const Info: React.FC<Props> = ({ data, showItemNumber }) => {
                         </article>
                     ))
                 }
+                {children}
             </div>
         </Container>
     );
