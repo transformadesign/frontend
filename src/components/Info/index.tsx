@@ -31,7 +31,7 @@ const Info: React.FC<Props> = ({ data, showItemNumber, children }) => {
             <div className="flex flex-wrap flex-col sm:flex-row">
                 {
                     data.items?.map((item, index) => (
-                        <article key={index} className="flex-quad mb-6 sm:pr-2">
+                        <article key={index} className="flex-quad mb-6 sm:pr-4">
                             <div className="text-center relative my-6">
                                 {showItemNumber && (
                                     <div
