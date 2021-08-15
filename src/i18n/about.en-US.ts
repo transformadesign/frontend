@@ -110,13 +110,15 @@ export default {
                 }
             ]
         },
-        moto: [
-            'A skillful team of professionals shares the values and beliefs of the company and acts heart to\n ' +
-            'heart achieving the set goals. We develop and implement projects of any scale and complexity.',
-            'We believe that success lies in being obsessed by ideas enthralling all people\n ' +
-            'involved in the project. The team does not change for years, we feel and understand\n ' +
-            'each other perfectly, pick up and develop all the ideas which are crazy enough to be\n ' +
-            'brilliant.'
-        ]
+        moto: {
+            text: [
+                'A skillful team of professionals shares the values and beliefs of the company and acts heart to\n ' +
+                'heart achieving the set goals. We develop and implement projects of any scale and complexity.',
+                'We believe that success lies in being obsessed by ideas enthralling all people\n ' +
+                'involved in the project. The team does not change for years, we feel and understand\n ' +
+                'each other perfectly, pick up and develop all the ideas which are crazy enough to be\n ' +
+                'brilliant.'
+            ]
+        }
     }
 }

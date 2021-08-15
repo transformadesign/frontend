@@ -26,7 +26,9 @@ const Info: React.FC<Props> = ({ data, showItemNumber, children }) => {
             <div className="text-center mb-10">
                 {data.title && <Heading level="4">{data.title}</Heading>}
                 {data.subTitle && <Heading level="2">{data.subTitle}</Heading>}
-                {data.description && <p>{data.description}</p>}
+                {data.description && Array.isArray(data.description) ?
+                    data.description.map(item => <p key={item}>{item}</p>) :
+                    <p>{data.description}</p>}
             </div>
             <div className="flex flex-wrap flex-col sm:flex-row">
                 {

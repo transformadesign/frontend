@@ -15,7 +15,7 @@
                 "img": "@pub/content/main/2.jpeg",
                 "title": "FF&E DESIGN",
                 "description": "Noble furniture, works of art, functional and aesthetically perfect decors that do not conflict in shape and colour, but complement each other, all these details perform space de luxe",
-                "url": "/pages/ffe",
+                "url": "/ffe",
                 "speed": 5000,
                 "tab": {
                     "name": "FF&E DESIGN"
