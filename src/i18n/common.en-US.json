@@ -16,7 +16,10 @@
         "addressTitle": "Address",
         "addresses": [
             {
-                "val": "Yekaterinburg city, st. Boris Yeltsin 1a"
+                "val": "RUSSIA, 1606, 1a Boris Yeltsin st., Yekaterinburg"
+            },
+            {
+                "val": "ITALY, 11, Foro Buonaparte, Milano"
             }
         ],
         "phoneTitle": "Contact us",
