@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import Image, { ImageProps } from 'next/image';
 import Link from 'next/link';
-import { useEmblaCarousel } from 'embla-carousel/react';
 import { EmblaOptionsType } from 'embla-carousel/embla-carousel-vanilla/options';
 
 import LargeSliderTab from '@cmp/LargeSlider/LargeSliderTab';
 import { leadZero } from '@lib/leadZero';
 import Container from '@cmp/Container';
 import Arrow from '@cmp/Arrow';
+import useSlider from '@cmp/Slider/useSlider';
 import { classNames } from '@lib/classNames';
 
 import styles from './LargeSlider.module.css';
@@ -26,7 +26,7 @@ type Slide = {
     };
     title: string;
     description: string;
-    url: string;
+    url?: string;
     speed: number;
     tab: {
         name: string;
@@ -42,49 +42,12 @@ type Props = {
 };
 
 const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
-    const [emblaRef, emblaApi] = useEmblaCarousel({
-        selectedClass: styles.active,
-        ...options
+    const { emblaRef, selectedIndex, scrollTo } = useSlider({
+        options: {
+            selectedClass: styles.active,
+            ...options
+        }
     });
-
-    const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
-    const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
-    const [selectedIndex, setSelectedIndex] = useState(0);
-
-    const onSelect = useCallback(() => {
-        if (!emblaApi) return;
-
-        setSelectedIndex(emblaApi.selectedScrollSnap());
-        setPrevBtnEnabled(emblaApi.canScrollPrev());
-        setNextBtnEnabled(emblaApi.canScrollNext());
-    }, [emblaApi]);
-
-    const scrollPrev = useCallback(() => {
-        if (!emblaApi) return;
-
-        emblaApi.scrollPrev();
-    }, [emblaApi]);
-    const scrollNext = useCallback(() => {
-        if (!emblaApi) return;
-
-        emblaApi.scrollNext();
-    }, [emblaApi]);
-    const scrollTo = useCallback(
-        (index) => {
-            if (!emblaApi) return;
-
-            emblaApi.scrollTo(index < emblaApi.slideNodes().length ? index : 0);
-        },
-        [emblaApi]
-    );
-
-    useEffect(() => {
-        if (!emblaApi) return;
-
-        onSelect();
-
-        emblaApi.on('select', onSelect);
-    }, [emblaApi, onSelect]);
 
     const { slides } = content;
     const jsxSlides: Array<React.ReactElement> = useMemo(() => {
@@ -147,7 +110,7 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
     return (
         <section className="relative mb-8 sm:mb-14">
             <div className="overflow-hidden" style={{ overflow: 'hidden' }} ref={emblaRef}>
-                <div className="flex cursor-pointer" style={{ display: 'flex' }}>
+                <div className="flex" style={{ display: 'flex' }}>
                     {jsxSlides}
                 </div>
             </div>

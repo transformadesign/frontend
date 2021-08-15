@@ -1,0 +1,10 @@
+.slide {
+    @apply py-72 relative;
+}
+
+@media all and (min-width: theme('screens.sm')) {
+    .slide {
+        @apply pt-0;
+        padding-bottom: 45%;
+    }
+}

@@ -6,10 +6,10 @@ import { I18NProps } from '@pages/_app';
 import Cut from '@cmp/Cut';
 import Text from '@cmp/Text';
 import Image from '@cmp/Image';
+import MediumSlider from '@cmp/MediumSlider';
 
 import useI18N from '@hooks/useI18N';
 
-import img1 from '@pub/content/xxii-carat/cover.png';
 import img2 from '@pub/content/xxii-carat/cover-2.png';
 
 import styles from './XXIICarat.module.css';
@@ -20,7 +20,7 @@ export default function XXIICarat(params: InferGetStaticPropsType<typeof getStat
     return (
         <>
             <Text data={data.intro} />
-            <Image src={img1} layout="responsive" placeholder="blur" alt="" />
+            <MediumSlider content={data.slider} />
             <Text data={data.architecture} />
             <Text data={data.villas} />
             <Cut data={data.cut} preset="color" />

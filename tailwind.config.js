@@ -5,7 +5,8 @@ module.exports = {
     ],
     variants: {
         extend: {
-            padding: ['last']
+            padding: ['last'],
+            margin: ['last']
         }
     },
     theme: {
@@ -40,7 +41,8 @@ module.exports = {
                 trio: '1 1 33%'
             },
             backgroundColor: {
-                slide: 'rgba(0, 0, 0, .3)'
+                slide: 'rgba(0, 0, 0, .3)',
+                'white-trans': 'rgba(255, 255, 255, .8)'
             }
         }
     }

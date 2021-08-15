@@ -58,22 +58,22 @@ export default {
                     "img": {
                         src: "/content/main/premium.jpg",
                     },
-                    "speed": 5000,
-                    "tab": {}
+                    "title": "XXI Hall",
+                    "description": "Dubai – UAE"
                 },
                 {
                     "img": {
                         src: "/content/main/ffe.jpg"
                     },
-                    "speed": 5000,
-                    "tab": {}
+                    "title": "XXI Bedroom",
+                    "description": "Dubai – UAE"
                 },
                 {
                     "img": {
                         src: "/content/main/career.jpg"
                     },
-                    "speed": 5000,
-                    "tab": {}
+                    "title": "XXI Kitchen",
+                    "description": "Dubai – UAE"
                 }
             ]
         }
