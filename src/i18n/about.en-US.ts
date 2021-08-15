@@ -90,7 +90,7 @@ export default {
                 {
                     text: 'The headquarters of the company is in Italy. From here to any point of the globe\n ' +
                         'we export high technologies of architecture and design, pieces of furniture art,\n ' +
-                        'interior and decor. And that&apos;s not all: the project of any complexity will\n ' +
+                        'interior and decor. And that\'s not all: the project of any complexity will\n ' +
                         'be implemented anywhere in the world. We transfer ideas, projects and control\n ' +
                         'the process.'
                 }
