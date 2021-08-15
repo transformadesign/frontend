@@ -6,16 +6,16 @@ import LargeSlider from '@cmp/LargeSlider';
 import { I18NProps } from '@pages/_app';
 import useI18N from '@hooks/useI18N';
 
-import img1 from '@pub/content/main/1.jpeg';
-import img2 from '@pub/content/main/2.jpeg';
-import img3 from '@pub/content/main/3.jpeg';
-import img4 from '@pub/content/main/4.jpeg';
+import img1 from '@pub/content/main/premium.jpg';
+import img2 from '@pub/content/main/ffe.jpg';
+import img3 from '@pub/content/main/22-carat.jpg';
+import img4 from '@pub/content/main/career.jpg';
 
 const IMAGES = new Map([
-    ['@pub/content/main/1.jpeg', img1],
-    ['@pub/content/main/2.jpeg', img2],
-    ['@pub/content/main/3.jpeg', img3],
-    ['@pub/content/main/4.jpeg', img4]
+    ['@pub/content/main/premium.jpg', img1],
+    ['@pub/content/main/ffe.jpg', img2],
+    ['@pub/content/main/22-carat.jpg', img3],
+    ['@pub/content/main/career.jpg', img4]
 ]);
 
 export default function Main() {
@@ -23,7 +23,7 @@ export default function Main() {
 
     return (
         <>
-            <LargeSlider content={messages.mainSlider} images={IMAGES} />
+            <LargeSlider content={messages.mainSlider} images={IMAGES} options={{ speed: 8 }} />
             <Intro
                 content={messages.aboutShort.intro}
                 url="/about"

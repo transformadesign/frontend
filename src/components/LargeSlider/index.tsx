@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 import Link from 'next/link';
 import { useEmblaCarousel } from 'embla-carousel/react';
 import { EmblaOptionsType } from 'embla-carousel/embla-carousel-vanilla/options';
@@ -20,7 +20,10 @@ interface StaticImageData {
 }
 
 type Slide = {
-    img: string;
+    img: {
+        src: string;
+        placeholder?: ImageProps['placeholder'];
+    };
     title: string;
     description: string;
     url: string;
@@ -34,13 +37,14 @@ type Props = {
     content: {
         slides: Array<Slide>
     };
-    images: Map<string, StaticImageData>;
+    images?: Map<string, StaticImageData>;
     options?: EmblaOptionsType;
 };
 
 const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
-    const [emblaRef, emblaApi] = useEmblaCarousel(options || {
-        selectedClass: styles.active
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        selectedClass: styles.active,
+        ...options
     });
 
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -84,16 +88,18 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
 
     const { slides } = content;
     const jsxSlides: Array<React.ReactElement> = useMemo(() => {
-        return slides.map((slide, index) => (
-            <Link href={slide.url} key={slide.title} >
-                <a className="flex-slide" style={{ flex: '0 0 100%' }}>
+        return slides.map((slide, index) => {
+            const { img } = slide;
+            const key = slide.title || index;
+            const cmp = (
+                <a className="flex-slide" key={key} style={{ flex: '0 0 100%' }}>
                     <div className="relative h-screen">
                         <Image
-                            src={images.get(slide.img)}
+                            src={images?.get(img.src) || img.src}
                             alt={slide.title}
                             layout="fill"
                             objectFit="cover"
-                            placeholder="blur"
+                            placeholder={img.placeholder}
                             className={classNames(styles.img, 'pointer-events-none')}
                         />
                         <i className="absolute left-0 top-0 right-0 bottom-0 bg-slide" />
@@ -113,14 +119,19 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
                         </div>
                     </div>
                 </a>
-            </Link>
+            );
 
-        ));
+            return slide.url ? (
+                <Link href={slide.url} key={key}>
+                    {cmp}
+                </Link>
+            ) : cmp;
+        });
     }, [images, slides]);
     const jsxTabs: Array<React.ReactElement> = slides.map((slide, index) => {
         return (
             <LargeSliderTab
-                key={slide.title}
+                key={slide.title || index}
                 index={index}
                 current={selectedIndex}
                 scrollTo={scrollTo}

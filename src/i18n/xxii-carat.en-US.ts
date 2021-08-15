@@ -51,6 +51,31 @@ export default {
             text: [
                 'Every item of home and street furniture and decor is of a special edition. It concerns terracotta tiles, roof terraces, pool areas, gazebos and shady pergolas.'
             ]
+        },
+        slider: {
+            "slides": [
+                {
+                    "img": {
+                        src: "/content/main/premium.jpg",
+                    },
+                    "speed": 5000,
+                    "tab": {}
+                },
+                {
+                    "img": {
+                        src: "/content/main/ffe.jpg"
+                    },
+                    "speed": 5000,
+                    "tab": {}
+                },
+                {
+                    "img": {
+                        src: "/content/main/career.jpg"
+                    },
+                    "speed": 5000,
+                    "tab": {}
+                }
+            ]
         }
     }
 }
