@@ -8,7 +8,7 @@ const Menu: React.FC<{ whiteFlag: boolean }> = ({ whiteFlag }) => {
     const { messages } = useI18N();
     const items = useMemo(() => [
         { name: 'about', href: '/about' },
-        { name: 'projects', href: '/projects' },
+        /*{ name: 'projects', href: '/projects' },*/
         { name: 'career', href: '/career' },
     ], []);
 
