@@ -1,6 +1,5 @@
 import React from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Image from 'next/image';
 
 import { I18NProps } from '@pages/_app';
 
@@ -9,6 +8,7 @@ import Info from '@cmp/Info';
 import Contact from '@cmp/Contact';
 import Cut from '@cmp/Cut';
 import Text from '@cmp/Text';
+import Image from '@cmp/Image';
 
 import useI18N from '@hooks/useI18N';
 
@@ -21,9 +21,7 @@ export default function About(params: InferGetStaticPropsType<typeof getStaticPr
     return (
         <>
             <Text data={about.intro} />
-            <section className="mb-20 max-w-screen-2xl mx-auto">
-                <Image src={img1} layout="responsive" placeholder="blur" alt="" />
-            </section>
+            <Image src={img1} layout="responsive" placeholder="blur" alt="" />
             <Info data={about.counters}>
                 <Counters content={about.counters.data} />
             </Info>

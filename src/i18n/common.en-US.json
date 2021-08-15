@@ -16,22 +16,19 @@
         "addressTitle": "Address",
         "addresses": [
             {
-                "val": "Екатеринбург, Бориса Ельцина 1а, 1606"
-            },
-            {
-                "val": "991 White St. Dawsonville GA 30534, New York"
+                "val": "Yekaterinburg city, st. Boris Yeltsin 1a"
             }
         ],
         "phoneTitle": "Contact us",
         "phones": [
             {
-                "val": 79221751932
+                "val": 73432875677
             }
         ],
         "emailTitle": "Let's work with us",
         "emails": [
             {
-                "val": "dvoedesign@inbox.ru"
+                "val": "info@transforma.ru"
             }
         ]
     }

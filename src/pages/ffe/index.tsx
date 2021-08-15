@@ -1,6 +1,5 @@
 import React from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Image from 'next/image';
 
 import { I18NProps } from '@pages/_app';
 
@@ -8,10 +7,11 @@ import Cut from '@cmp/Cut';
 import Info from '@cmp/Info';
 import Text from '@cmp/Text';
 import Contact from '@cmp/Contact';
+import Image from '@cmp/Image';
 
 import useI18N from '@hooks/useI18N';
 
-import img1 from '@pub/content/ffe/SPA_View04_12.webp';
+import img1 from '@pub/content/ffe/cover.png';
 
 import styles from './FFE.module.css';
 
@@ -20,9 +20,7 @@ export default function FFE(params: InferGetStaticPropsType<typeof getStaticProp
     return (
         <>
             <Text data={ffe.intro} />
-            <section className="mb-20 max-w-screen-2xl mx-auto">
-                <Image src={img1} layout="responsive" placeholder="blur" alt="" />
-            </section>
+            <Image src={img1} layout="responsive" placeholder="blur" alt="" />
             <Info data={ffe.stages} />
             <Cut data={ffe.cut} preset="color" />
             <Text data={ffe.text} />
