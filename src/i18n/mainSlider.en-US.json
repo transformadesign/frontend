@@ -5,7 +5,7 @@
                 "img": "@pub/content/main/1.jpeg",
                 "title": "Premium interior design",
                 "description": "Saying \"luxury\" we reveal the total perception of the interior: visual, tactile, intuitive.",
-                "url": "/about",
+                "url": "/interior-design",
                 "speed": 5000,
                 "tab": {
                     "name": "Interior design"
