@@ -9,7 +9,7 @@
         "btnMore": "Learn more"
     },
     "footer": {
-        "legalNotice": "Please, be informed, that the intellectual property rights to all the photos, designs and other materials on this Site belong to Transforma. You may request permission to use them by contacting us at: mail@transforma.ru",
+        "legalNotice": "Please, be informed, that the intellectual property rights to all the photos, designs and other materials on this Site belong to Transforma. You may request permission to use them by contacting us at: info@transforma.design",
         "copyright": "Copyright %year. All rights reserved"
     },
     "contacts": {
@@ -31,7 +31,7 @@
         "emailTitle": "Let's work with us",
         "emails": [
             {
-                "val": "info@transforma.ru"
+                "val": "info@transforma.design"
             }
         ]
     }
