@@ -6,7 +6,6 @@ import { I18NProps } from '@pages/_app';
 import Cut from '@cmp/Cut';
 import Info from '@cmp/Info';
 import Text from '@cmp/Text';
-import Contact from '@cmp/Contact';
 import Image from '@cmp/Image';
 
 import useI18N from '@hooks/useI18N';
@@ -25,7 +24,6 @@ export default function FFE(params: InferGetStaticPropsType<typeof getStaticProp
             <Cut data={ffe.cut} preset="color" />
             <Text data={ffe.text} />
             <Cut data={ffe.moto} className={styles.stickyBg} preset="image" />
-            <Contact />
         </>
     );
 }

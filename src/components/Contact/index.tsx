@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
             if (!content || !content.length) return null;
 
             return (
-                <div className="flex-1 pr-12 mb-6 last:pr-0">
+                <div className="flex-trio pr-12 mb-6 last:pr-0">
                     <Heading level="4">
                         {title}
                     </Heading>

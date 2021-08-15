@@ -4,11 +4,13 @@ import Head from 'next/head';
 import Header from '@cmp/Header';
 import Footer from '@cmp/Footer';
 
+import { classNames } from '@lib/classNames';
+
 const SITE_NAME = 'Transforma';
 
 const Layout: React.FC<{ mainCn?: string }> = ({ children, mainCn = 'pt-8' }) => {
     return (
-        <div className="relative">
+        <div className="relative min-h-screen flex flex-col">
             <Head>
                 <title>{SITE_NAME}</title>
                 <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
@@ -18,7 +20,7 @@ const Layout: React.FC<{ mainCn?: string }> = ({ children, mainCn = 'pt-8' }) =>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <Header />
-            <main className={mainCn}>{children}</main>
+            <main className={classNames('flex-1', mainCn)}>{children}</main>
             <Footer />
         </div>
     )

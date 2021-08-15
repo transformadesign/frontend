@@ -5,7 +5,6 @@ import { I18NProps } from '@pages/_app';
 
 import Cut from '@cmp/Cut';
 import Text from '@cmp/Text';
-import Contact from '@cmp/Contact';
 import Image from '@cmp/Image';
 
 import useI18N from '@hooks/useI18N';
@@ -29,7 +28,6 @@ export default function XXIICarat(params: InferGetStaticPropsType<typeof getStat
             <Image src={img2} layout="responsive" placeholder="blur" alt="" />
             <Text data={data.atmosphere} />
             <Cut data={data.moto} className={styles.stickyBg} preset="image" />
-            <Contact />
         </>
     );
 }

@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next'
 
 import Intro from '@cmp/Intro';
 import Counters from '@cmp/Counters';
-import Contact from '@cmp/Contact';
 import LargeSlider from '@cmp/LargeSlider';
 import { I18NProps } from '@pages/_app';
 import useI18N from '@hooks/useI18N';
@@ -34,7 +33,6 @@ export default function Main() {
                 content={messages.careerShort.intro}
                 url="/career"
             />
-            <Contact />
         </>
     )
 }

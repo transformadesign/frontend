@@ -36,7 +36,8 @@ module.exports = {
             },
             flex: {
                 slide: '0 0 100%',
-                quad: '0 0 50%'
+                quad: '0 0 50%',
+                trio: '1 1 33%'
             },
             backgroundColor: {
                 slide: 'rgba(0, 0, 0, .3)'

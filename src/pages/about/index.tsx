@@ -5,7 +5,6 @@ import { I18NProps } from '@pages/_app';
 
 import Counters from '@cmp/Counters';
 import Info from '@cmp/Info';
-import Contact from '@cmp/Contact';
 import Cut from '@cmp/Cut';
 import Text from '@cmp/Text';
 import Image from '@cmp/Image';
@@ -29,7 +28,6 @@ export default function About(params: InferGetStaticPropsType<typeof getStaticPr
             <Cut data={about.moto} className={styles.stickyBg} preset="image" />
             <Info data={about.mission} />
             <Info data={about.credit} />
-            <Contact />
         </>
     );
 }
