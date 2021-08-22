@@ -18,7 +18,7 @@ const Text: React.FC<Props> = ({ data}) => {
             {data.title && <Heading level="4">{data.title}</Heading>}
             {data.subTitle && <Heading level="2">{data.subTitle}</Heading>}
             {
-                data.text.map((text, index) => (
+                data.text?.map((text, index) => (
                     <p key={index} className="pt-4">{text}</p>
                 ))
             }

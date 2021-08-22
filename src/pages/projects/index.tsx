@@ -1,18 +1,24 @@
+import React from 'react';
 import { GetStaticProps } from 'next';
 
 import { I18NProps } from '@pages/_app';
-import Container from '@cmp/Container';
+import MediumSlider from '@cmp/MediumSlider';
+import useI18N from '@hooks/useI18N';
 
 export default function Projects() {
+    const { messages: { projects: data } } = useI18N();
     return (
-        <Container>Projects</Container>
+        <MediumSlider content={data.slider} />
     );
 }
 
 export const getStaticProps: GetStaticProps<I18NProps> = async ({ locale }) => {
     return {
         props: {
-            messages: {},
+            locale,
+            messages: {
+                ...require(`../../i18n/projects.${locale}`).default
+            },
             now: Date.now()
         }
     };

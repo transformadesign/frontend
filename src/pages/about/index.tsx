@@ -24,7 +24,7 @@ export default function About(params: InferGetStaticPropsType<typeof getStaticPr
             <Info data={about.counters}>
                 <Counters content={about.counters.data} />
             </Info>
-            <Info data={about.specs} showItemNumber />
+            <Info data={about.specs} />
             <Cut data={about.moto} className={styles.stickyBg} preset="image" />
             <Info data={about.mission} />
             <Info data={about.credit} />
