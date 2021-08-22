@@ -8,7 +8,7 @@ import useI18N from '@hooks/useI18N';
 export default function Projects() {
     const { messages: { projects: data } } = useI18N();
     return (
-        <MediumSlider content={data.slider} />
+        <MediumSlider content={data.slider} labels sizeMod="medium"  />
     );
 }
 

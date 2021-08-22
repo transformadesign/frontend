@@ -7,20 +7,18 @@ import Counters from '@cmp/Counters';
 import Info from '@cmp/Info';
 import Cut from '@cmp/Cut';
 import Text from '@cmp/Text';
-import Image from '@cmp/Image';
 
 import useI18N from '@hooks/useI18N';
 
-import img1 from '@pub/content/about/about-00.jpeg';
-
 import styles from './About.module.css';
+import MediumSlider from '@cmp/MediumSlider';
 
 export default function About(params: InferGetStaticPropsType<typeof getStaticProps>) {
-    const { messages: { about } } = useI18N();
+    const { messages: { about, projects } } = useI18N();
     return (
         <>
             <Text data={about.intro} />
-            <Image src={img1} layout="responsive" placeholder="blur" alt="" />
+            <MediumSlider content={projects.slider} sizeMod="low" />
             <Info data={about.counters}>
                 <Counters content={about.counters.data} />
             </Info>
@@ -37,7 +35,8 @@ export const getStaticProps: GetStaticProps<I18NProps> = async ({ locale }) => {
         props: {
             locale,
             messages: {
-                ...require(`../../i18n/about.${locale}`).default
+                ...require(`../../i18n/about.${locale}`).default,
+                ...require(`../../i18n/projects.${locale}`).default,
             },
             now: Date.now()
         }

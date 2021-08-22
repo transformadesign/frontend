@@ -23,10 +23,12 @@ type Props = {
     content: {
         slides: Array<Slide>
     };
+    labels?: boolean;
     options?: EmblaOptionsType;
+    sizeMod?: 'low' | 'medium'
 };
 
-const MediumSlider: React.FC<Props> = ({ options, content }) => {
+const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'medium' }) => {
     const { emblaRef, nextBtnEnabled, prevBtnEnabled, scrollNext, scrollPrev } = useSlider({
         options: {
             align: 'center',
@@ -42,7 +44,7 @@ const MediumSlider: React.FC<Props> = ({ options, content }) => {
             const key = slide.title || index;
             const cmp = (
                 <a key={key} style={{ flex: '0 0 88%' }} className="mr-2 last:mr-0">
-                    <div className={styles.slide}>
+                    <div className={classNames(styles.slide, styles[sizeMod])}>
                         <Image
                             src={img.src}
                             alt={slide.title}
@@ -51,7 +53,7 @@ const MediumSlider: React.FC<Props> = ({ options, content }) => {
                             placeholder={img.placeholder}
                             className={classNames(styles.img, 'pointer-events-none')}
                         />
-                        <div
+                        {labels && <div
                             className={classNames(
                                 'absolute bottom-0 mb-4 left-0 px-8 py-4',
                                 'bg-white-trans text-black',
@@ -62,7 +64,7 @@ const MediumSlider: React.FC<Props> = ({ options, content }) => {
                                 {slide.title}
                             </h3>
                             <p className="text-xs leading-6 tracking-wider">{slide.description}</p>
-                        </div>
+                        </div>}
                     </div>
                 </a>
             );
