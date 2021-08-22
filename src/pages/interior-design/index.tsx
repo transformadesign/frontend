@@ -10,7 +10,7 @@ import Info from '@cmp/Info';
 
 import useI18N from '@hooks/useI18N';
 
-import img1 from '@pub/content/interior-design/cover.png';
+import img1 from '@pub/content/interior-design/foto_interior.jpeg';
 
 import styles from './InteriorDesign.module.css';
 

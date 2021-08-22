@@ -43,6 +43,9 @@ module.exports = {
             backgroundColor: {
                 slide: 'rgba(0, 0, 0, .3)',
                 'white-trans': 'rgba(255, 255, 255, .8)'
+            },
+            height: {
+                large: '85vh'
             }
         }
     }

@@ -1,4 +1,4 @@
-{
+export default {
     "mainSlider": {
         "slides": [
             {
@@ -27,7 +27,7 @@
                     "name": "FF&E DESIGN"
                 }
             },
-            {
+            /*{
                 "img": {
                     "src": "@pub/content/main/22-carat.jpg",
                     "placeholder": "blur"
@@ -39,14 +39,14 @@
                 "tab": {
                     "name": "22 Carat"
                 }
-            },
+            },*/
             {
                 "img": {
                     "src": "@pub/content/main/career.jpg",
                     "placeholder": "blur"
                 },
                 "title": "Career",
-                "description": "Transorma is developing dynamically",
+                "description": "Transforma is developing dynamically",
                 "url": "/career",
                 "speed": 5000,
                 "tab": {

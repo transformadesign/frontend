@@ -23,7 +23,7 @@ type Props = {
 const Info: React.FC<Props> = ({ data, showItemNumber, children }) => {
     return (
         <Container as="section" className="mb-20">
-            <div className="text-center mb-10">
+            <div className="mb-10">
                 {data.title && <Heading level="4">{data.title}</Heading>}
                 {data.subTitle && <Heading level="2">{data.subTitle}</Heading>}
                 {data.description && Array.isArray(data.description) ?
@@ -34,13 +34,13 @@ const Info: React.FC<Props> = ({ data, showItemNumber, children }) => {
                 {
                     data.items?.map((item, index) => (
                         <article key={index} className="flex-quad mb-6 sm:pr-4">
-                            <div className="text-center relative my-6">
+                            <div className="relative my-6">
                                 {showItemNumber && (
                                     <div
                                         className={
                                             classNames(
-                                                'font-light text-gray-100 text-6xl',
-                                                'absolute w-full text-center',
+                                                'font-light text-gray-100 text-6xl pl-8',
+                                                'absolute w-full',
                                                 styles.number
                                             )
                                         }

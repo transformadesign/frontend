@@ -10,7 +10,7 @@ import Image from '@cmp/Image';
 
 import useI18N from '@hooks/useI18N';
 
-import img1 from '@pub/content/ffe/cover.png';
+import img1 from '@pub/content/ffe/foto_ffe.jpeg';
 
 import styles from './FFE.module.css';
 

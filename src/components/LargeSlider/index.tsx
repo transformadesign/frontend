@@ -56,7 +56,7 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
             const key = slide.title || index;
             const cmp = (
                 <a className="flex-slide" key={key} style={{ flex: '0 0 100%' }}>
-                    <div className="relative h-screen">
+                    <div className="relative h-large">
                         <Image
                             src={images?.get(img.src) || img.src}
                             alt={slide.title}

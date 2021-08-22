@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<I18NProps> = ({ locale }) => {
                 ...require(`../i18n/aboutShort.${locale}`),
                 ...require(`../i18n/careerShort.${locale}`),
                 ...require(`../i18n/counters.${locale}`),
-                ...require(`../i18n/mainSlider.${locale}`),
+                ...require(`../i18n/mainSlider.${locale}`).default,
             },
             now: Date.now()
         }

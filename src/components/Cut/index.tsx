@@ -27,8 +27,8 @@ const Cut: React.FC<Props> = ({ data, className, preset}) => {
     }, [preset]);
 
     return (
-        <section className={classNames('mb-14 py-20 text-white', layout.fontSize, layout.sectionCn, className)}>
-            <Container className={classNames('pt-2 pb-6', layout.containerCn)}>
+        <section className={classNames('mb-14 py-20 pb-24 text-white', layout.fontSize, layout.sectionCn, className)}>
+            <Container className={classNames('pt-2 pb-6 mb-8', layout.containerCn)}>
             {
                 data.text.map((text, index) => (
                     <p key={index} className="pt-4">{text}</p>
