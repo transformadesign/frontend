@@ -1,10 +1,4 @@
 .image {
-    @apply py-72 relative;
-}
-
-@media all and (min-width: theme('screens.sm')) {
-    .image {
-        @apply pt-0;
-        padding-bottom: 45%;
-    }
+    @apply relative;
+    padding-bottom: 56%;
 }
