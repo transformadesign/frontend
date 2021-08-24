@@ -1,13 +1,13 @@
-const name = 'snegiri-apt';
-const title = 'Apartment at Snegiri';
-const location = 'Moscow';
-const country = 'Russia';
+const name = 'cabana';
+const title = 'Cabana';
+const location = 'Palm Jumeirah';
+const country = 'UAE';
 
 export default {
     project: {
         slide: {
             img: {
-                src: `/content/projects/${name}/Ap_Snegiri_1.jpg`,
+                src: `/content/projects/${name}/cabana_1.jpg`,
             },
             url: `/projects/${name}`,
             title,
@@ -19,8 +19,11 @@ export default {
         location,
         images: [
             {
-                src: `/content/projects/${name}/Ap_Snegiri_1.jpg`
+                src: `/content/projects/${name}/cabana_1.jpg`
             },
+            {
+                src: `/content/projects/${name}/cabana_2.jpg`
+            }
         ],
     }
 }
