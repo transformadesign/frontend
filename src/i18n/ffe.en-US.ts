@@ -1,5 +1,8 @@
 export default {
     ffe: {
+        page: {
+            title: 'FF&E design'
+        },
         intro: {
             title: 'SERVICES',
             subTitle: 'FF&E DESIGN',

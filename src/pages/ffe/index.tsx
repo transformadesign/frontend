@@ -9,15 +9,19 @@ import Text from '@cmp/Text';
 import Image from '@cmp/Image';
 
 import useI18N from '@hooks/useI18N';
+import useTitle from '@hooks/useTitle';
 
 import img1 from '@pub/content/ffe/foto_ffe.jpeg';
 
 import styles from './FFE.module.css';
 
 export default function FFE(params: InferGetStaticPropsType<typeof getStaticProps>) {
-    const { messages: { ffe } } = useI18N();
+    const { messages: { ffe, common } } = useI18N();
+    const title = useTitle({ title: [common.services, ffe.page.title] });
+
     return (
         <>
+            {title}
             <Text data={ffe.intro} />
             <Image src={img1} layout="responsive" placeholder="blur" alt="" />
             <Info data={ffe.stages} />

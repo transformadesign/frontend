@@ -1,5 +1,8 @@
 export default {
     'interior-design': {
+        page: {
+            title: 'Interior Design'
+        },
         intro: {
             title: 'Services',
             subTitle: 'Interior Design',

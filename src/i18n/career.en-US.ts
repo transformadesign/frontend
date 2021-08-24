@@ -1,5 +1,8 @@
 export default {
     career: {
+        page: {
+            title: 'Career'
+        },
         intro: {
             title: 'CAREER',
             subTitle: 'Transforma is developing dynamically',

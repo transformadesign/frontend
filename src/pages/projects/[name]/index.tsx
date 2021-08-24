@@ -3,11 +3,13 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { I18NProps } from '@pages/_app';
 import Text from '@cmp/Text';
-import useI18N from '@hooks/useI18N';
 import Image from '@cmp/Image';
+import Container from '@cmp/Container';
+
+import useI18N from '@hooks/useI18N';
+import useTitle from '@hooks/useTitle';
 
 import styles from './Project.module.css';
-import Container from '@cmp/Container';
 
 export default function Project(params: InferGetStaticPropsType<typeof getStaticProps>) {
     const { messages: { project, common } } = useI18N();
@@ -17,9 +19,11 @@ export default function Project(params: InferGetStaticPropsType<typeof getStatic
             subTitle: project.title
         };
     }, [common.project, project.title]);
+    const title = useTitle({ title: [common.projects, project.title] });
 
     return (
         <>
+            {title}
             <Text data={text} />
             <Container className="mb-8">
                 <dl>

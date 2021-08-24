@@ -2,6 +2,9 @@ import countersModule from './counters.en-US.json';
 
 export default {
     about: {
+        page: {
+            title: 'About'
+        },
         intro: {
             title: 'we are transforma',
             subTitle: 'XXI LUXURY INTERIOR & ARCHITECTURE',

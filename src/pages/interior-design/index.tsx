@@ -9,16 +9,19 @@ import Image from '@cmp/Image';
 import Info from '@cmp/Info';
 
 import useI18N from '@hooks/useI18N';
+import useTitle from '@hooks/useTitle';
 
 import img1 from '@pub/content/interior-design/foto_interior.jpeg';
 
 import styles from './InteriorDesign.module.css';
 
 export default function InteriorDesign(params: InferGetStaticPropsType<typeof getStaticProps>) {
-    const { messages: { 'interior-design': data } } = useI18N();
+    const { messages: { 'interior-design': data, common } } = useI18N();
+    const title = useTitle({ title: [common.services, data.page.title] });
 
     return (
         <>
+            {title}
             <Text data={data.intro} />
             <Image src={img1} layout="responsive" placeholder="blur" alt="" />
             <Info data={data.interior} />

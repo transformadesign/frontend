@@ -9,14 +9,18 @@ import Cut from '@cmp/Cut';
 import Text from '@cmp/Text';
 
 import useI18N from '@hooks/useI18N';
+import useTitle from '@hooks/useTitle';
 
 import styles from './About.module.css';
 import MediumSlider from '@cmp/MediumSlider';
 
 export default function About(params: InferGetStaticPropsType<typeof getStaticProps>) {
     const { messages: { about, projects } } = useI18N();
+    const title = useTitle({ title: [about.page.title] });
+
     return (
         <>
+            {title}
             <Text data={about.intro} />
             <MediumSlider content={projects.slider} sizeMod="low" />
             <Info data={about.counters}>
