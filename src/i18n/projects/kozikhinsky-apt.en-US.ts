@@ -7,7 +7,7 @@ export default {
     project: {
         slide: {
             img: {
-                src: `/content/projects/${name}/Ap_kozikh.jpg`,
+                src: `/content/projects/${name}/Ap_kozikh_1.jpg`,
             },
             url: `/projects/${name}`,
             title,
@@ -18,9 +18,6 @@ export default {
         country,
         location,
         images: [
-            {
-                src: `/content/projects/${name}/Ap_kozikh.jpg`
-            },
             {
                 src: `/content/projects/${name}/Ap_kozikh_1.jpg`
             },
