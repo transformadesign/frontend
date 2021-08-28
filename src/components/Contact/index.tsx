@@ -14,11 +14,11 @@ const Contact: React.FC = () => {
 
             return (
                 <div className="flex-trio pr-12 mb-6 last:pr-0">
-                    <Heading level="4">
+                    <Heading level="3">
                         {title}
                     </Heading>
                     {content.map((elem, i) => (
-                        <div className="mb-3 sm:mb-7" key={i}>{elem}</div>
+                        <div className="mb-3 sm:mb-7 text-gray-700" key={i}>{elem}</div>
                     ))}
                 </div>
             );
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
                 {getBlock(
                     contacts.phoneTitle,
                     contacts.phones.map(({ val }) => (
-                        <a key={val} href={`tel:+${val}`}>
+                        <a key={val} href={`tel:+${val}`} className="text-gray-700">
                             {formatPhone(val)}
                         </a>
                     ))
@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
                 {getBlock(
                     contacts.emailTitle,
                     contacts.emails.map(({ val }) => (
-                        <a key={val} target="_blank" href={val} rel="noreferrer">
+                        <a key={val} target="_blank" href={val} rel="noreferrer" className="text-gray-700">
                             {val.replace(/^mailto:/, '')}
                         </a>
                     ))

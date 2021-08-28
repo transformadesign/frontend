@@ -5,7 +5,7 @@ import { classNames } from '@lib/classNames';
 type Level = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 
 const classes = {
-    '2': 'text-3xl my-5 font-bold',
+    '2': 'text-3xl my-5 font-normal',
     '3': 'uppercase text-xs text-gray-700 font-light tracking-widest my-5',
     '4': 'text-xs tracking-wider uppercase mb-2 sm:mb-4 text-gray-700'
 };

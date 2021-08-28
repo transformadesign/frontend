@@ -21,17 +21,17 @@ const Cut: React.FC<Props> = ({ data, className, preset}) => {
         }
 
         return {
-            fontSize: 'text-xl',
-            containerCn: 'bg-gray-900'
+            fontSize: 'text-3xl font-light',
+            containerCn: 'bg-gray-700'
         };
     }, [preset]);
 
     return (
-        <section className={classNames('mb-14 py-20 pb-24 text-white', layout.fontSize, layout.sectionCn, className)}>
-            <Container className={classNames('pt-2 pb-6 mb-8', layout.containerCn)}>
+        <section className={classNames('mb-14 pb-24 text-white', layout.fontSize, layout.sectionCn, className)}>
+            <Container className={classNames('pt-8 pb-24 mb-8', layout.containerCn)}>
             {
                 data.text.map((text, index) => (
-                    <p key={index} className="pt-4">{text}</p>
+                    <p key={index} className="pt-4 px-10 mr-40">{text}</p>
                 ))
             }
             </Container>

@@ -100,7 +100,7 @@ export default {
             ]
         },
         counters: {
-            subTitle: 'Growth and Expansion',
+            subTitle: 'Growth and expansion',
             description: 'The only figure in this list that one cannot influence is the number of days in a year. ' +
                 'The others are a matter of growth. ' +
                 'We are ready to accept talented men and women in our team to discover new cities and countries, and, of course, to increase the portfolio of new projects. We do and we have:',
@@ -108,19 +108,15 @@ export default {
                 ...countersModule.counters,
                 {
                     name: 'people',
-                    val: 23,
-                    text: 'PROFESSIONALS WHO TURN IDEAS INTO FINE ARTS'
+                    val: 30,
+                    text: 'Professionals who turn ideas into fine arts'
                 }
             ]
         },
         moto: {
             text: [
                 'A skillful team of professionals shares the values and beliefs of the company and acts heart to\n ' +
-                'heart achieving the set goals. We develop and implement projects of any scale and complexity.',
-                'We believe that success lies in being obsessed by ideas enthralling all people\n ' +
-                'involved in the project. The team does not change for years, we feel and understand\n ' +
-                'each other perfectly, pick up and develop all the ideas which are crazy enough to be\n ' +
-                'brilliant.'
+                'heart achieving the set goals. We develop and implement projects of any scale and complexity.'
             ]
         }
     }

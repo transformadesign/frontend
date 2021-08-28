@@ -9,10 +9,10 @@
 @media all and (min-width: theme('screens.sm')) {
     .medium, .low {
         @apply pt-0;
-        padding-bottom: 45%;
+        padding-bottom: 120%;
     }
 
     .low {
-        padding-bottom: 35%;
+        padding-bottom: 150%;
     }
 }

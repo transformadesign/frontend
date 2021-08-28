@@ -7,12 +7,12 @@
         },
         {
             "name": "completed",
-            "val": 150,
+            "val": 100,
             "text": "Completed projects in style 'de luxe'"
         },
         {
             "name": "cities",
-            "val": 20,
+            "val": 10,
             "text": "Cities around the world where our ideas were embodied"
         }
     ]

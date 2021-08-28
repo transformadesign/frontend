@@ -24,11 +24,23 @@ export default function Project(params: InferGetStaticPropsType<typeof getStatic
     return (
         <>
             {title}
-            <Text data={text} />
-            <Container className="mb-8">
-                <dl>
+            <Text data={text} className="mb-0" />
+            <Container className="mb-8 flex flex-row">
+                <dl className="mr-4">
                     <dt className="uppercase">{common.location}:</dt>
                     <dd className="text-gray-700">{[project.location, project.country].filter(Boolean).join(', ')}</dd>
+                </dl>
+                <dl className="mr-4">
+                    <dt className="uppercase">Square meters:</dt>
+                    <dd className="text-gray-700">800m<sup>2</sup></dd>
+                </dl>
+                <dl className="mr-4">
+                    <dt className="uppercase">Date:</dt>
+                    <dd className="text-gray-700">2021</dd>
+                </dl>
+                <dl className="mr-4">
+                    <dt className="uppercase">Brief:</dt>
+                    <dd className="text-gray-700">Developing an image of living spaces unique in aesthetics and functionality, our designers are not bound in the frames of one style. We revise patterns of different countries and ages, striving for a holistic, complete and sometimes unexpected view.</dd>
                 </dl>
             </Container>
             {project.images.map((image, i) => (

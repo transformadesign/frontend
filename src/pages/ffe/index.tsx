@@ -24,8 +24,8 @@ export default function FFE(params: InferGetStaticPropsType<typeof getStaticProp
             {title}
             <Text data={ffe.intro} />
             <Image src={img1} layout="responsive" placeholder="blur" alt="" />
-            <Info data={ffe.stages} />
-            <Cut data={ffe.cut} preset="color" />
+            <Info data={ffe.stages} className="mb-0" />
+            <Text data={ffe.cut} className="text-3xl text-gray-400 font-light" />
             <Text data={ffe.text} />
             <Cut data={ffe.moto} className={styles.stickyBg} preset="image" />
         </>

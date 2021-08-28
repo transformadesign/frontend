@@ -8,6 +8,7 @@ import { PrevButton, NextButton } from '@cmp/MediumSlider/MediumSliderButton';
 import { classNames } from '@lib/classNames';
 
 import styles from './MediumSlider.module.css';
+import Heading from '@cmp/Heading';
 
 type Slide = {
     img: {
@@ -31,7 +32,7 @@ type Props = {
 const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'medium' }) => {
     const { emblaRef, nextBtnEnabled, prevBtnEnabled, scrollNext, scrollPrev } = useSlider({
         options: {
-            align: 'center',
+            align: 'start',
             skipSnaps: false,
             ...options
         }
@@ -43,7 +44,7 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
             const { img } = slide;
             const key = slide.title || index;
             const cmp = (
-                <a key={key} style={{ flex: '0 0 88%' }} className="mr-2 last:mr-0">
+                <a key={key} style={{ flex: '0 0 25%' }} className="ml-5 mr-5 last:mr-0">
                     <div className={classNames(styles.slide, styles[sizeMod])}>
                         <Image
                             src={img.src}
@@ -55,15 +56,13 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
                         />
                         {labels && <div
                             className={classNames(
-                                'absolute bottom-0 mb-4 left-0 px-8 py-4',
-                                'bg-white-trans text-black',
+                                'absolute bottom-0 mb-16 left-0 ml-16 px-8 py-4',
+                                'text-white',
                             )}
                             aria-hidden="true"
                         >
-                            <h3 className="text-lg font-bold sm:font-extrabold leading-tight">
-                                {slide.title}
-                            </h3>
-                            <p className="text-xs leading-6 tracking-wider">{slide.description}</p>
+                            <Heading level="2" className="mb-0">{slide.title}</Heading>
+                            <p className="leading-6 tracking-wider">{slide.description}</p>
                         </div>}
                     </div>
                 </a>
@@ -75,7 +74,7 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
                 </Link>
             ) : cmp;
         });
-    }, [slides]);
+    }, [labels, sizeMod, slides]);
 
     return (
         <section className="relative mb-8 sm:mb-14">

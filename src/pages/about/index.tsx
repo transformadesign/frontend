@@ -24,7 +24,7 @@ export default function About(params: InferGetStaticPropsType<typeof getStaticPr
             <Text data={about.intro} />
             <MediumSlider content={projects.slider} sizeMod="low" />
             <Info data={about.counters}>
-                <Counters content={about.counters.data} />
+                <Counters content={about.counters.data} noWrap />
             </Info>
             <Info data={about.specs} />
             <Cut data={about.moto} className={styles.stickyBg} preset="image" />

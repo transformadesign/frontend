@@ -1,17 +1,17 @@
 export default {
     ffe: {
         page: {
-            title: 'FF&E design'
+            title: 'Furniture, Fixtures, and Equipment'
         },
         intro: {
             title: 'SERVICES',
-            subTitle: 'FF&E DESIGN',
+            subTitle: 'FURNITURE, FIXTURES AND EQUIPMENT',
             text: [
                 'Noble furniture, works of art, functional and aesthetically perfect decors that do not conflict in shape and colour, but complement each other, all these details perform space de luxe'
             ]
         },
         text: {
-            subTitle: 'ONE POINT, ONE GATE',
+            subTitle: 'One point, one gate',
             text: [
                 'TRANSFORMA is a single point of contact, it is a center for coordination and making all decisions in one gate. Inspection over all processes allows us to see the whole picture, at every stage of work.',
                 'For each contract we select brands exactly matching the style and spirit of the house. We negotiate with suppliers, visit factories and exhibitions. We are busy searching for novellities and evaluating the quality. And every time we chose the top things that the worldwide market may offer. Our partners that help us to reach the pinnacles of perfect interiors are Longhi, Vittoria Frigerio, Smania, Fendi, Preciosa, Barovier & Toso, Poliform, Roche Bobois, Giorgetti, Sans Souci, Masiero… and many other luxury brands.',
@@ -19,7 +19,7 @@ export default {
             ]
         },
         stages: {
-            subTitle: 'FOUR STAGES OF FF&E',
+            subTitle: 'Four stages of FF&E',
             description: [
                 'We start complectation even at the very first stages of the project development. The designer estimates in advance what kind of furniture and light should be chosen. Furniture and lighting play a leading role, and when everything is complemented by the appropriate decor, we expect for the effect of a "happy surprise". And this happy feeling will stay for many years.',
                 'A holistic view and understanding of the values, taste, lifestyle, and expectations of future owners is the keystone to project success. So the art of matching details, the ability to work out a proper decor for a space is a first proof of the high quality service. The whole process is divided in four stages: preparation of specifications, design validation and control, negotiations with suppliers of furniture, accessories and decor, and then delivery and final strokes that make the picture complete.'

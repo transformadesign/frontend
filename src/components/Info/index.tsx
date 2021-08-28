@@ -18,11 +18,12 @@ type Props = {
         }>
     };
     showItemNumber?: boolean;
+    className?: string;
 }
 
-const Info: React.FC<Props> = ({ data, showItemNumber, children }) => {
+const Info: React.FC<Props> = ({ data, showItemNumber, children, className }) => {
     return (
-        <Container as="section" className="mb-20">
+        <Container as="section" className={classNames('mb-12', className)}>
             <div className="mb-10">
                 {data.title && <Heading level="4">{data.title}</Heading>}
                 {data.subTitle && <Heading level="2">{data.subTitle}</Heading>}
@@ -48,7 +49,7 @@ const Info: React.FC<Props> = ({ data, showItemNumber, children }) => {
                                         {leadZero(index + 1)}
                                     </div>
                                 )}
-                                <Heading level="3" className="uppercase">{item.title}</Heading>
+                                <Heading level="4" className="uppercase">{item.title}</Heading>
                             </div>
                             <p>{item.text}</p>
                         </article>
