@@ -7,7 +7,10 @@ export default {
                     "placeholder": "blur"
                 },
                 "title": "Premium interior design",
-                "description": "Saying \"luxury\" we reveal the total perception of the interior: visual, tactile, intuitive.",
+                "description": [
+                    "\"Luxury interior\" means the harmony of space, the highest quality in every detail provided by the best furniture, lighting and decor factories.",
+                    "Saying \"luxury\" we reveal the total perception of the interior: visual, tactile, intuitive."
+                ],
                 "url": "/interior-design",
                 "speed": 5000,
                 "tab": {
@@ -46,7 +49,10 @@ export default {
                     "placeholder": "blur"
                 },
                 "title": "Career",
-                "description": "Transforma is developing dynamically",
+                "description": [
+                    "Transforma is developing dynamically.",
+                    "Therefore, we are constantly open to new participants."
+                ],
                 "url": "/career",
                 "speed": 5000,
                 "tab": {

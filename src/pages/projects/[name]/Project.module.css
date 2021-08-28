@@ -2,3 +2,7 @@
     @apply relative;
     padding-bottom: 56%;
 }
+
+.elem {
+    flex-basis: 27%;
+}

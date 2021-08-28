@@ -25,7 +25,7 @@ type Slide = {
         placeholder?: ImageProps['placeholder'];
     };
     title: string;
-    description: string;
+    description: string | string[];
     url?: string;
     speed: number;
     tab: {
@@ -76,7 +76,13 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
                                 <h3 className="text-4-5xl font-bold sm:text-5xl sm:font-extrabold leading-tight mb-6">
                                     {slide.title}
                                 </h3>
-                                <p className="text-sm leading-6">{slide.description}</p>
+                                {
+                                    (Array.isArray(slide.description) ?
+                                        slide.description :
+                                        slide.description ? [slide.description] : []
+                                    ).map((description, index) => (
+                                    <p className="text-sm leading-6 mr-0 sm:mr-16" key={index}>{description}</p>
+                                ))}
                                 <Arrow className="w-24 sm:w-32 text-xxs sm:text-xs opacity-60 bg-white" />
                             </Container>
                         </div>

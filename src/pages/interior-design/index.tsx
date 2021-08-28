@@ -25,7 +25,7 @@ export default function InteriorDesign(params: InferGetStaticPropsType<typeof ge
             <Text data={data.intro} />
             <Image src={img1} layout="responsive" placeholder="blur" alt="" />
             <Info data={data.interior} />
-            <Cut data={data.cut} preset="color" />
+            <Text data={data.cut} className="text-3xl text-gray-400 font-light" />
             <Text data={data.challenge} />
             <Cut data={data.moto} className={styles.stickyBg} preset="image" />
         </>

@@ -15,10 +15,10 @@ const Image: React.FC<Props> = props => {
     delete imageProps.className;
 
     // @ts-ignore
-    const img = <NextImage layout="responsive" placeholder="blur" alt="" {...imageProps} className="pointer-events-none" />;
+    const img = <NextImage placeholder="blur" alt="" {...imageProps} className="pointer-events-none" />;
 
     return (
-        <section className={classNames('mb-20 max-w-screen-2xl mx-auto relative', props.className, styles.image)}>
+        <section className={classNames('mb-20 mx-auto relative max-w-screen-2xl', props.className, props.layout !== 'responsive' && styles.image)}>
             {img}
         </section>
     );
