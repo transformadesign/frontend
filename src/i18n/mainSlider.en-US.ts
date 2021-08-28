@@ -19,7 +19,7 @@ export default {
                     "src": "@pub/content/main/ffe.jpg",
                     "placeholder": "blur"
                 },
-                "title": "FF&E DESIGN",
+                "title": "Furniture, Fixtures, and Equipment",
                 "description": "Noble furniture, works of art, functional and aesthetically perfect decors that do not conflict in shape and colour, but complement each other, all these details perform space de luxe",
                 "url": "/ffe",
                 "speed": 5000,
