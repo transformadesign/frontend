@@ -7,7 +7,7 @@ export default {
     project: {
         slide: {
             img: {
-                src: `/content/projects/${name}/Spa_1.jpg`,
+                src: `/content/projects/${name}/vila-spa.jpg`,
             },
             url: `/projects/${name}`,
             title,

@@ -120,7 +120,7 @@ export default {
             ]
         },
         slider: {
-            slides: (new Array(14)).fill(1).map((_, index) => ({
+            slides: Array.from(Array(14)).map((_, index) => ({
                 img: {
                     src: `/content/about/s${index + 1}.jpg`,
                 }

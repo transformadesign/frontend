@@ -31,7 +31,7 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
     const { emblaRef, nextBtnEnabled, prevBtnEnabled, scrollNext, scrollPrev } = useSlider({
         autoplay,
         options: {
-            align: 'start',
+            align: sizeMod === 'low' ? 'start' : 'center',
             skipSnaps: false,
             ...options
         }
@@ -43,8 +43,8 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
             const { img } = slide;
             const key = slide.title || index;
             const cmp = (
-                <a key={key} className="sm:pl-5 sm:pr-5 last:pr-0">
-                    <div className={classNames(styles.slide, styles[`slide-${sizeMod}`])}>
+                <a key={key} className={classNames('sm:pl-5 sm:pr-5 last:pr-0 relative flex flex-grow flex-shrink-0', styles[`slide-${sizeMod}`])}>
+                    <div className={classNames('relative flex-auto', styles[`aspect-${sizeMod}`])}>
                         <Image
                             src={img.src}
                             alt={slide.title}
@@ -56,8 +56,9 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
                         />
                         {labels && <div
                             className={classNames(
-                                'absolute bottom-0 mb-16 left-0 ml-16 px-8 py-4',
+                                'absolute bottom-0 mb-16 left-0 ml-6 sm:ml-16 px-8 py-4',
                                 'text-white',
+                                styles.label
                             )}
                             aria-hidden="true"
                         >

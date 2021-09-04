@@ -41,8 +41,7 @@ module.exports = {
                 trio: '1 1 33%'
             },
             backgroundColor: {
-                slide: 'rgba(0, 0, 0, .3)',
-                'white-trans': 'rgba(255, 255, 255, .8)'
+                slide: 'rgba(0, 0, 0, .3)'
             },
             height: {
                 large: '85vh'
