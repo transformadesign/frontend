@@ -17,7 +17,7 @@ export default {
         title,
         country,
         location,
-        size: 800,
+        size: 200,
         year: 2021,
         brief: 'Developing an image of living spaces unique in aesthetics and functionality, our designers are not bound in the frames of one style. We revise patterns of different countries and ages, striving for a holistic, complete and sometimes unexpected view.',
         images: [
