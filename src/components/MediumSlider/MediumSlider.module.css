@@ -25,6 +25,16 @@
     padding-bottom: 56%;
 }
 
+.aspect-medium::after {
+    content: '';
+    transition: opacity .3s ease-out;
+    @apply absolute top-0 right-0 bottom-0 left-0 bg-black opacity-40;
+}
+
+:global(.is-selected) .aspect-medium::after {
+    @apply opacity-0;
+}
+
 .label {
     text-shadow: 0 0 2px #333;
 }

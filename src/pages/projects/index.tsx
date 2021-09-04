@@ -13,7 +13,7 @@ export default function Projects() {
     return (
         <>
             {title}
-            <MediumSlider content={data.slider} labels sizeMod="medium" options={{ loop: true }}  />
+            <MediumSlider content={data.slider} labels sizeMod="medium" options={{ loop: true, inViewThreshold: 0.8 }}  />
         </>
     );
 }
