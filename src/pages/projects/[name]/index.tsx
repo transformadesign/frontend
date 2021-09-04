@@ -34,20 +34,20 @@ export default function Project(params: InferGetStaticPropsType<typeof getStatic
                 </dl>
                 <dl className={classNames('mr-4 mb-4', styles.elem)}>
                     <dt className="uppercase">{common.size}:</dt>
-                    <dd className="text-gray-700">800m<sup>2</sup></dd>
+                    <dd className="text-gray-700">{project.size}m<sup>2</sup></dd>
                 </dl>
                 <dl className={classNames('mr-4 mb-4', styles.elem)}>
                     <dt className="uppercase">{common.date}:</dt>
-                    <dd className="text-gray-700">2021</dd>
+                    <dd className="text-gray-700">{project.year}</dd>
                 </dl>
                 <dl className="mr-4 mb-4">
                     <dt className="uppercase">{common.brief}:</dt>
-                    <dd className="text-gray-700">Developing an image of living spaces unique in aesthetics and functionality, our designers are not bound in the frames of one style. We revise patterns of different countries and ages, striving for a holistic, complete and sometimes unexpected view.</dd>
+                    <dd className="text-gray-700">{project.brief}</dd>
                 </dl>
             </Container>
             {project.images.map((image, i) => (
                 <a href={image.src} target="_blank" key={i} rel="noreferrer">
-                    <Image src={image.src} layout="fill" placeholder="empty" className={styles.image} />
+                    <Image src={image.src} layout="fill" placeholder="empty" className={styles.image} priority />
                 </a>
             ))}
         </>

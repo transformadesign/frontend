@@ -17,6 +17,9 @@ export default {
         title,
         country,
         location,
+        size: 850,
+        year: 2012,
+        brief: 'Developing an image of living spaces unique in aesthetics and functionality, our designers are not bound in the frames of one style. We revise patterns of different countries and ages, striving for a holistic, complete and sometimes unexpected view.',
         images: [
             {
                 src: `/content/projects/${name}/stern_1.jpg`
