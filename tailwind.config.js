@@ -46,6 +46,15 @@ module.exports = {
             },
             height: {
                 large: '85vh'
+            },
+            screens: {
+                low: { raw : '(max-height: 600px)' }
+            },
+            inset: {
+                header: '100px'
+            },
+            minHeight: {
+                slide: '600px'
             }
         }
     }

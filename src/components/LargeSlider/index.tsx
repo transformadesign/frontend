@@ -56,7 +56,7 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
             const key = slide.title || index;
             const cmp = (
                 <a className="flex-slide mx-5" key={key}>
-                    <div className="relative h-large">
+                    <div className="relative h-large low:h-screen min-h-slide">
                         <Image
                             src={images?.get(img.src) || img.src}
                             alt={slide.title}
@@ -67,11 +67,11 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
                         />
                         <i className="absolute left-0 top-0 right-0 bottom-0 bg-slide" />
                         <div
-                            className="absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"
+                            className="absolute top-header bottom-24 sm:bottom-40 left-0 right-0 flex flex-col justify-end sm:flex-row sm:justify-center"
                             aria-hidden="true"
                         >
 
-                            <Container className="flex flex-col justify-end overflow-hidden w-full mb-24 sm:mb-40 text-white">
+                            <Container className="flex flex-col justify-end overflow-hidden w-full text-white">
                                 <div className="text-sm mb-2">{leadZero(index + 1)}</div>
                                 <h3 className="text-4-5xl font-bold sm:text-5xl sm:font-extrabold leading-tight mb-6">
                                     {slide.title}
