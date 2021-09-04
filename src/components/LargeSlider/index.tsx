@@ -55,7 +55,7 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
             const { img } = slide;
             const key = slide.title || index;
             const cmp = (
-                <a className="flex-slide mx-5" key={key} style={{ flex: '0 0 100%' }}>
+                <a className="flex-slide mx-5" key={key}>
                     <div className="relative h-large">
                         <Image
                             src={images?.get(img.src) || img.src}

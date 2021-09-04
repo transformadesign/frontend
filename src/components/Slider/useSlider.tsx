@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useEmblaCarousel } from 'embla-carousel/react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEmblaCarousel, UseEmblaCarouselType } from 'embla-carousel/react';
 import { EmblaOptionsType } from 'embla-carousel/embla-carousel-vanilla/options';
 
 import styles from './Slider.module.css';
@@ -15,6 +15,20 @@ export default function useSlider(props: Props) {
         draggingClass: styles.dragging,
         ...options
     });
+    const timerRef = useRef(0);
+    const temporaryRef: UseEmblaCarouselType[0] = useCallback(instance => {
+        if (instance) {
+            timerRef.current = requestAnimationFrame(() => {
+                emblaRef(instance);
+            });
+        }
+    }, [emblaRef]);
+
+    useEffect(() => {
+        return () => {
+            cancelAnimationFrame(timerRef.current);
+        }
+    }, []);
 
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -61,7 +75,7 @@ export default function useSlider(props: Props) {
 
     return {
         emblaApi,
-        emblaRef,
+        emblaRef: temporaryRef,
         prevBtnEnabled,
         nextBtnEnabled,
         selectedIndex,
