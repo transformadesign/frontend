@@ -15,14 +15,14 @@ import styles from './About.module.css';
 import MediumSlider from '@cmp/MediumSlider';
 
 export default function About(params: InferGetStaticPropsType<typeof getStaticProps>) {
-    const { messages: { about, projects } } = useI18N();
+    const { messages: { about } } = useI18N();
     const title = useTitle({ title: [about.page.title] });
 
     return (
         <>
             {title}
             <Text data={about.intro} />
-            <MediumSlider content={projects.slider} sizeMod="low" />
+            <MediumSlider content={about.slider} sizeMod="low" options={{ containScroll: 'trimSnaps' }} />
             <Info data={about.counters}>
                 <Counters content={about.counters.data} noWrap />
             </Info>
@@ -39,8 +39,7 @@ export const getStaticProps: GetStaticProps<I18NProps> = async ({ locale }) => {
         props: {
             locale,
             messages: {
-                ...require(`../../i18n/about.${locale}`).default,
-                ...require(`../../i18n/projects.${locale}`).default,
+                ...require(`../../i18n/about.${locale}`).default
             },
             now: Date.now()
         }

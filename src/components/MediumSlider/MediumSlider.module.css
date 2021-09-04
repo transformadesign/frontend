@@ -2,17 +2,32 @@
     @apply relative;
 }
 
-.medium, .low {
+.slide-medium {
     @apply py-72;
 }
 
+.wrap-low {
+    @apply mx-auto;
+    padding-left: 45px;
+    padding-right: 45px;
+    max-width: 1890px;
+}
+
+.slide-low {
+    min-width: 370px;
+    padding-bottom: 146%;
+}
+
 @media all and (min-width: theme('screens.sm')) {
-    .medium, .low {
+    .slide-medium {
         @apply pt-0;
         padding-bottom: 120%;
     }
 
-    .low {
-        padding-bottom: 150%;
+    .slide-low {
+        width: 410px;
+        height: 600px;
+
+        padding-bottom: 0;
     }
 }

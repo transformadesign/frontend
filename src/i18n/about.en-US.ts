@@ -118,6 +118,13 @@ export default {
                 'A skillful team of professionals shares the values and beliefs of the company and acts heart to\n ' +
                 'heart achieving the set goals. We develop and implement projects of any scale and complexity.'
             ]
+        },
+        slider: {
+            slides: (new Array(14)).fill(1).map((_, index) => ({
+                img: {
+                    src: `/content/about/s${index + 1}.jpg`,
+                }
+            }))
         }
     }
 }

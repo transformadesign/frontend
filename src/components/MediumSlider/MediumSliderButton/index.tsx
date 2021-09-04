@@ -5,13 +5,14 @@ import { classNames } from '@lib/classNames';
 type Props = {
     enabled: boolean;
     onClick: () => void;
+    sizeMod?: 'low' | 'medium';
 }
 
 import styles from './MediumSliderButton.module.css';
 
-export const PrevButton: React.FC<Props> = ({ enabled, onClick }) => (
+export const PrevButton: React.FC<Props> = ({ enabled, onClick, sizeMod }) => (
     <button
-        className={classNames(styles.btn, styles.prev)}
+        className={classNames(styles.btn, styles.prev, sizeMod)}
         onClick={onClick}
         disabled={!enabled}
     >
@@ -21,9 +22,9 @@ export const PrevButton: React.FC<Props> = ({ enabled, onClick }) => (
     </button>
 );
 
-export const NextButton: React.FC<Props> = ({ enabled, onClick }) => (
+export const NextButton: React.FC<Props> = ({ enabled, onClick, sizeMod }) => (
     <button
-        className={classNames(styles.btn, styles.next)}
+        className={classNames(styles.btn, styles.next, sizeMod)}
         onClick={onClick}
         disabled={!enabled}
     >

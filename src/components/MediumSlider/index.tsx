@@ -44,13 +44,13 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
             const { img } = slide;
             const key = slide.title || index;
             const cmp = (
-                <a key={key} style={{ flex: '0 0 25%' }} className="ml-5 mr-5 last:mr-0">
-                    <div className={classNames(styles.slide, styles[sizeMod])}>
+                <a key={key} className="sm:pl-5 sm:pr-5 last:pr-0">
+                    <div className={classNames(styles.slide, styles[`slide-${sizeMod}`])}>
                         <Image
                             src={img.src}
                             alt={slide.title}
                             layout="fill"
-                            objectFit="cover"
+                            objectFit="contain"
                             placeholder={img.placeholder}
                             className={classNames(styles.img, 'pointer-events-none')}
                         />
@@ -77,14 +77,14 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
     }, [labels, sizeMod, slides]);
 
     return (
-        <section className="relative mb-8 sm:mb-14">
-            <div className="overflow-hidden" style={{ overflow: 'hidden' }} ref={emblaRef}>
-                <div className="flex" style={{ display: 'flex' }}>
+        <section className={classNames('relative mb-8 sm:mb-14', styles[`wrap-${sizeMod}`])}>
+            <div className={classNames('overflow-hidden', styles[`container-${sizeMod}`])} ref={emblaRef}>
+                <div className="flex">
                     {jsxSlides}
                 </div>
             </div>
-            <PrevButton enabled={prevBtnEnabled} onClick={scrollPrev} />
-            <NextButton enabled={nextBtnEnabled} onClick={scrollNext} />
+            <PrevButton enabled={prevBtnEnabled} onClick={scrollPrev} sizeMod={sizeMod} />
+            <NextButton enabled={nextBtnEnabled} onClick={scrollNext} sizeMod={sizeMod} />
         </section>
     )
 };

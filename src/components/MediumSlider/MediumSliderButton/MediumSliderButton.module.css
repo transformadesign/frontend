@@ -16,6 +16,10 @@
     padding: 0;
 }
 
+.btn:global(.low) {
+    fill: #333;
+}
+
 .btn:disabled {
     cursor: default;
     opacity: 0.3;
@@ -30,6 +34,14 @@
     @apply left-1;
 }
 
+.prev:global(.low) {
+    @apply left-0;
+}
+
 .next {
     @apply right-1;
+}
+
+.next:global(.low) {
+    @apply right-0;
 }
