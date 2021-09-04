@@ -52,6 +52,7 @@ const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'med
                             objectFit="contain"
                             placeholder={img.placeholder}
                             className={classNames(styles.img, 'pointer-events-none')}
+                            priority
                         />
                         {labels && <div
                             className={classNames(

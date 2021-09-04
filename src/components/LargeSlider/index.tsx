@@ -64,6 +64,7 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
                             objectFit="cover"
                             placeholder={img.placeholder}
                             className={classNames(styles.img, 'pointer-events-none')}
+                            priority
                         />
                         <i className="absolute left-0 top-0 right-0 bottom-0 bg-slide" />
                         <div

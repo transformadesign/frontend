@@ -16,6 +16,11 @@ export default function useAutoplay(props: Props) {
         clearTimeout(autoPlayTimer.current);
     }, []);
 
+    const stopOnPointerEvent = useCallback(() => {
+        stop();
+        emblaApi.off('pointerDown', stopOnPointerEvent);
+    }, [emblaApi, stop]);
+
     const autoScrollNext = useCallback(() => {
         stop();
         autoPlayTimer.current = window.setTimeout(() => {
@@ -31,10 +36,13 @@ export default function useAutoplay(props: Props) {
 
         autoScrollNext();
 
+        emblaApi.on('pointerDown', stopOnPointerEvent);
+
         return () => {
             clearTimeout(autoPlayTimer.current);
+            emblaApi.off('pointerDown', stopOnPointerEvent);
         };
-    }, [autoScrollNext, autoplay, emblaApi]);
+    }, [autoScrollNext, autoplay, emblaApi, stop, stopOnPointerEvent]);
 
     return {
         stop
