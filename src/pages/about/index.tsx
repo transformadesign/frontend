@@ -22,7 +22,7 @@ export default function About(params: InferGetStaticPropsType<typeof getStaticPr
         <>
             {title}
             <Text data={about.intro} />
-            <MediumSlider content={about.slider} sizeMod="low" options={{ containScroll: 'trimSnaps' }} />
+            <MediumSlider content={about.slider} sizeMod="low" options={{ containScroll: 'trimSnaps' }} autoplay={5000} />
             <Info data={about.counters}>
                 <Counters content={about.counters.data} noWrap />
             </Info>

@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react';
 import Image, { ImageProps } from 'next/image';
 import Link from 'next/link';
-import { EmblaOptionsType } from 'embla-carousel/embla-carousel-vanilla/options';
 
-import useSlider from '@cmp/Slider/useSlider';
+import useSlider, { Props as SliderHookProps } from '@cmp/Slider/useSlider';
 import { PrevButton, NextButton } from '@cmp/MediumSlider/MediumSliderButton';
 import { classNames } from '@lib/classNames';
 
@@ -20,17 +19,17 @@ type Slide = {
     url?: string;
 };
 
-type Props = {
+type Props = SliderHookProps & {
     content: {
         slides: Array<Slide>
     };
     labels?: boolean;
-    options?: EmblaOptionsType;
     sizeMod?: 'low' | 'medium'
 };
 
-const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'medium' }) => {
+const MediumSlider: React.FC<Props> = ({ options, labels, content, sizeMod= 'medium', autoplay }) => {
     const { emblaRef, nextBtnEnabled, prevBtnEnabled, scrollNext, scrollPrev } = useSlider({
+        autoplay,
         options: {
             align: 'start',
             skipSnaps: false,

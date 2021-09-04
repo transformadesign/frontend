@@ -2,19 +2,24 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useEmblaCarousel, UseEmblaCarouselType } from 'embla-carousel/react';
 import { EmblaOptionsType } from 'embla-carousel/embla-carousel-vanilla/options';
 
+import useAutoplay from '@cmp/Slider/useAutoplay';
+
 import styles from './Slider.module.css';
 
-type Props = {
+export type Props = {
     options?: EmblaOptionsType;
+    autoplay?: number;
 };
 
 export default function useSlider(props: Props) {
-    const { options } = props;
+    const { options, autoplay } = props;
     const [emblaRef, emblaApi] = useEmblaCarousel({
         draggableClass: styles.draggable,
         draggingClass: styles.dragging,
         ...options
     });
+    const autoPlayNext = useRef(() => {});
+    const autoPlay = useAutoplay({ autoplay, emblaApi, next: autoPlayNext });
     const timerRef = useRef(0);
     const temporaryRef: UseEmblaCarouselType[0] = useCallback(instance => {
         if (instance) {
@@ -46,19 +51,24 @@ export default function useSlider(props: Props) {
         if (!emblaApi) return;
 
         emblaApi.scrollPrev();
-    }, [emblaApi]);
+        autoPlay.stop();
+    }, [autoPlay, emblaApi]);
     const scrollNext = useCallback(() => {
         if (!emblaApi) return;
 
         emblaApi.scrollNext();
-    }, [emblaApi]);
+        autoPlay.stop();
+    }, [autoPlay, emblaApi]);
+    autoPlayNext.current = scrollNext;
+
     const scrollTo = useCallback(
         (index) => {
             if (!emblaApi) return;
 
             emblaApi.scrollTo(index < emblaApi.slideNodes().length ? index : 0);
+            autoPlay.stop();
         },
-        [emblaApi]
+        [autoPlay, emblaApi]
     );
 
     useEffect(() => {
