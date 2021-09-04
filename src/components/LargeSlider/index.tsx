@@ -115,8 +115,8 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
 
     return (
         <section className="relative mb-8 sm:mb-14">
-            <div className="overflow-hidden" style={{ overflow: 'hidden' }} ref={emblaRef}>
-                <div className="flex" style={{ display: 'flex' }}>
+            <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex">
                     {jsxSlides}
                 </div>
             </div>
