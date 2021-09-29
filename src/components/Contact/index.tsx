@@ -53,9 +53,7 @@ const Contact: React.FC = () => {
                     {getBlock(
                         contacts.emailTitle,
                         contacts.emails.map(({ val }) => (
-                            <a key={val} target="_blank" href={val} rel="noreferrer" className="text-gray-700">
-                                {val.replace(/^mailto:/, '')}
-                            </a>
+                            <a key={val} target="_blank" href={'mailto:' + val} rel="noreferrer" className="text-gray-700">{val}</a>
                         ))
                     )}
                 </div>
