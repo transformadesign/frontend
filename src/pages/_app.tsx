@@ -11,6 +11,7 @@ import { pageview } from '@lib/gtag';
 export type I18NProps = {
     messages: any;
     now: number;
+    hideContacts?: boolean;
 };
 
 export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
@@ -48,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps<I18NProps>) {
             messages,
             now: pageProps.now
         }}>
-            <Layout mainCn={isMainPage ? '' : undefined}>
+            <Layout mainCn={isMainPage ? '' : undefined} hideContacts={pageProps.hideContacts}>
                 <Component {...pageProps} />
             </Layout>
         </I18nCtx.Provider>

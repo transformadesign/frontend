@@ -4,6 +4,7 @@ import { formatPhone } from '@lib/formatPhone';
 
 import Heading from '@cmp/Heading';
 import Container from '@cmp/Container';
+import Button from '@cmp/Button';
 import useI18N from '@hooks/useI18N';
 
 const Contact: React.FC = () => {
@@ -33,27 +34,32 @@ const Contact: React.FC = () => {
     return (
         <>
             <a id="contact" className="invisible" />
-            <Container as="section" className="mb-8 mt-6 flex flex-col sm:flex-row">
-                {getBlock(
-                    contacts.addressTitle,
-                    contacts.addresses.map(({ val }) => <div key={val}>{val}</div>)
-                )}
-                {getBlock(
-                    contacts.phoneTitle,
-                    contacts.phones.map(({ val }) => (
-                        <a key={val} href={`tel:+${val}`} className="text-gray-700">
-                            {formatPhone(val)}
-                        </a>
-                    ))
-                )}
-                {getBlock(
-                    contacts.emailTitle,
-                    contacts.emails.map(({ val }) => (
-                        <a key={val} target="_blank" href={val} rel="noreferrer" className="text-gray-700">
-                            {val.replace(/^mailto:/, '')}
-                        </a>
-                    ))
-                )}
+            <Container as="section" className="mb-8 mt-6 ">
+                <div className="flex flex-col sm:flex-row">
+                    {getBlock(
+                        contacts.addressTitle,
+                        contacts.addresses.map(({ streetAddress, postalCode, addressLocality, name }) => <div key={name}>
+                            {name} – {streetAddress}, {postalCode} {addressLocality}
+                        </div>)
+                    )}
+                    {getBlock(
+                        contacts.phoneTitle,
+                        contacts.phones.map(({ val }) => (
+                            <a key={val} href={`tel:+${val}`} className="text-gray-700">
+                                {formatPhone(val)}
+                            </a>
+                        ))
+                    )}
+                    {getBlock(
+                        contacts.emailTitle,
+                        contacts.emails.map(({ val }) => (
+                            <a key={val} target="_blank" href={val} rel="noreferrer" className="text-gray-700">
+                                {val.replace(/^mailto:/, '')}
+                            </a>
+                        ))
+                    )}
+                </div>
+                <Button url="/contact" />
             </Container>
         </>
     );

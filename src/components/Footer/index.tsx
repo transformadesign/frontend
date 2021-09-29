@@ -11,7 +11,7 @@ import Contact from '@cmp/Contact';
 import social from './Social.module.css';
 import footer from './Footer.module.css';
 
-export default function Footer() {
+export default function Footer({ hideContacts }: { hideContacts?: boolean; }) {
     const { socials: socialsConf } = useContext(ConfigCtx);
     const { messages: { footer: footerI18N } } = useI18N();
 
@@ -42,7 +42,7 @@ export default function Footer() {
 
     return (
         <div>
-            <Contact />
+            {!hideContacts && <Contact />}
             <Container as="footer" className="mb-8 max-w-screen-lg mx-auto">
                 <div className="sm:max-w-66p flex flex-row border-t border-r border-l border-black items-stretch text-center mt-12">
                     <div

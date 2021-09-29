@@ -8,7 +8,7 @@ import { classNames } from '@lib/classNames';
 
 const SITE_NAME = 'Transforma';
 
-const Layout: React.FC<{ mainCn?: string }> = ({ children, mainCn = 'pt-8' }) => {
+const Layout: React.FC<{ mainCn?: string; hideContacts?: boolean }> = ({ children, mainCn = 'pt-8', hideContacts }) => {
     return (
         <div className="relative min-h-screen flex flex-col">
             <Head>
@@ -21,7 +21,7 @@ const Layout: React.FC<{ mainCn?: string }> = ({ children, mainCn = 'pt-8' }) =>
             </Head>
             <Header />
             <main className={classNames('flex-1', mainCn)}>{children}</main>
-            <Footer />
+            <Footer hideContacts={hideContacts} />
         </div>
     )
 }

@@ -23,10 +23,16 @@
         "addressTitle": "Address",
         "addresses": [
             {
-                "val": "RUSSIA, 1606, 1a Boris Yeltsin st., Yekaterinburg"
+                "name": "Russian office",
+                "postalCode": 620014,
+                "addressLocality": "Yekaterinburg, Russia",
+                "streetAddress": "Office 1606, Boris Yeltsin St. 1a"
             },
             {
-                "val": "ITALY, 11, Foro Buonaparte, Milano"
+                "name": "Italian office",
+                "postalCode": 20121,
+                "addressLocality": "Milan, Italy",
+                "streetAddress": "11 Foro Buonaparte"
             }
         ],
         "phoneTitle": "Contact us",
