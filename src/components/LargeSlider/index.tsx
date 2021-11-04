@@ -35,7 +35,8 @@ type Slide = {
 
 type Props = {
     content: {
-        slides: Array<Slide>
+        slides: Array<Slide>;
+        name?: string;
     };
     images?: Map<string, StaticImageData>;
     options?: EmblaOptionsType;
@@ -55,8 +56,8 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
             const { img } = slide;
             const key = slide.title || index;
             const cmp = (
-                <a className="flex-slide mx-5" key={key}>
-                    <div className="relative h-large low:h-screen min-h-slide">
+                <a aria-label={slide.title}>
+                    <div className="relative h-large low:h-screen min-h-slide" aria-hidden>
                         <Image
                             src={images?.get(img.src) || img.src}
                             alt={slide.title}
@@ -91,11 +92,16 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
                 </a>
             );
 
-            return slide.url ? (
-                <Link href={slide.url} key={key}>
-                    {cmp}
-                </Link>
-            ) : cmp;
+            return (
+                <li key={key} className="flex-slide mx-5">{
+                    slide.url ? (
+                        <Link href={slide.url}>
+                            {cmp}
+                        </Link>
+                    ) : cmp
+                }
+                </li>
+            );
         });
     }, [images, slides]);
     const jsxTabs: Array<React.ReactElement> = slides.map((slide, index) => {
@@ -116,12 +122,12 @@ const LargeSlider: React.FC<Props> = ({ options, content, images }) => {
 
     return (
         <section className="relative mb-8 sm:mb-14">
-            <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex">
+            <nav className="overflow-hidden" ref={emblaRef}>
+                <ol className="flex" aria-label={content.name}>
                     {jsxSlides}
-                </div>
-            </div>
-            <div className="absolute bottom-0 w-full">
+                </ol>
+            </nav>
+            <div className="absolute bottom-0 w-full" aria-hidden>
                 <Container className="flex">
                     {jsxTabs}
                 </Container>

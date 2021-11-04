@@ -1,5 +1,6 @@
 export default {
     "mainSlider": {
+        "name": "Our services",
         "slides": [
             {
                 "img": {

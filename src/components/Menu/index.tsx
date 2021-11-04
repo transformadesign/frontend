@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import useI18N from '@hooks/useI18N';
 import { classNames } from '@lib/classNames';
@@ -11,12 +12,13 @@ const Menu: React.FC<{ whiteFlag: boolean }> = ({ whiteFlag }) => {
         { name: 'projects', href: '/projects' },
         { name: 'career', href: '/career' },
     ], []);
+    const { route } = useRouter();
 
     return (
         <nav className="flex flex-col content-end">
             <ul className="flex flex-row justify-between items-stretch min-h-full">
                 {items.map(({ name, href }) => (
-                    <li className="" key={name}>
+                    <li key={name} aria-current={route.startsWith(href) ? 'page' : undefined}>
                         <Link href={href}>
                             <a
                                 className={classNames(

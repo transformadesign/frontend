@@ -88,6 +88,7 @@ const LargeSliderTab: React.FC<Props> = props => {
             className={classNames(styles.btn, className)}
             onClick={() => scrollTo(index)}
             type="button"
+            tabIndex={-1}
         >
             {children}
             <div className="h-0.5 mt-auto sm:h-px relative overflow-hidden w-full">
