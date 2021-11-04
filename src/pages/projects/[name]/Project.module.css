@@ -3,6 +3,10 @@
     padding-bottom: 56%;
 }
 
+.image.vert {
+    padding-bottom: 143%;
+}
+
 .elem {
     flex-basis: 27%;
 }

@@ -17,13 +17,14 @@ export default function Header() {
         <header className={classNames('z-10 w-full pt-2', isMainPage ? 'absolute' : 'relative')}>
             <Container className="flex flex-row justify-between">
                 <Link href="/">
-                    <a>
+                    <a aria-label={messages.common.name}>
                         <Image
                             src={isMainPage ? logo : logoBlack}
                             alt={messages.common.name}
                             priority
                             loading={'eager'}
                             width={140}
+                            role="presentation"
                         />
                     </a>
                 </Link>

@@ -1,17 +1,17 @@
-import villa2 from './projects/villa-2.en-US';
-import villa20 from './projects/villa-20.en-US';
+import villaPalmView from './projects/villa-palm-view.en-US';
+import villaVoque from './projects/villa-voque.en-US';
 import sternRestaurant from './projects/stern-restaurant.en-US';
-import villa21 from './projects/villa-21.en-US';
+import villaEmerald from './projects/villa-emerald.en-US';
 import villaSPA from './projects/villa-spa.en-US';
 import kozikhinskyApt from './projects/kozikhinsky-apt.en-US';
 import wellnessTikhvin from './projects/wellness-tikhvin.en-US';
 import golfVilla from './projects/golf-villa.en-US';
 
 const projects = [
-    villa2,
-    villa20,
+    villaPalmView,
+    villaVoque,
     sternRestaurant,
-    villa21,
+    villaEmerald,
     villaSPA,
     kozikhinskyApt,
     wellnessTikhvin,
