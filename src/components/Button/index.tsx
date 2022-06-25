@@ -6,7 +6,13 @@ import { classNames } from '@lib/classNames';
 
 import button from './Button.module.css';
 
-const Button: React.FC<{ url: string }> = ({ url }) => {
+type Props = {
+    url: string;
+    text?: string;
+    className?: string;
+}
+
+const Button: React.FC<Props> = ({ url, text, className }) => {
     const { messages: { common } } = useI18N();
 
     return (
@@ -15,9 +21,10 @@ const Button: React.FC<{ url: string }> = ({ url }) => {
                 button.btn,
                 'inline-block pl-4 pr-6 leading-3 text-sm',
                 'border border-solid border-black',
-                'hover:bg-black hover:text-white hover:border-transparent'
+                'hover:bg-black hover:text-white hover:border-transparent',
+                className
             )}>
-                {common.btnMore}
+                {text || common.btnMore}
                 <i className={classNames(button.ico, 'not-italic inline-block ml-2')} aria-hidden> &rarr;</i>
             </a>
         </Link>

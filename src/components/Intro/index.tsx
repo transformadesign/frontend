@@ -4,7 +4,22 @@ import Button from '@cmp/Button';
 import Container from '@cmp/Container';
 import Heading from '@cmp/Heading';
 
-const Intro: React.FC<{ content: Record<string, string>, url: string }> = ({ content, url }) => {
+type Props = {
+    content: {
+        memo: string;
+        title: string;
+        text: string;
+        links?: {
+            text: string;
+            link: string;
+        }[];
+    };
+    url: string;
+};
+
+const BUTTON_CN = 'mr-4 last:mr-0 mb-2';
+
+const Intro: React.FC<Props> = ({ content, url }) => {
     return (
         <Container as="section" className="mb-20">
             <Heading level="3">
@@ -12,7 +27,22 @@ const Intro: React.FC<{ content: Record<string, string>, url: string }> = ({ con
             </Heading>
             <Heading level="2">{content.title}</Heading>
             <p className="my-6 text-gray-700">{content.text}</p>
-            <Button url={url} />
+            <Button
+                url={url}
+                className={BUTTON_CN}
+            />
+            {content.links ? (
+                <>
+                    {content.links.map(({ text, link }) => (
+                        <Button
+                            url={link}
+                            text={text}
+                            key={link}
+                            className={BUTTON_CN}
+                        />
+                    ))}
+                </>
+            ) : null}
         </Container>
     );
 }
