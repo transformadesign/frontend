@@ -1,4 +1,4 @@
-import countersModule from './counters.en-US.json';
+import countersModule from './counters.en_US.json';
 
 export default {
     about: {

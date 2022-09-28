@@ -1,4 +1,4 @@
-import common from './common.en-US.json';
+import common from './common.en_US.json';
 
 export default {
     contact: {

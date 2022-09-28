@@ -2,8 +2,8 @@ module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
   i18n: {
-    locales: ['en-US'/*, 'ru'*/],
-    defaultLocale: 'en-US',
+    locales: ['en_US'/*, 'ru'*/],
+    defaultLocale: 'en_US',
     domains: [
       /*
       {
