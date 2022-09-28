@@ -6,6 +6,8 @@ import Footer from '@cmp/Footer';
 
 import { classNames } from '@lib/classNames';
 
+import ogImage from '@pub/og_image.jpeg';
+
 const SITE_NAME = 'Transforma';
 
 const Layout: React.FC<{ mainCn?: string; hideContacts?: boolean }> = ({ children, mainCn = 'pt-8', hideContacts }) => {
@@ -13,7 +15,7 @@ const Layout: React.FC<{ mainCn?: string; hideContacts?: boolean }> = ({ childre
         <div className="relative min-h-screen flex flex-col">
             <Head>
                 <title>{SITE_NAME}</title>
-                <meta property="og:image" content="/og_image.jpeg" />
+                <meta property="og:image" content={ogImage.src} />
                 <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
                 <link sizes="76x76" rel="apple-touch-icon" href="/favicon.png" />
                 <link sizes="152x152" rel="apple-touch-icon" href="/favicon.png" />
