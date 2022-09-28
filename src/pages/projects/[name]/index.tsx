@@ -7,7 +7,7 @@ import Image from '@cmp/Image';
 import Container from '@cmp/Container';
 
 import useI18N from '@hooks/useI18N';
-import useTitle from '@hooks/useTitle';
+import useMeta from '@hooks/useMeta';
 
 import { classNames } from '@lib/classNames';
 
@@ -21,11 +21,14 @@ export default function Project(params: InferGetStaticPropsType<typeof getStatic
             subTitle: project.title
         };
     }, [common.project, project.title]);
-    const title = useTitle({ title: [common.projects, project.title] });
+    const meta = useMeta({
+        title: [common.projects, project.title],
+        description: project.brief
+    });
 
     return (
         <>
-            {title}
+            {meta}
             <Text data={text} className="mb-0" />
             <Container className="mb-8 flex flex-row flex-wrap">
                 <dl className={classNames('mr-4 mb-4', styles.elem)}>

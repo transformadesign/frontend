@@ -4,15 +4,15 @@ import { GetStaticProps } from 'next';
 import { I18NProps } from '@pages/_app';
 import MediumSlider from '@cmp/MediumSlider';
 import useI18N from '@hooks/useI18N';
-import useTitle from '@hooks/useTitle';
+import useMeta from '@hooks/useMeta';
 
 export default function Projects() {
     const { messages: { projects: data, common } } = useI18N();
-    const title = useTitle({ title: [common.projects] });
+    const meta = useMeta({ title: [common.projects] });
 
     return (
         <>
-            {title}
+            {meta}
             <MediumSlider content={data.slider} labels sizeMod="medium" options={{ loop: true, inViewThreshold: 0.8 }}  />
         </>
     );

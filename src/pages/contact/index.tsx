@@ -4,18 +4,18 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { I18NProps } from '@pages/_app';
 
 import useI18N from '@hooks/useI18N';
-import useTitle from '@hooks/useTitle';
+import useMeta from '@hooks/useMeta';
 import Text from '@cmp/Text';
 import Container from '@cmp/Container';
 import Heading from '@cmp/Heading';
 
 export default function Contact(params: InferGetStaticPropsType<typeof getStaticProps>) {
     const { messages: { contact, contacts } } = useI18N();
-    const title = useTitle({ title: [contact.page.title] });
+    const meta = useMeta({ title: [contact.page.title] });
 
     return (
         <>
-            {title}
+            {meta}
             <Text data={contact.intro} />
             <Container>
                 {contact.legal.map((data, i) => (

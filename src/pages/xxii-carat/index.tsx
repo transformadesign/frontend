@@ -9,6 +9,7 @@ import Image from '@cmp/Image';
 import MediumSlider from '@cmp/MediumSlider';
 
 import useI18N from '@hooks/useI18N';
+import useMeta from '@hooks/useMeta';
 
 import img2 from '@pub/content/xxii-carat/cover-2.png';
 
@@ -16,9 +17,11 @@ import styles from './XXIICarat.module.css';
 
 export default function XXIICarat(params: InferGetStaticPropsType<typeof getStaticProps>) {
     const { messages: { 'xxii-carat': data } } = useI18N();
+    const meta = useMeta();
 
     return (
         <>
+            {meta}
             <Text data={data.intro} />
             <MediumSlider content={data.slider} />
             <Text data={data.architecture} />

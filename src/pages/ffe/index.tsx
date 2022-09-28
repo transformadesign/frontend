@@ -9,7 +9,7 @@ import Text from '@cmp/Text';
 import Image from '@cmp/Image';
 
 import useI18N from '@hooks/useI18N';
-import useTitle from '@hooks/useTitle';
+import useMeta from '@hooks/useMeta';
 
 import img1 from '@pub/content/ffe/foto_ffe.jpeg';
 
@@ -17,11 +17,11 @@ import styles from './FFE.module.css';
 
 export default function FFE(params: InferGetStaticPropsType<typeof getStaticProps>) {
     const { messages: { ffe, common } } = useI18N();
-    const title = useTitle({ title: [common.services, ffe.page.title] });
+    const meta = useMeta({ title: [common.services, ffe.page.title] });
 
     return (
         <>
-            {title}
+            {meta}
             <Text data={ffe.intro} />
             <Image src={img1} layout="responsive" placeholder="blur" alt="" />
             <Info data={ffe.stages} className="mb-0" />

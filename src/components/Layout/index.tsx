@@ -30,9 +30,6 @@ const Layout: React.FC<{ mainCn?: string; hideContacts?: boolean }> = ({ childre
     return (
         <div className="relative min-h-screen flex flex-col">
             <Head>
-                <title>{SITE_NAME}</title>
-
-                <meta property="og:title" content={SITE_NAME} />
                 <meta property="og:site_name" content={SITE_NAME} />
                 <meta property="og:type" content="website" />
                 <meta property="og:locale" content={locale} />
@@ -47,7 +44,6 @@ const Layout: React.FC<{ mainCn?: string; hideContacts?: boolean }> = ({ childre
                 <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
                 <link sizes="76x76" rel="apple-touch-icon" href="/favicon.png" />
                 <link sizes="152x152" rel="apple-touch-icon" href="/favicon.png" />
-                <meta name="description" content="Design studio" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
             <Header />

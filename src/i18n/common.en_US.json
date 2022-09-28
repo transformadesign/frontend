@@ -1,6 +1,7 @@
 {
     "common": {
         "name": "Transforma",
+        "description": "Design studio – an architecture and interior design studio for luxury villas, residences, public spaces and business apartments",
         "menu": {
             "about": "About",
             "projects": "Projects",

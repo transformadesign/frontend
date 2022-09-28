@@ -4,7 +4,9 @@ import Intro from '@cmp/Intro';
 import Counters from '@cmp/Counters';
 import LargeSlider from '@cmp/LargeSlider';
 import { I18NProps } from '@pages/_app';
+
 import useI18N from '@hooks/useI18N';
+import useMeta from '@hooks/useMeta';
 
 import img1 from '@pub/content/main/premium.jpg';
 import img2 from '@pub/content/main/ffe.jpg';
@@ -20,9 +22,11 @@ const IMAGES = new Map([
 
 export default function Main() {
     const { messages } = useI18N();
+    const meta = useMeta();
 
     return (
         <>
+            {meta}
             <LargeSlider content={messages.mainSlider} images={IMAGES} options={{ speed: 8 }} />
             <Intro
                 content={messages.aboutShort.intro}
