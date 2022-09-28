@@ -12,8 +12,12 @@ export default function useMeta(props?: Props) {
     const { messages: { common } } = useI18N();
     const titleContent = [
         common.name,
-        ...(Array.isArray(pTitle) ? pTitle : [pTitle])
-    ]
+    ];
+
+    if (pTitle) {
+        titleContent.push(...Array.isArray(pTitle) ? pTitle : [pTitle]);
+    }
+
     const title = titleContent.join(' | ');
     const description = pDescription || common.description;
 
