@@ -13,6 +13,7 @@ const Layout: React.FC<{ mainCn?: string; hideContacts?: boolean }> = ({ childre
         <div className="relative min-h-screen flex flex-col">
             <Head>
                 <title>{SITE_NAME}</title>
+                <meta property="og:image" content="/og_image.jpeg" />
                 <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
                 <link sizes="76x76" rel="apple-touch-icon" href="/favicon.png" />
                 <link sizes="152x152" rel="apple-touch-icon" href="/favicon.png" />
