@@ -3,8 +3,10 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 import { I18NProps } from '@pages/_app';
 
+import { formatPhone } from '@lib/formatPhone';
 import useI18N from '@hooks/useI18N';
 import useMeta from '@hooks/useMeta';
+
 import Text from '@cmp/Text';
 import Container from '@cmp/Container';
 import Heading from '@cmp/Heading';
@@ -27,7 +29,7 @@ export default function Contact(params: InferGetStaticPropsType<typeof getStatic
                             <span itemProp="postalCode">{data.postalCode}</span>&nbsp;
                             <span itemProp="addressLocality">{data.addressLocality}</span>
                         </div>
-                        {data.phone && <div>{contact.labelPhone}: <a href={'tel:' + data.phone.val} itemProp="telephone">+{data.phone.val}</a></div>}
+                        {data.phone && <div>{contact.labelPhone}: <a href={'tel:' + data.phone.val} itemProp="telephone">{formatPhone(data.phone.val)}</a></div>}
                         {contacts.emails.map(({ val }) => (
                             <a key={val} itemProp="email" className="hidden">{val}</a>
                         ))}

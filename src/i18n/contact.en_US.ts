@@ -15,10 +15,6 @@ export default {
             {
                 ...common.contacts.addresses[0],
                 phone: common.contacts.phones[0],
-                legal: 'IP Anikin Danil Aleksandrovich'
-            },
-            {
-                ...common.contacts.addresses[1],
                 legal: 'Studio Dvoe S.r.l.'
             }
         ]

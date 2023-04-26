@@ -24,22 +24,16 @@
         "addressTitle": "Address",
         "addresses": [
             {
-                "name": "Russian office",
-                "postalCode": 620014,
-                "addressLocality": "Yekaterinburg, Russia",
-                "streetAddress": "Office 1606, Boris Yeltsin St. 1a"
-            },
-            {
-                "name": "Italian office",
-                "postalCode": 20121,
-                "addressLocality": "Milan, Italy",
-                "streetAddress": "11 Foro Buonaparte"
+                "name": "Transforma Showroom",
+                "postalCode": "FZ-LLC PO Box 56739",
+                "addressLocality": "Dubai Design District,\nDubai, United Arab Emirates",
+                "streetAddress": "D3 Co-Working Building 06,\nUnits R09, RM09"
             }
         ],
         "phoneTitle": "Contact us",
         "phones": [
             {
-                "val": 73432875677
+                "val": 971543351026
             }
         ],
         "emailTitle": "Let's work with us",

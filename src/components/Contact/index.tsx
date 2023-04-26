@@ -39,7 +39,10 @@ const Contact: React.FC = () => {
                     {getBlock(
                         contacts.addressTitle,
                         contacts.addresses.map(({ streetAddress, postalCode, addressLocality, name }) => <div key={name}>
-                            {name} – {streetAddress}, {postalCode} {addressLocality}
+                            <div>{name}</div>
+                            <div>{streetAddress}</div>
+                            <div>{postalCode}</div>
+                            <div>{addressLocality}</div>
                         </div>)
                     )}
                     {getBlock(
