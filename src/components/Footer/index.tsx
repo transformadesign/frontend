@@ -64,8 +64,8 @@ export default function Footer({ hideContacts }: { hideContacts?: boolean; }) {
                             {footerI18N.legalNotice}
                         </div>
                         <div className={classNames('flex flex-row items-stretch', footer.row, footer.celled)}>
-                            <div className="flex flex-grow" aria-hidden>Privacy Notice</div>
-                            <div className="flex flex-grow border-l" aria-hidden>Terms of use</div>
+                            <div className="flex flex-grow items-center" aria-hidden>Privacy Notice</div>
+                            <div className="flex flex-grow items-center border-l" aria-hidden>Terms of use</div>
                             {socials.length ? socials : null}
                         </div>
                     </div>
