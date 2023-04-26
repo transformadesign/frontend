@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '@cmp/Button';
+import Button, { ButtonProps } from '@cmp/Button';
 import Container from '@cmp/Container';
 import Heading from '@cmp/Heading';
 
@@ -9,10 +9,10 @@ type Props = {
         memo: string;
         title: string;
         text: string;
-        links?: {
+        links?: ({
             text: string;
             link: string;
-        }[];
+        } & Pick<ButtonProps, 'variant'>)[];
     };
     url: string;
 };
@@ -33,12 +33,13 @@ const Intro: React.FC<Props> = ({ content, url }) => {
             />
             {content.links ? (
                 <>
-                    {content.links.map(({ text, link }) => (
+                    {content.links.map(({ text, link, variant }) => (
                         <Button
                             url={link}
                             text={text}
                             key={link}
                             className={BUTTON_CN}
+                            variant={variant}
                         />
                     ))}
                 </>

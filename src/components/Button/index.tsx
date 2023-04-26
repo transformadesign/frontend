@@ -6,13 +6,14 @@ import { classNames } from '@lib/classNames';
 
 import button from './Button.module.css';
 
-type Props = {
+export type ButtonProps = {
     url: string;
     text?: string;
     className?: string;
+    variant?: 'highlight';
 }
 
-const Button: React.FC<Props> = ({ url, text, className }) => {
+const Button: React.FC<ButtonProps> = ({ url, text, className, variant }) => {
     const { messages: { common } } = useI18N();
 
     return (
@@ -22,6 +23,7 @@ const Button: React.FC<Props> = ({ url, text, className }) => {
                 'inline-block pl-4 pr-6 leading-3 text-sm',
                 'border border-solid border-black',
                 'hover:bg-black hover:text-white hover:border-transparent',
+                variant === 'highlight' && 'bg-black text-white border-transparent',
                 className
             )}>
                 {text || common.btnMore}
