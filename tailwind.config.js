@@ -47,14 +47,15 @@ module.exports = {
                 large: '85vh'
             },
             screens: {
-                low: { raw : '(max-height: 600px)' }
+                low: { raw : '(max-height: 600px)' },
+                min: '460px'
             },
             inset: {
                 header: '100px'
             },
             minHeight: {
                 slide: '600px'
-            }
+            },
         }
     }
 };
