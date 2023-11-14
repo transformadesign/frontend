@@ -5,7 +5,8 @@
         "menu": {
             "about": "About",
             "projects": "Projects",
-            "career": "Career"
+            "career": "Career",
+            "anikin": "Anikin"
         },
         "btnMore": "Learn more",
         "project": "Project",

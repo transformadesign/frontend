@@ -17,7 +17,7 @@ type Props = {
     url: string;
 };
 
-const BUTTON_CN = 'mr-4 last:mr-0 mb-2';
+const BUTTON_CN = undefined;
 
 const Intro: React.FC<Props> = ({ content, url }) => {
     return (
@@ -27,23 +27,25 @@ const Intro: React.FC<Props> = ({ content, url }) => {
             </Heading>
             <Heading level="2">{content.title}</Heading>
             <p className="my-6 text-gray-700">{content.text}</p>
-            <Button
-                url={url}
-                className={BUTTON_CN}
-            />
-            {content.links ? (
-                <>
-                    {content.links.map(({ text, link, variant }) => (
-                        <Button
-                            url={link}
-                            text={text}
-                            key={link}
-                            className={BUTTON_CN}
-                            variant={variant}
-                        />
-                    ))}
-                </>
-            ) : null}
+            <div className="flex gap-4 flex-col sm:flex-row items-start">
+                <Button
+                    url={url}
+                    className={BUTTON_CN}
+                />
+                {content.links ? (
+                    <>
+                        {content.links.map(({ text, link, variant }) => (
+                            <Button
+                                url={link}
+                                text={text}
+                                key={link}
+                                className={BUTTON_CN}
+                                variant={variant}
+                            />
+                        ))}
+                    </>
+                ) : null}
+            </div>
         </Container>
     );
 }
